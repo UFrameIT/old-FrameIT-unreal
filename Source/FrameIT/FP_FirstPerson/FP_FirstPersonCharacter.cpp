@@ -4,7 +4,11 @@
 #include "FP_FirstPersonCharacter.h"
 #include "Animation/AnimInstance.h"
 #include "StaticMeshResources.h"
-#include "SemanticActor.h"
+#include "SemanticActors/SemanticActor.h"
+#include "SemanticActors/SemanticPoint.h"
+#include "FrameITGameState.h"
+#include "Fact/PointFact.h"
+
 
 static FName WeaponFireTraceIdent = FName(TEXT("WeaponTrace"));
 #define COLLISION_WEAPON		ECC_GameTraceChannel1
@@ -110,6 +114,104 @@ void AFP_FirstPersonCharacter::SetupPlayerInputComponent(class UInputComponent* 
 
 void AFP_FirstPersonCharacter::OnFireModeOne()
 {
+	switch (this->WeaponSelected)
+	{
+	case 0:
+		this->HandlePointGunModeOne();
+		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	default:
+		UE_LOG(FrameITLog, Error, TEXT("Invalid weapon selected!"));
+	}
+}
+
+void AFP_FirstPersonCharacter::OnFireModeTwo()
+{
+	switch (this->WeaponSelected)
+	{
+	case 0:
+		this->HandlePointGunModeTwo();
+		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	default:
+		UE_LOG(FrameITLog, Error, TEXT("Invalid weapon selected!"));
+	}
+}
+
+void AFP_FirstPersonCharacter::AddSemanticPoint(FVector Location)
+{
+	// Get the current Game State
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	if (CurrentGameState == nullptr)
+	{
+		return;
+	}
+
+	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
+
+	// Find next available point name (we assume we will never need more than 1 characters for this!)
+	// Improve this later
+	bool found = false;
+	FString ID;
+	for (char c = 'A'; (c != 'Z' + 1); c++)
+	{
+		ID.AppendChar(c);
+		if (!FactMap->Contains(ID))
+		{
+			found = true;
+			break;
+		}
+		ID.Empty();
+	}
+	if (found == false)
+	{
+		UE_LOG(FrameITLog, Error, TEXT("Could not find a free string for the new point!"));
+	}
+
+	// Construct the Fact and add it to the Fact registry
+	UPointFact* Fact = ConstructObject<UPointFact>(UPointFact::StaticClass());
+	Fact->Initialize(ID);
+
+	FactMap->Add(ID, Fact);
+
+	ASemanticPoint* SemanticPoint = (ASemanticPoint*)(World->SpawnActor<ASemanticPoint>(Location, FRotator::ZeroRotator));
+	SemanticPoint->ID = ID;
+}
+
+void AFP_FirstPersonCharacter::RemoveSemanticPoint(FString ID)
+{
+	// Get the current Game State
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	if (CurrentGameState == nullptr)
+	{
+		return;
+	}
+
+	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
+
+	FactMap->Remove(ID);
+}
+
+FHitResult AFP_FirstPersonCharacter::HandlePointGunHelper()
+{
 	// Play a sound if there is one
 	if (FireSound != NULL)
 	{
@@ -117,11 +219,11 @@ void AFP_FirstPersonCharacter::OnFireModeOne()
 	}
 
 	// try and play a firing animation if specified
-	if(FireAnimation != NULL)
+	if (FireAnimation != NULL)
 	{
 		// Get the animation object for the arms mesh
 		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if(AnimInstance != NULL)
+		if (AnimInstance != NULL)
 		{
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
 		}
@@ -129,7 +231,7 @@ void AFP_FirstPersonCharacter::OnFireModeOne()
 
 	// Now send a trace from the end of our gun to see if we should hit anything
 	APlayerController* PlayerController = Cast<APlayerController>(GetController());
-	
+
 	// Calculate the direction of fire and the start location for trace
 	FVector CamLoc;
 	FRotator CamRot;
@@ -149,54 +251,73 @@ void AFP_FirstPersonCharacter::OnFireModeOne()
 	// Calculate endpoint of trace
 	const FVector EndTrace = StartTrace + ShootDir * WeaponRange;
 
-	// Check for impact
-	const FHitResult Impact = WeaponTrace(StartTrace, EndTrace);
-	
+	return WeaponTrace(StartTrace, EndTrace);
+}
+
+void AFP_FirstPersonCharacter::HandlePointGunModeOne()
+{
+	// Check for impact and handle graphics and sound
+	const FHitResult Impact = this->HandlePointGunHelper();
 
 	// Deal with impact
 	AActor* DamagedActor = Impact.GetActor();
-	UPrimitiveComponent* DamagedComponent = Impact.GetComponent();
 
 	const FVector ImpactPoint = Impact.ImpactPoint;
 	
+	if ((DamagedActor != nullptr) && (DamagedActor != this))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, DamagedActor->GetName());
+		UE_LOG(FrameITLog, Log, TEXT("Actor: %s"), *DamagedActor->GetName());
+
+		// if the point is a semantic point then delete it
+		ASemanticPoint* SemPoint = Cast<ASemanticPoint>(DamagedActor);
+		if (SemPoint != nullptr)
+		{
+			SemPoint->Destroy();
+			this->RemoveSemanticPoint(SemPoint->ID);
+			return;
+		}
+	
+		// if it is any other semantic actor then get the closest impact point and spawn a point there
+		ASemanticActor* SemActor = Cast<ASemanticActor>(DamagedActor);
+		if (SemActor != nullptr)
+		{
+			FVector ClosestPoint = SemActor->GetClosestPoint(ImpactPoint);
+			UE_LOG(FrameITLog, Log, TEXT("Semantic Actor: X: %f Y: %f Z: %f"), ClosestPoint.X, ClosestPoint.Y, ClosestPoint.Z);
+
+			this->AddSemanticPoint(ClosestPoint);
+		}
+	}
+}
+
+void AFP_FirstPersonCharacter::HandlePointGunModeTwo()
+{
+	// Check for impact and handle graphics and sound
+	const FHitResult Impact = this->HandlePointGunHelper();
+
+	// Deal with impact
+	AActor* DamagedActor = Impact.GetActor();
+
+	const FVector ImpactPoint = Impact.ImpactPoint;
 
 	if ((DamagedActor != nullptr) && (DamagedActor != this))
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, DamagedActor->GetName());
 		UE_LOG(FrameITLog, Log, TEXT("Actor: %s"), *DamagedActor->GetName());
-		UStaticMeshComponent* mesh = Cast<UStaticMeshComponent>(DamagedComponent);
-		if ((mesh != nullptr) && (mesh->StaticMesh != nullptr) && (mesh->StaticMesh->RenderData != nullptr))
+
+		// if the point is a semantic point then delete it
+		ASemanticPoint* SemPoint = Cast<ASemanticPoint>(DamagedActor);
+		if (SemPoint != nullptr)
 		{
-			if (mesh->StaticMesh->RenderData->LODResources.Num() > 0)
-			{
-				FPositionVertexBuffer* VertexBuffer = &mesh->StaticMesh->RenderData->LODResources[0].PositionVertexBuffer;
-				if (VertexBuffer)
-				{
-					const int32 VertexCount = VertexBuffer->GetNumVertices();
-					for (int32 Index = 0; Index < VertexCount; Index++)
-					{
-						//This is in the Static Mesh Actor Class, so it is location and tranform of the SMActor
-						const FVector WorldSpaceVertexLocation = GetActorLocation() + GetTransform().TransformVector(VertexBuffer->VertexPosition(Index));
-						//add to output FVector array
-						UE_LOG(FrameITLog, Log, TEXT("i: %d X: %f Y: %f Z: %f"), Index, WorldSpaceVertexLocation.X, WorldSpaceVertexLocation.Y, WorldSpaceVertexLocation.Z);
-					}
-				}
-			}
+			SemPoint->Destroy();
+			this->RemoveSemanticPoint(SemPoint->ID);
 		}
-
-		ASemanticActor* actor = Cast<ASemanticActor>(DamagedActor);
-		if (actor != nullptr) {
-			FVector res = actor->GetClosestPoint(ImpactPoint);
-			UE_LOG(FrameITLog, Log, TEXT("Semantic Actor: X: %f Y: %f Z: %f"), res.X, res.Y, res.Z);
+		else
+		{
+			// Otherwise add a point at the Impact Point
+			this->AddSemanticPoint(ImpactPoint);
 		}
-
 	}
-
-}
-
-void AFP_FirstPersonCharacter::OnFireModeTwo()
-{
-	this->OnFireModeOne();
 }
 
 void AFP_FirstPersonCharacter::OnWeaponSelectForward()

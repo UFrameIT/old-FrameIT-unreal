@@ -12,8 +12,8 @@ UCLASS()
 class FRAMEIT_API AFrameITGameMode : public AGameMode
 {
 	GENERATED_BODY()
-	
-	
+
+	AFrameITGameMode();
 	
 	
 };

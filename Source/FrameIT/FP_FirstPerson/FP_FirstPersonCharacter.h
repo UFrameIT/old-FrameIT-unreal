@@ -9,13 +9,15 @@ class USkeletalMeshComponent;
 class USoundBase;
 class UAnimMontage;
 
+
+
 UCLASS(config=Game)
 class AFP_FirstPersonCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
-	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	USkeletalMeshComponent* Mesh1P;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
@@ -64,6 +66,7 @@ public:
 	unsigned int MaxNumberOfWeapons;
 
 
+
 protected:
 
 	/** Handler for a touch input beginning. */
@@ -74,6 +77,21 @@ protected:
 
 	/** Fires a virtual projectile with the current weapon in mode two. */
 	void OnFireModeTwo();
+
+	/** Adds a semantic point and adds it to the registry of facts. */
+	void AddSemanticPoint(FVector Location);
+
+	/** Removes a semantic point and removes it from the registry of facts. */
+	void RemoveSemanticPoint(FString ID);
+
+	/** Handle Point Gun Helper*/
+	FHitResult HandlePointGunHelper();
+
+	/** Handle Point Gun Mode One i.e. Adding new points*/
+	void HandlePointGunModeOne();
+
+	/** Handle Point Gun Mode Two i.e. Removing points*/
+	void HandlePointGunModeTwo();
 
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
