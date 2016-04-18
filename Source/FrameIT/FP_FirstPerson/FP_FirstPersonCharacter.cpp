@@ -174,25 +174,9 @@ void AFP_FirstPersonCharacter::AddSemanticPoint(FVector Location)
 
 	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
 
-	// Find next available point name (we assume we will never need more than 1 characters for this!)
-	// Improve this later
-	bool found = false;
-	FString ID;
-	for (char c = 'A'; (c != 'Z' + 1); c++)
-	{
-		ID.AppendChar(c);
-		if (!FactMap->Contains(ID))
-		{
-			found = true;
-			break;
-		}
-		ID.Empty();
-	}
-	if (found == false)
-	{
-		UE_LOG(FrameITLog, Error, TEXT("Could not find a free string for the new point!"));
-	}
 
+	FString ID = CurrentGameState->GetNextFreeName();
+	
 	// Construct the Fact and add it to the Fact registry
 	UPointFact* Fact = NewObject<UPointFact>(UPointFact::StaticClass());
 	Fact->Initialize(ID);
