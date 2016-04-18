@@ -17,17 +17,16 @@ public:
 	
 	ASemanticPoint();
 
-	FVector GetClosestPoint(FVector hitPoint);
+	void SetLabel(FString ID);
+
+	FString GetLabel();
+
+	TPair<bool, FVector> GetClosestPoint(FVector hitPoint);
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+private:
 	UStaticMeshComponent* PointMesh;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UTextRenderComponent* PointLabel;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float SphereRadius;
-
 	FString ID;
 };
 

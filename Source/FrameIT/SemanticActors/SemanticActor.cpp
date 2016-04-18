@@ -26,7 +26,10 @@ void ASemanticActor::Tick( float DeltaTime )
 
 }
 
-FVector ASemanticActor::GetClosestPoint(FVector hitPoint)
+TPair<bool, FVector> ASemanticActor::GetClosestPoint(FVector hitPoint)
 {
-	return hitPoint;
+	TPair<bool, FVector> ret;
+	ret.Key = true;
+	ret.Value = hitPoint;
+	return ret;
 }

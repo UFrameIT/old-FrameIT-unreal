@@ -12,8 +12,10 @@ UCLASS()
 class FRAMEIT_API ULineSegmentFact : public UFact
 {
 	GENERATED_BODY()
-	
-	
-	
+
+public:
+	virtual void SerializeToMMT();
+
+	virtual FString SerializeToString();
 	
 };

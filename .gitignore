@@ -9,3 +9,5 @@ Saved
 *.xcodeproj
 *.xcworkspace *.opendb
 FrameIT.VC.opendb
+Build/
+Content/Vegetation/

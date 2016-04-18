@@ -4,12 +4,12 @@
 #include "PointFact.h"
 
 
-
-
 void UPointFact::SerializeToMMT()
 {
 
 }
 
-
-
+FString UPointFact::SerializeToString()
+{
+	return "Point: " + this->ID;
+}

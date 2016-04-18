@@ -7,6 +7,7 @@
 #include "SemanticActors/SemanticActor.h"
 #include "SemanticActors/SemanticPoint.h"
 #include "FrameITGameState.h"
+#include "FrameITGameMode.h"
 #include "Fact/PointFact.h"
 
 
@@ -94,6 +95,12 @@ void AFP_FirstPersonCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	InputComponent->BindAction("WeaponSelectForward", IE_Pressed, this, &AFP_FirstPersonCharacter::OnWeaponSelectForward);
 	InputComponent->BindAction("WeaponSelectBackward", IE_Pressed, this, &AFP_FirstPersonCharacter::OnWeaponSelectBackward);
 
+	// Bind Fact board scroll events
+	InputComponent->BindAction("ScrollFactListDown", IE_Pressed, this, &AFP_FirstPersonCharacter::ScrollFactListDown);
+	InputComponent->BindAction("ScrollFactListDown", IE_Released, this, &AFP_FirstPersonCharacter::ScrollFactListDown);
+	InputComponent->BindAction("ScrollFactListUp", IE_Pressed, this, &AFP_FirstPersonCharacter::ScrollFactListUp);
+	InputComponent->BindAction("ScrollFactListUp", IE_Released, this, &AFP_FirstPersonCharacter::ScrollFactListUp);
+
 	// Bind Undo Event
 	InputComponent->BindAction("UndoLastAction", IE_Pressed, this, &AFP_FirstPersonCharacter::UndoLastAction);
 	
@@ -159,6 +166,12 @@ void AFP_FirstPersonCharacter::AddSemanticPoint(FVector Location)
 		return;
 	}
 
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
+
 	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
 
 	// Find next available point name (we assume we will never need more than 1 characters for this!)
@@ -181,13 +194,15 @@ void AFP_FirstPersonCharacter::AddSemanticPoint(FVector Location)
 	}
 
 	// Construct the Fact and add it to the Fact registry
-	UPointFact* Fact = ConstructObject<UPointFact>(UPointFact::StaticClass());
+	UPointFact* Fact = NewObject<UPointFact>(UPointFact::StaticClass());
 	Fact->Initialize(ID);
 
 	FactMap->Add(ID, Fact);
 
 	ASemanticPoint* SemanticPoint = (ASemanticPoint*)(World->SpawnActor<ASemanticPoint>(Location, FRotator::ZeroRotator));
-	SemanticPoint->ID = ID;
+	SemanticPoint->SetLabel(ID);
+
+	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
 }
 
 void AFP_FirstPersonCharacter::RemoveSemanticPoint(FString ID)
@@ -205,9 +220,16 @@ void AFP_FirstPersonCharacter::RemoveSemanticPoint(FString ID)
 		return;
 	}
 
-	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
 
+	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
 	FactMap->Remove(ID);
+
+	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
 }
 
 FHitResult AFP_FirstPersonCharacter::HandlePointGunHelper()
@@ -274,7 +296,7 @@ void AFP_FirstPersonCharacter::HandlePointGunModeOne()
 		if (SemPoint != nullptr)
 		{
 			SemPoint->Destroy();
-			this->RemoveSemanticPoint(SemPoint->ID);
+			this->RemoveSemanticPoint(SemPoint->GetLabel());
 			return;
 		}
 	
@@ -282,10 +304,16 @@ void AFP_FirstPersonCharacter::HandlePointGunModeOne()
 		ASemanticActor* SemActor = Cast<ASemanticActor>(DamagedActor);
 		if (SemActor != nullptr)
 		{
-			FVector ClosestPoint = SemActor->GetClosestPoint(ImpactPoint);
-			UE_LOG(FrameITLog, Log, TEXT("Semantic Actor: X: %f Y: %f Z: %f"), ClosestPoint.X, ClosestPoint.Y, ClosestPoint.Z);
-
-			this->AddSemanticPoint(ClosestPoint);
+			auto ClosestPoint = SemActor->GetClosestPoint(ImpactPoint);
+			UE_LOG(FrameITLog, Log, TEXT("Semantic Actor Bool: %d -: X: %f Y: %f Z: %f"),
+				   ClosestPoint.Key,
+				   ClosestPoint.Value.X,
+				   ClosestPoint.Value.Y,
+				   ClosestPoint.Value.Z);
+			if (ClosestPoint.Key)
+			{
+				this->AddSemanticPoint(ClosestPoint.Value);
+			}
 		}
 	}
 }
@@ -310,7 +338,7 @@ void AFP_FirstPersonCharacter::HandlePointGunModeTwo()
 		if (SemPoint != nullptr)
 		{
 			SemPoint->Destroy();
-			this->RemoveSemanticPoint(SemPoint->ID);
+			this->RemoveSemanticPoint(SemPoint->GetLabel());
 		}
 		else
 		{
@@ -319,6 +347,147 @@ void AFP_FirstPersonCharacter::HandlePointGunModeTwo()
 		}
 	}
 }
+
+ASemanticPoint* AFP_FirstPersonCharacter::HandleDistanceGunHelper()
+{
+	// Play a sound if there is one
+	if (FireSound != NULL)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+	}
+
+	// try and play a firing animation if specified
+	if (FireAnimation != NULL)
+	{
+		// Get the animation object for the arms mesh
+		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+		if (AnimInstance != NULL)
+		{
+			AnimInstance->Montage_Play(FireAnimation, 1.f);
+		}
+	}
+
+	// Now send a trace from the end of our gun to see if we should hit anything
+	APlayerController* PlayerController = Cast<APlayerController>(GetController());
+
+	// Calculate the direction of fire and the start location for trace
+	FVector CamLoc;
+	FRotator CamRot;
+	PlayerController->GetPlayerViewPoint(CamLoc, CamRot);
+	const FVector ShootDir = CamRot.Vector();
+
+	FVector StartTrace = FVector::ZeroVector;
+	if (PlayerController)
+	{
+		FRotator UnusedRot;
+		PlayerController->GetPlayerViewPoint(StartTrace, UnusedRot);
+
+		// Adjust trace so there is nothing blocking the ray between the camera and the pawn, and calculate distance from adjusted start
+		StartTrace = StartTrace + ShootDir * ((GetActorLocation() - StartTrace) | ShootDir);
+	}
+
+	// Calculate endpoint of trace
+	const FVector EndTrace = StartTrace + ShootDir * WeaponRange;
+
+	// Check for impact and handle graphics and sound
+	const FHitResult Impact = WeaponTrace(StartTrace, EndTrace);
+
+	// Deal with impact
+	AActor* DamagedActor = Impact.GetActor();
+
+	const FVector ImpactPoint = Impact.ImpactPoint;
+
+	ASemanticPoint* SemPoint = nullptr;
+	if ((DamagedActor != nullptr) && (DamagedActor != this))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, DamagedActor->GetName());
+		UE_LOG(FrameITLog, Log, TEXT("Actor: %s"), *DamagedActor->GetName());
+
+		// if the point is a semantic point then delete it
+		SemPoint = Cast<ASemanticPoint>(DamagedActor);
+	}
+
+	return SemPoint;
+}
+
+void AFP_FirstPersonCharacter::HandleDistanceGunModeOne()
+{
+
+}
+
+ASemanticPoint* AFP_FirstPersonCharacter::HandleAngleGunHelper()
+{
+	// Play a sound if there is one
+	if (FireSound != NULL)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+	}
+
+	// try and play a firing animation if specified
+	if (FireAnimation != NULL)
+	{
+		// Get the animation object for the arms mesh
+		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+		if (AnimInstance != NULL)
+		{
+			AnimInstance->Montage_Play(FireAnimation, 1.f);
+		}
+	}
+
+	// Now send a trace from the end of our gun to see if we should hit anything
+	APlayerController* PlayerController = Cast<APlayerController>(GetController());
+
+	// Calculate the direction of fire and the start location for trace
+	FVector CamLoc;
+	FRotator CamRot;
+	PlayerController->GetPlayerViewPoint(CamLoc, CamRot);
+	const FVector ShootDir = CamRot.Vector();
+
+	FVector StartTrace = FVector::ZeroVector;
+	if (PlayerController)
+	{
+		FRotator UnusedRot;
+		PlayerController->GetPlayerViewPoint(StartTrace, UnusedRot);
+
+		// Adjust trace so there is nothing blocking the ray between the camera and the pawn, and calculate distance from adjusted start
+		StartTrace = StartTrace + ShootDir * ((GetActorLocation() - StartTrace) | ShootDir);
+	}
+
+	// Calculate endpoint of trace
+	const FVector EndTrace = StartTrace + ShootDir * WeaponRange;
+
+	// Check for impact and handle graphics and sound
+	const FHitResult Impact = WeaponTrace(StartTrace, EndTrace);
+
+	// Deal with impact
+	AActor* DamagedActor = Impact.GetActor();
+
+	const FVector ImpactPoint = Impact.ImpactPoint;
+
+	ASemanticPoint* SemPoint = nullptr;
+	if ((DamagedActor != nullptr) && (DamagedActor != this))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, DamagedActor->GetName());
+		UE_LOG(FrameITLog, Log, TEXT("Actor: %s"), *DamagedActor->GetName());
+
+		// if the point is a semantic point then delete it
+		SemPoint = Cast<ASemanticPoint>(DamagedActor);
+	}
+
+	return SemPoint;
+}
+
+
+void AFP_FirstPersonCharacter::HandleAngleGunModeOne()
+{
+
+}
+
+void AFP_FirstPersonCharacter::HandleAngleGunModeTwo()
+{
+
+}
+
 
 void AFP_FirstPersonCharacter::OnWeaponSelectForward()
 {
@@ -329,13 +498,124 @@ void AFP_FirstPersonCharacter::OnWeaponSelectForward()
 
 void AFP_FirstPersonCharacter::OnWeaponSelectBackward()
 {
-	this->WeaponSelected = (this->WeaponSelected - 1) % this->MaxNumberOfWeapons;
+	if (this->WeaponSelected == 0)
+	{
+		this->WeaponSelected = this->MaxNumberOfWeapons - 1;
+	}
+	else
+	{
+		this->WeaponSelected = (this->WeaponSelected - 1) % this->MaxNumberOfWeapons;
+	}
 	UE_LOG(FrameITLog, Log, TEXT("OnChangeWeapon backward - New Weapon Selected : %d"), this->WeaponSelected);
+
+	UE_LOG(FrameITLog, Log, TEXT("Undo - Currently test code"));
+
+	// TEST CODE BEGIN
+	// Get the current Game State
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
+
+	TArray<FText> FactList;
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: D"));
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: D"));
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: D"));
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: D"));
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: D"));
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: D"));
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: D"));
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: D"));
+	FactList.Add(FText::FromString("Point: Weapon Backward"));
+	FactList.Add(FText::FromString("Point: E"));
+	FactList.Add(FText::FromString("Point: CCC"));
+	CurrentGameMode->OnUpdateFactList(FactList);
+	// TEST CODE END
+
 }
 
 void AFP_FirstPersonCharacter::UndoLastAction()
 {
-	UE_LOG(FrameITLog, Log, TEXT("Undo"));
+	UE_LOG(FrameITLog, Log, TEXT("Undo - Currently test code"));
+
+	// TEST CODE BEGIN
+	// Get the current Game State
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
+
+	TArray<FText> FactList;
+	FactList.Add(FText::FromString("Point: A"));
+	FactList.Add(FText::FromString("Point: B"));
+	FactList.Add(FText::FromString("Point: C"));
+
+	CurrentGameMode->OnUpdateFactList(FactList);
+	// TEST CODE END
+}
+
+void AFP_FirstPersonCharacter::ScrollFactListUp()
+{
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
+
+	CurrentGameMode->OnScrollFactListUp();
+}
+
+void AFP_FirstPersonCharacter::ScrollFactListDown()
+{
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
+
+	CurrentGameMode->OnScrollFactListDown();
 }
 
 void AFP_FirstPersonCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location)

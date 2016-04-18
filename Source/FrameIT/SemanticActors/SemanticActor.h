@@ -20,7 +20,7 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	virtual FVector GetClosestPoint(FVector hitPoint);
+	virtual TPair<bool, FVector> GetClosestPoint(FVector hitPoint);
 
 
 };

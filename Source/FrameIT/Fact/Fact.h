@@ -16,14 +16,17 @@ class FRAMEIT_API UFact : public UObject
 public:
 	UFact();
 
-	void Initialize(FString id, TArray<UFact*>* LinkFacts = nullptr);
+	void Initialize(FString ID, TArray<UFact*>* LinkFacts = nullptr);
 
-	void ConditionalBeginDestroy();
+	virtual void ConditionalBeginDestroy();
 
-	void UnlinkFact(UFact* fact);
+	virtual void UnlinkFact(UFact* fact);
+
+	virtual void LinkFact(UFact* fact);
 
 	virtual void SerializeToMMT() PURE_VIRTUAL(UFact::SerializeToMMT, ;);	
-
+	
+	virtual FString SerializeToString();
 
 	FString ID;
 

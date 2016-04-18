@@ -19,4 +19,28 @@ AFrameITGameMode::AFrameITGameMode()
     this->GameStateClass = AFrameITGameState::StaticClass();
 }
 
+void AFrameITGameMode::BeginPlay()
+{
+	Super::BeginPlay();
+	this->ChangeMenuWidget(this->FactWidgetClass);
+}
+
+void AFrameITGameMode::ChangeMenuWidget(TSubclassOf<UUserWidget> NewWidgetClass)
+{
+	if (this->CurrentWidget != nullptr)
+	{
+		this->CurrentWidget->RemoveFromViewport();
+		this->CurrentWidget = nullptr;
+	}
+	if (NewWidgetClass != nullptr)
+	{
+		this->CurrentWidget = CreateWidget<UUserWidget>(GetWorld(), NewWidgetClass);
+		if (this->CurrentWidget != nullptr)
+		{
+			this->CurrentWidget->AddToViewport();
+		}
+	}
+}
+
+
 

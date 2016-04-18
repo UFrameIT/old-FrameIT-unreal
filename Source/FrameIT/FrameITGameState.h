@@ -17,7 +17,7 @@ class FRAMEIT_API AFrameITGameState : public AGameState
 
 public:
 	AFrameITGameState();
+	TArray<FText> CreateFactTextList();
 
 	TMap<FString, UFact*> FactMap;
-	
 };

@@ -28,10 +28,32 @@ ASemanticPoint::ASemanticPoint()
 	{
 		this->PointMesh->SetMaterial(0, SphereVisualMaterial.Object);
 	}
+
+
+	this->PointLabel = CreateDefaultSubobject<UTextRenderComponent>(TEXT("PointLabel"));
+	this->PointLabel->AttachTo(this->RootComponent);
+	this->PointLabel->SetRelativeLocation(FVector(this->SphereRadius + 20.0f, this->SphereRadius + 20.0f, this->SphereRadius + 40.0f));
+	this->PointLabel->SetHorizontalAlignment(EHTA_Center);
+	this->PointLabel->SetWorldSize(150.0f);
+
 }
 
-FVector ASemanticPoint::GetClosestPoint(FVector hitPoint)
+void ASemanticPoint::SetLabel(FString ID)
 {
-	return this->GetActorLocation();
+	this->ID = ID;
+	this->PointLabel->SetText(FText::FromString(ID));
+}
+
+FString ASemanticPoint::GetLabel()
+{
+	return this->ID;
+}
+
+TPair<bool, FVector> ASemanticPoint::GetClosestPoint(FVector hitPoint)
+{
+	TPair<bool, FVector> ret;
+	ret.Key = true;
+	ret.Value = this->GetActorLocation();
+	return ret;
 }
 

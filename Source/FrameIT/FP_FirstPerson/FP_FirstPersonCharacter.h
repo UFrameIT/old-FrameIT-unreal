@@ -1,5 +1,7 @@
 // Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 #pragma once
+
+#include "Fact/AngleFact.h"
 #include "GameFramework/Character.h"
 #include "FP_FirstPersonCharacter.generated.h"
 
@@ -8,7 +10,7 @@ class UCameraComponent;
 class USkeletalMeshComponent;
 class USoundBase;
 class UAnimMontage;
-
+class ASemanticPoint;
 
 
 UCLASS(config=Game)
@@ -67,6 +69,7 @@ public:
 
 
 
+
 protected:
 
 	/** Handler for a touch input beginning. */
@@ -93,6 +96,21 @@ protected:
 	/** Handle Point Gun Mode Two i.e. Removing points*/
 	void HandlePointGunModeTwo();
 
+	/** Handle Distance Gun Helper*/
+	ASemanticPoint* HandleDistanceGunHelper();
+
+	/** Handle Distance Gun Mode One */
+	void HandleDistanceGunModeOne();
+
+	/** Handle Angle Gun Helper*/
+	ASemanticPoint* HandleAngleGunHelper();
+
+	/** Handle Angle Gun Mode One i.e. Measure the smaller angle*/
+	void HandleAngleGunModeOne();
+
+	/** Handle Angle Gun Mode Two i.e. Measure the larger angle*/
+	void HandleAngleGunModeTwo();
+
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 
@@ -107,6 +125,12 @@ protected:
 
 	/** Undo the last action*/
 	void UndoLastAction();
+
+	/** Scroll Fact List up*/
+	void ScrollFactListUp();
+
+	/** Scroll Fact List down*/
+	void ScrollFactListDown();
 
 	/**
 	 * Called via input to turn at a given rate.

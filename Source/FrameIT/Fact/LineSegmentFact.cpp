@@ -4,5 +4,14 @@
 #include "LineSegmentFact.h"
 
 
+void ULineSegmentFact::SerializeToMMT()
+{
+
+}
+
+FString ULineSegmentFact::SerializeToString()
+{
+	return "";
+}
 
 

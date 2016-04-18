@@ -9,7 +9,7 @@ UFact::UFact()
 	this->ID = TEXT("DefaultID");
 }
 
-void UFact::Initialize(FString id, TArray<UFact*>* LinkFacts)
+void UFact::Initialize(FString ID, TArray<UFact*>* LinkFacts)
 {
 	this->ID = ID;
 	if (LinkFacts == nullptr)
@@ -19,14 +19,7 @@ void UFact::Initialize(FString id, TArray<UFact*>* LinkFacts)
 
 	for (auto& e : *LinkFacts)
 	{
-		if (this->FactMap.Contains(e))
-		{
-			UE_LOG(FrameITLog, Error, TEXT("FactMap already contains a link to the element!"));
-		}
-		else
-		{
-			this->FactMap.Add(e, e);
-		}
+		this->LinkFact(e);
 	}
 }
 
@@ -45,4 +38,21 @@ void UFact::ConditionalBeginDestroy()
 void UFact::UnlinkFact(UFact* fact)
 {
 	this->FactMap.Remove(fact);
+}
+
+void UFact::LinkFact(UFact* fact)
+{
+	if (this->FactMap.Contains(fact))
+	{
+		UE_LOG(FrameITLog, Error, TEXT("FactMap already contains a link to the element!"));
+	}
+	else
+	{
+		this->FactMap.Add(fact, fact);
+	}
+}
+
+FString UFact::SerializeToString()
+{
+	return "";
 }
