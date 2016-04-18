@@ -67,6 +67,6 @@ void UAngleFact::SerializeToMMT()
 
 FString UAngleFact::SerializeToString()
 {
-	return "Angle: " + this->PointA->ID + "-" + this->PointB->ID + "-" + this->PointC->ID + " = " + this->Angle;
+	return "Angle: " + this->ID + " = " + FString::SanitizeFloat(this->Angle);
 }
 

@@ -72,6 +72,13 @@ public:
 
 protected:
 
+	int DistanceGunPointsSelected;
+	ASemanticPoint* DistanceGunPoint;
+
+	int AngleGunPointsSelected;
+	ASemanticPoint* AngleGunPointOne;
+	ASemanticPoint* AngleGunPointTwo;
+
 	/** Handler for a touch input beginning. */
 	void TouchStarted(const ETouchIndex::Type FingerIndex, const FVector Location);
 
@@ -87,6 +94,12 @@ protected:
 	/** Removes a semantic point and removes it from the registry of facts. */
 	void RemoveSemanticPoint(FString ID);
 
+	/** Adds a line segement fact to the registry of facts. */
+	void AddLineSegmentFact(FString PointOneID, FString PointTwoID, float Distance);
+
+	/** Adds a angle fact to the registry of facts. */
+	void AddAngleFact(FString PointOneID, FString PointTwoID, FString PointThreeID, float Angle);
+
 	/** Handle Point Gun Helper*/
 	FHitResult HandlePointGunHelper();
 
@@ -96,11 +109,14 @@ protected:
 	/** Handle Point Gun Mode Two i.e. Removing points*/
 	void HandlePointGunModeTwo();
 
-	/** Handle Distance Gun Helper*/
-	ASemanticPoint* HandleDistanceGunHelper();
+	/** Select Semantic Point - Helper function for Distance and Angle Gun */
+	ASemanticPoint* SelectSemanticPoint();
 
 	/** Handle Distance Gun Mode One */
 	void HandleDistanceGunModeOne();
+
+	/** Handle Distance Gun Mode Two */
+	void HandleDistanceGunModeTwo();
 
 	/** Handle Angle Gun Helper*/
 	ASemanticPoint* HandleAngleGunHelper();

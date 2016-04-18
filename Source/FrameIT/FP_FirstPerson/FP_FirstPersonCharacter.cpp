@@ -9,7 +9,8 @@
 #include "FrameITGameState.h"
 #include "FrameITGameMode.h"
 #include "Fact/PointFact.h"
-
+#include "Fact/LineSegmentFact.h"
+#include "Fact/AngleFact.h"
 
 static FName WeaponFireTraceIdent = FName(TEXT("WeaponTrace"));
 #define COLLISION_WEAPON		ECC_GameTraceChannel1
@@ -73,6 +74,15 @@ AFP_FirstPersonCharacter::AFP_FirstPersonCharacter()
 	// Start with weapon 1
 	this->WeaponSelected = 0;
 	this->MaxNumberOfWeapons = 3;
+
+	// Setup Distance Gun
+	this->DistanceGunPointsSelected = 0;
+	this->DistanceGunPoint = nullptr;
+
+	// Setup Angle Gun
+	this->AngleGunPointsSelected = 0;
+	this->AngleGunPointOne = nullptr;
+	this->AngleGunPointTwo = nullptr;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -124,11 +134,16 @@ void AFP_FirstPersonCharacter::OnFireModeOne()
 	switch (this->WeaponSelected)
 	{
 	case 0:
+		UE_LOG(FrameITLog, Log, TEXT("Point Gun fired M2"));
 		this->HandlePointGunModeOne();
 		break;
 	case 1:
+		UE_LOG(FrameITLog, Log, TEXT("Distance Gun fired M1"));
+		this->HandleDistanceGunModeOne();
 		break;
 	case 2:
+		UE_LOG(FrameITLog, Log, TEXT("Angle Gun fired M1"));
+		this->HandleAngleGunModeOne();
 		break;
 	default:
 		UE_LOG(FrameITLog, Error, TEXT("Invalid weapon selected!"));
@@ -140,11 +155,16 @@ void AFP_FirstPersonCharacter::OnFireModeTwo()
 	switch (this->WeaponSelected)
 	{
 	case 0:
+		UE_LOG(FrameITLog, Log, TEXT("Point Gun fired M2"));
 		this->HandlePointGunModeTwo();
 		break;
 	case 1:
+		UE_LOG(FrameITLog, Log, TEXT("Distance Gun fired M2"));
+		this->HandleDistanceGunModeTwo();
 		break;
 	case 2:
+		UE_LOG(FrameITLog, Log, TEXT("Angle Gun fired M2"));
+		this->HandleAngleGunModeTwo();
 		break;
 	default:
 		UE_LOG(FrameITLog, Error, TEXT("Invalid weapon selected!"));
@@ -216,6 +236,104 @@ void AFP_FirstPersonCharacter::RemoveSemanticPoint(FString ID)
 	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
 }
 
+void AFP_FirstPersonCharacter::AddLineSegmentFact(FString PointOneID, FString PointTwoID, float Distance)
+{
+	// Get the current Game State
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	if (CurrentGameState == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
+
+	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
+
+
+
+	auto ResultPointOne = FactMap->Find(PointOneID);
+	if (ResultPointOne == nullptr)
+	{
+		return;
+	}
+
+	auto ResultPointTwo = FactMap->Find(PointTwoID);
+	if (ResultPointTwo == nullptr)
+	{
+		return;
+	}
+
+	// Construct the Fact and add it to the Fact registry
+	ULineSegmentFact* Fact = NewObject<ULineSegmentFact>(ULineSegmentFact::StaticClass());
+	FString ID = (*ResultPointOne)->ID + "-" + (*ResultPointTwo)->ID;
+
+	Fact->Initialize(ID, (UPointFact*)*ResultPointOne, (UPointFact*)*ResultPointTwo, Distance);
+	FactMap->Add(ID, Fact);
+	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
+}
+
+void AFP_FirstPersonCharacter::AddAngleFact(FString PointOneID, FString PointTwoID, FString PointThreeID, float Angle)
+{
+	// Get the current Game State
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	if (CurrentGameState == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
+
+	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
+
+
+
+	auto ResultPointOne = FactMap->Find(PointOneID);
+	if (ResultPointOne == nullptr)
+	{
+		return;
+	}
+
+	auto ResultPointTwo = FactMap->Find(PointTwoID);
+	if (ResultPointTwo == nullptr)
+	{
+		return;
+	}
+
+	auto ResultPointThree = FactMap->Find(PointThreeID);
+	if (ResultPointThree == nullptr)
+	{
+		return;
+	}
+
+	// Construct the Fact and add it to the Fact registry
+	UAngleFact* Fact = NewObject<UAngleFact>(UAngleFact::StaticClass());
+	FString ID = (*ResultPointOne)->ID + "-" + (*ResultPointTwo)->ID + "-" + (*ResultPointThree)->ID;
+
+	Fact->Initialize(ID, (UPointFact*)*ResultPointOne, (UPointFact*)*ResultPointTwo, (UPointFact*)*ResultPointThree, Angle);
+	FactMap->Add(ID, Fact);
+	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
+}
+
 FHitResult AFP_FirstPersonCharacter::HandlePointGunHelper()
 {
 	// Play a sound if there is one
@@ -272,8 +390,7 @@ void AFP_FirstPersonCharacter::HandlePointGunModeOne()
 	
 	if ((DamagedActor != nullptr) && (DamagedActor != this))
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, DamagedActor->GetName());
-		UE_LOG(FrameITLog, Log, TEXT("Actor: %s"), *DamagedActor->GetName());
+		UE_LOG(FrameITLog, Log, TEXT("Actor hit: %s"), *DamagedActor->GetName());
 
 		// if the point is a semantic point then delete it
 		ASemanticPoint* SemPoint = Cast<ASemanticPoint>(DamagedActor);
@@ -314,8 +431,7 @@ void AFP_FirstPersonCharacter::HandlePointGunModeTwo()
 
 	if ((DamagedActor != nullptr) && (DamagedActor != this))
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, DamagedActor->GetName());
-		UE_LOG(FrameITLog, Log, TEXT("Actor: %s"), *DamagedActor->GetName());
+		UE_LOG(FrameITLog, Log, TEXT("Actor hit: %s"), *DamagedActor->GetName());
 
 		// if the point is a semantic point then delete it
 		ASemanticPoint* SemPoint = Cast<ASemanticPoint>(DamagedActor);
@@ -332,7 +448,7 @@ void AFP_FirstPersonCharacter::HandlePointGunModeTwo()
 	}
 }
 
-ASemanticPoint* AFP_FirstPersonCharacter::HandleDistanceGunHelper()
+ASemanticPoint* AFP_FirstPersonCharacter::SelectSemanticPoint()
 {
 	// Play a sound if there is one
 	if (FireSound != NULL)
@@ -384,10 +500,8 @@ ASemanticPoint* AFP_FirstPersonCharacter::HandleDistanceGunHelper()
 	ASemanticPoint* SemPoint = nullptr;
 	if ((DamagedActor != nullptr) && (DamagedActor != this))
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, DamagedActor->GetName());
 		UE_LOG(FrameITLog, Log, TEXT("Actor: %s"), *DamagedActor->GetName());
 
-		// if the point is a semantic point then delete it
 		SemPoint = Cast<ASemanticPoint>(DamagedActor);
 	}
 
@@ -396,7 +510,37 @@ ASemanticPoint* AFP_FirstPersonCharacter::HandleDistanceGunHelper()
 
 void AFP_FirstPersonCharacter::HandleDistanceGunModeOne()
 {
+	if (this->DistanceGunPointsSelected == 0)
+	{
+		this->DistanceGunPoint = SelectSemanticPoint();
+		if (this->DistanceGunPoint != nullptr)
+		{
+			this->DistanceGunPointsSelected = 1;
+			UE_LOG(FrameITLog, Log, TEXT("Distance Gun First Point Selected %s"), *this->DistanceGunPoint->GetLabel());
+		}
+	}
+	else
+	{
+		ASemanticPoint* SemPoint = SelectSemanticPoint();
+		if (SemPoint != nullptr)
+		{
+			this->AddLineSegmentFact(this->DistanceGunPoint->GetLabel(),
+				SemPoint->GetLabel(),
+				FVector::Dist(this->DistanceGunPoint->GetActorLocation(), SemPoint->GetActorLocation()));
 
+			UE_LOG(FrameITLog, Log, TEXT("Distance Gun Second Point Selected %s"), *SemPoint->GetLabel());
+		}
+		
+		this->DistanceGunPointsSelected = 0;
+		this->DistanceGunPoint = nullptr;
+	}
+	
+}
+
+void AFP_FirstPersonCharacter::HandleDistanceGunModeTwo()
+{
+	this->DistanceGunPointsSelected = 0;
+	this->DistanceGunPoint = nullptr;
 }
 
 ASemanticPoint* AFP_FirstPersonCharacter::HandleAngleGunHelper()
@@ -461,27 +605,98 @@ ASemanticPoint* AFP_FirstPersonCharacter::HandleAngleGunHelper()
 	return SemPoint;
 }
 
-
 void AFP_FirstPersonCharacter::HandleAngleGunModeOne()
 {
+	if (this->AngleGunPointsSelected == 0)
+	{
+		this->AngleGunPointOne = SelectSemanticPoint();
+		if (this->AngleGunPointOne != nullptr)
+		{
+			this->AngleGunPointsSelected = 1;
+			UE_LOG(FrameITLog, Log, TEXT("Angle Gun First Point Selected %s"), *this->AngleGunPointOne->GetLabel());
+		}
+	}
+	else if (this->AngleGunPointsSelected == 1)
+	{
+		this->AngleGunPointTwo = SelectSemanticPoint();
+		if (this->AngleGunPointTwo != nullptr)
+		{
+			this->AngleGunPointsSelected = 2;
+			UE_LOG(FrameITLog, Log, TEXT("Angle Gun Second Point Selected %s"), *this->AngleGunPointTwo->GetLabel());
+		}
+	}
+	else
+	{
+		ASemanticPoint* SemPoint = SelectSemanticPoint();
+		if (SemPoint != nullptr)
+		{
+			FVector FirstVec = this->AngleGunPointTwo->GetActorLocation() - this->AngleGunPointOne->GetActorLocation();
+			FVector SecondVec = SemPoint->GetActorLocation() - this->AngleGunPointTwo->GetActorLocation();
+			FirstVec.Normalize();
+			SecondVec.Normalize();
+			float Angle = FMath::RadiansToDegrees(acosf(FVector::DotProduct(FirstVec, SecondVec)));
+			this->AddAngleFact(this->AngleGunPointOne->GetLabel(),
+							   this->AngleGunPointTwo->GetLabel(),
+							   SemPoint->GetLabel(),
+							   Angle);
 
+			UE_LOG(FrameITLog, Log, TEXT("Angle Gun Third Point Selected %s"), *SemPoint->GetLabel());
+		}
+
+		this->AngleGunPointsSelected = 0;
+		this->AngleGunPointOne = nullptr;
+		this->AngleGunPointTwo = nullptr;
+	}
 }
 
 void AFP_FirstPersonCharacter::HandleAngleGunModeTwo()
 {
-
+	this->AngleGunPointsSelected = 0;
+	this->AngleGunPointOne = nullptr;
+	this->AngleGunPointTwo = nullptr;
 }
-
 
 void AFP_FirstPersonCharacter::OnWeaponSelectForward()
 {
+	// Reset Distance Gun
+	this->DistanceGunPointsSelected = 0;
+	this->DistanceGunPoint = nullptr;
+
+	// Reset Angle Gun
+	this->AngleGunPointsSelected = 0;
+	this->AngleGunPointOne = nullptr;
+	this->AngleGunPointTwo = nullptr;
+
 	this->WeaponSelected = (this->WeaponSelected + 1) % this->MaxNumberOfWeapons;
 	UE_LOG(FrameITLog, Log, TEXT("OnChangeWeapon forward - New Weapon Selected : %d"), this->WeaponSelected);
+
+	// Get the current Game Mode and call weapon change event
+	UWorld* const World = GetWorld();
+	if (World == nullptr)
+	{
+		return;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		return;
+	}
+	CurrentGameMode->OnWeaponChange(this->WeaponSelected);
 
 }
 
 void AFP_FirstPersonCharacter::OnWeaponSelectBackward()
 {
+	// Reset Distance Gun
+	this->DistanceGunPointsSelected = 0;
+	this->DistanceGunPoint = nullptr;
+
+	// Reset Angle Gun
+	this->AngleGunPointsSelected = 0;
+	this->AngleGunPointOne = nullptr;
+	this->AngleGunPointTwo = nullptr;
+
 	if (this->WeaponSelected == 0)
 	{
 		this->WeaponSelected = this->MaxNumberOfWeapons - 1;
@@ -491,11 +706,8 @@ void AFP_FirstPersonCharacter::OnWeaponSelectBackward()
 		this->WeaponSelected = (this->WeaponSelected - 1) % this->MaxNumberOfWeapons;
 	}
 	UE_LOG(FrameITLog, Log, TEXT("OnChangeWeapon backward - New Weapon Selected : %d"), this->WeaponSelected);
-
-	UE_LOG(FrameITLog, Log, TEXT("Undo - Currently test code"));
-
-	// TEST CODE BEGIN
-	// Get the current Game State
+	
+	// Get the current Game Mode and call weapon change event
 	UWorld* const World = GetWorld();
 	if (World == nullptr)
 	{
@@ -507,65 +719,13 @@ void AFP_FirstPersonCharacter::OnWeaponSelectBackward()
 	{
 		return;
 	}
-
-	TArray<FText> FactList;
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: D"));
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: D"));
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: D"));
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: D"));
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: D"));
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: D"));
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: D"));
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: D"));
-	FactList.Add(FText::FromString("Point: Weapon Backward"));
-	FactList.Add(FText::FromString("Point: E"));
-	FactList.Add(FText::FromString("Point: CCC"));
-	CurrentGameMode->OnUpdateFactList(FactList);
-	// TEST CODE END
+	CurrentGameMode->OnWeaponChange(this->WeaponSelected);
 
 }
 
 void AFP_FirstPersonCharacter::UndoLastAction()
 {
 	UE_LOG(FrameITLog, Log, TEXT("Undo - Currently test code"));
-
-	// TEST CODE BEGIN
-	// Get the current Game State
-	UWorld* const World = GetWorld();
-	if (World == nullptr)
-	{
-		return;
-	}
-
-	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
-	if (CurrentGameMode == nullptr)
-	{
-		return;
-	}
-
-	TArray<FText> FactList;
-	FactList.Add(FText::FromString("Point: A"));
-	FactList.Add(FText::FromString("Point: B"));
-	FactList.Add(FText::FromString("Point: C"));
-
-	CurrentGameMode->OnUpdateFactList(FactList);
-	// TEST CODE END
 }
 
 void AFP_FirstPersonCharacter::ScrollFactListUp()
