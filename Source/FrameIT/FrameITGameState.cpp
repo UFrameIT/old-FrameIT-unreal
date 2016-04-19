@@ -2,6 +2,8 @@
 
 #include "FrameIT.h"
 #include "FrameITGameState.h"
+#include "Fact/Fact.h"
+
 
 
 AFrameITGameState::AFrameITGameState()
@@ -13,6 +15,10 @@ TArray<FText> AFrameITGameState::CreateFactTextList()
 {
 	TArray<FText> retArr;
 	retArr.Reserve(this->FactMap.Num());
+
+	this->FactMap.ValueSort([](UFact& A, UFact& B) {
+		return A.GetDepth() < B.GetDepth(); // sort Facts by depth
+	});
 
 	for (auto& e : this->FactMap)
 	{
@@ -79,3 +85,9 @@ FString AFrameITGameState::GetNextFreeName()
 
 	return ID;
 }
+
+TMap<FString,UFact*>* AFrameITGameState::GetFactMap()
+{
+	return &this->FactMap;
+}
+

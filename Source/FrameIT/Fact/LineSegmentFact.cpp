@@ -5,27 +5,75 @@
 #include "PointFact.h"
 #include "FrameITGameState.h"
 #include "FrameITGameMode.h"
+#include "FrameITGameState.h"
+#include "FrameITGameMode.h"
 
-void ULineSegmentFact::Initialize(FString ID, UPointFact* PointA, UPointFact* PointB, float Distance)
+bool ULineSegmentFact::Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, float Distance)
 {
-	Super::Initialize(ID);
+	this->World = World;
+	this->ID = ID;
 
 	this->PointA = PointA;
 	this->PointB = PointB;
 
+	this->Depth = FMath::Max(PointA->GetDepth(), PointB->GetDepth()) + 1;
+
 	this->LinkFact((UFact*)PointA);
 	this->LinkFact((UFact*)PointB);
-
+	PointA->LinkFact(this);
+	PointB->LinkFact(this);
+	
 	this->Distance = Distance;
 
+	// Get the current Game State and Game Mode
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
+	if (CurrentGameState == nullptr)
+	{
+		this->UnlinkMembers();
+		return false;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)this->World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		this->UnlinkMembers();
+		return false;
+	}
+
+	auto FactMap = CurrentGameState->GetFactMap();
+
+	if (FactMap->Contains(this->ID))
+	{
+		this->UnlinkMembers();
+		return false;
+	}
+
+	FactMap->Add(this->ID, this);
+	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
+
+	return true;
 }
 
-void ULineSegmentFact::ConditionalBeginDestroy()
+void ULineSegmentFact::Destroy()
 {
-	Super::ConditionalBeginDestroy();
+	this->UnlinkMembers();
 
-	this->UnlinkFact((UFact*)PointA);
-	this->UnlinkFact((UFact*)PointB);
+	Super::Destroy();
+}
+
+void ULineSegmentFact::UnlinkMembers()
+{
+	if (this->PointA != nullptr)
+	{
+		this->PointA->UnlinkFact(this);
+		this->PointA = nullptr;
+	}
+
+	if (this->PointB != nullptr)
+	{
+		this->PointB->UnlinkFact(this);
+		this->PointB = nullptr;
+	}
 }
 
 void ULineSegmentFact::UnlinkFact(UFact* fact)
@@ -51,28 +99,7 @@ void ULineSegmentFact::UnlinkFact(UFact* fact)
 		return;
 	}
 
-	// Get the current Game State
-	UWorld* const World = GetWorld();
-	if (World == nullptr)
-	{
-		return;
-	}
-
-	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
-	if (CurrentGameState == nullptr)
-	{
-		return;
-	}
-
-	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
-	if (CurrentGameMode == nullptr)
-	{
-		return;
-	}
-
-	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
-	FactMap->Remove(this->ID);
-	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
+	Super::Destroy();
 }
 
 void ULineSegmentFact::SerializeToMMT()

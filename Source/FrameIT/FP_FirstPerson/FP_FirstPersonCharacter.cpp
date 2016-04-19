@@ -186,27 +186,19 @@ void AFP_FirstPersonCharacter::AddSemanticPoint(FVector Location)
 		return;
 	}
 
-	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
-	if (CurrentGameMode == nullptr)
-	{
-		return;
-	}
-
-	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
-
-
+	auto FactMap = CurrentGameState->GetFactMap();
 	FString ID = CurrentGameState->GetNextFreeName();
 	
 	// Construct the Fact and add it to the Fact registry
 	UPointFact* Fact = NewObject<UPointFact>(UPointFact::StaticClass());
-	Fact->Initialize(ID);
-
-	FactMap->Add(ID, Fact);
+	if (Fact->Initialize(World, ID) == false)
+	{
+		return;
+	}
 
 	ASemanticPoint* SemanticPoint = (ASemanticPoint*)(World->SpawnActor<ASemanticPoint>(Location, FRotator::ZeroRotator));
 	SemanticPoint->SetLabel(ID);
 
-	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
 }
 
 void AFP_FirstPersonCharacter::RemoveSemanticPoint(FString ID)
@@ -224,16 +216,12 @@ void AFP_FirstPersonCharacter::RemoveSemanticPoint(FString ID)
 		return;
 	}
 
-	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
-	if (CurrentGameMode == nullptr)
+	auto FactMap = CurrentGameState->GetFactMap();
+	UPointFact* Fact = (UPointFact*)*FactMap->Find(ID);
+	if (Fact != nullptr)
 	{
-		return;
+		Fact->Destroy();
 	}
-
-	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
-	FactMap->Remove(ID);
-
-	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
 }
 
 void AFP_FirstPersonCharacter::AddLineSegmentFact(FString PointOneID, FString PointTwoID, float Distance)
@@ -251,23 +239,15 @@ void AFP_FirstPersonCharacter::AddLineSegmentFact(FString PointOneID, FString Po
 		return;
 	}
 
-	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
-	if (CurrentGameMode == nullptr)
-	{
-		return;
-	}
+	auto FactMap = CurrentGameState->GetFactMap();
 
-	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
-
-
-
-	auto ResultPointOne = FactMap->Find(PointOneID);
+	auto ResultPointOne = (UPointFact*)*FactMap->Find(PointOneID);
 	if (ResultPointOne == nullptr)
 	{
 		return;
 	}
 
-	auto ResultPointTwo = FactMap->Find(PointTwoID);
+	auto ResultPointTwo = (UPointFact*)*FactMap->Find(PointTwoID);
 	if (ResultPointTwo == nullptr)
 	{
 		return;
@@ -275,11 +255,9 @@ void AFP_FirstPersonCharacter::AddLineSegmentFact(FString PointOneID, FString Po
 
 	// Construct the Fact and add it to the Fact registry
 	ULineSegmentFact* Fact = NewObject<ULineSegmentFact>(ULineSegmentFact::StaticClass());
-	FString ID = (*ResultPointOne)->ID + "-" + (*ResultPointTwo)->ID;
+	FString ID = ResultPointOne->GetID() + "-" + ResultPointTwo->GetID();
 
-	Fact->Initialize(ID, (UPointFact*)*ResultPointOne, (UPointFact*)*ResultPointTwo, Distance);
-	FactMap->Add(ID, Fact);
-	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
+	Fact->Initialize(World, ID, ResultPointOne, ResultPointTwo, Distance);
 }
 
 void AFP_FirstPersonCharacter::AddAngleFact(FString PointOneID, FString PointTwoID, FString PointThreeID, float Angle)
@@ -297,29 +275,21 @@ void AFP_FirstPersonCharacter::AddAngleFact(FString PointOneID, FString PointTwo
 		return;
 	}
 
-	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
-	if (CurrentGameMode == nullptr)
-	{
-		return;
-	}
+	auto FactMap = CurrentGameState->GetFactMap();
 
-	TMap<FString, UFact*>* FactMap = &CurrentGameState->FactMap;
-
-
-
-	auto ResultPointOne = FactMap->Find(PointOneID);
+	auto ResultPointOne = (UPointFact*)*FactMap->Find(PointOneID);
 	if (ResultPointOne == nullptr)
 	{
 		return;
 	}
 
-	auto ResultPointTwo = FactMap->Find(PointTwoID);
+	auto ResultPointTwo = (UPointFact*)*FactMap->Find(PointTwoID);
 	if (ResultPointTwo == nullptr)
 	{
 		return;
 	}
 
-	auto ResultPointThree = FactMap->Find(PointThreeID);
+	auto ResultPointThree = (UPointFact*)*FactMap->Find(PointThreeID);
 	if (ResultPointThree == nullptr)
 	{
 		return;
@@ -327,11 +297,9 @@ void AFP_FirstPersonCharacter::AddAngleFact(FString PointOneID, FString PointTwo
 
 	// Construct the Fact and add it to the Fact registry
 	UAngleFact* Fact = NewObject<UAngleFact>(UAngleFact::StaticClass());
-	FString ID = (*ResultPointOne)->ID + "-" + (*ResultPointTwo)->ID + "-" + (*ResultPointThree)->ID;
+	FString ID = ResultPointOne->GetID() + "-" + ResultPointTwo->GetID() + "-" + ResultPointThree->GetID();
 
-	Fact->Initialize(ID, (UPointFact*)*ResultPointOne, (UPointFact*)*ResultPointTwo, (UPointFact*)*ResultPointThree, Angle);
-	FactMap->Add(ID, Fact);
-	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
+	Fact->Initialize(World, ID, ResultPointOne, ResultPointTwo, ResultPointThree, Angle);
 }
 
 FHitResult AFP_FirstPersonCharacter::HandlePointGunHelper()
@@ -543,68 +511,6 @@ void AFP_FirstPersonCharacter::HandleDistanceGunModeTwo()
 	this->DistanceGunPoint = nullptr;
 }
 
-ASemanticPoint* AFP_FirstPersonCharacter::HandleAngleGunHelper()
-{
-	// Play a sound if there is one
-	if (FireSound != NULL)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-	}
-
-	// try and play a firing animation if specified
-	if (FireAnimation != NULL)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != NULL)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
-	}
-
-	// Now send a trace from the end of our gun to see if we should hit anything
-	APlayerController* PlayerController = Cast<APlayerController>(GetController());
-
-	// Calculate the direction of fire and the start location for trace
-	FVector CamLoc;
-	FRotator CamRot;
-	PlayerController->GetPlayerViewPoint(CamLoc, CamRot);
-	const FVector ShootDir = CamRot.Vector();
-
-	FVector StartTrace = FVector::ZeroVector;
-	if (PlayerController)
-	{
-		FRotator UnusedRot;
-		PlayerController->GetPlayerViewPoint(StartTrace, UnusedRot);
-
-		// Adjust trace so there is nothing blocking the ray between the camera and the pawn, and calculate distance from adjusted start
-		StartTrace = StartTrace + ShootDir * ((GetActorLocation() - StartTrace) | ShootDir);
-	}
-
-	// Calculate endpoint of trace
-	const FVector EndTrace = StartTrace + ShootDir * WeaponRange;
-
-	// Check for impact and handle graphics and sound
-	const FHitResult Impact = WeaponTrace(StartTrace, EndTrace);
-
-	// Deal with impact
-	AActor* DamagedActor = Impact.GetActor();
-
-	const FVector ImpactPoint = Impact.ImpactPoint;
-
-	ASemanticPoint* SemPoint = nullptr;
-	if ((DamagedActor != nullptr) && (DamagedActor != this))
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, DamagedActor->GetName());
-		UE_LOG(FrameITLog, Log, TEXT("Actor: %s"), *DamagedActor->GetName());
-
-		// if the point is a semantic point then delete it
-		SemPoint = Cast<ASemanticPoint>(DamagedActor);
-	}
-
-	return SemPoint;
-}
-
 void AFP_FirstPersonCharacter::HandleAngleGunModeOne()
 {
 	if (this->AngleGunPointsSelected == 0)
@@ -634,7 +540,7 @@ void AFP_FirstPersonCharacter::HandleAngleGunModeOne()
 			FVector SecondVec = SemPoint->GetActorLocation() - this->AngleGunPointTwo->GetActorLocation();
 			FirstVec.Normalize();
 			SecondVec.Normalize();
-			float Angle = FMath::RadiansToDegrees(acosf(FVector::DotProduct(FirstVec, SecondVec)));
+			float Angle = acosf(FVector::DotProduct(FirstVec, SecondVec));
 			this->AddAngleFact(this->AngleGunPointOne->GetLabel(),
 							   this->AngleGunPointTwo->GetLabel(),
 							   SemPoint->GetLabel(),

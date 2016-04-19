@@ -3,30 +3,86 @@
 #include "FrameIT.h"
 #include "AngleFact.h"
 #include "PointFact.h"
+#include "FrameITGameState.h"
+#include "FrameITGameMode.h"
 
-
-void UAngleFact::Initialize(FString ID, UPointFact* PointA, UPointFact* PointB, UPointFact* PointC, float Angle)
+bool UAngleFact::Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, UPointFact* PointC, float Angle)
 {
-	Super::Initialize(ID);
+	this->World = World;
+	this->ID = ID;
 
 	this->PointA = PointA;
 	this->PointB = PointB;
 	this->PointC = PointC;
 
+	this->Depth = FMath::Max(PointC->GetDepth(), FMath::Max(PointA->GetDepth(), PointB->GetDepth())) + 1;
+
 	this->LinkFact((UFact*)PointA);
 	this->LinkFact((UFact*)PointB);
 	this->LinkFact((UFact*)PointC);
+	PointA->LinkFact(this);
+	PointB->LinkFact(this);
+	PointC->LinkFact(this);
+
 
 	this->Angle = Angle;
+	
+	// Get the current Game State and Game Mode
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
+	if (CurrentGameState == nullptr)
+	{
+		this->UnlinkMembers();
+		return false;
+	}
+
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)this->World->GetAuthGameMode();
+	if (CurrentGameMode == nullptr)
+	{
+		this->UnlinkMembers();
+		return false;
+	}
+
+	auto FactMap = CurrentGameState->GetFactMap();
+
+	if (FactMap->Contains(this->ID))
+	{
+		this->UnlinkMembers();
+		return false;
+	}
+
+	FactMap->Add(this->ID, this);
+	CurrentGameMode->OnUpdateFactList(CurrentGameState->CreateFactTextList());
+
+	return true;
+
 }
 
-void UAngleFact::ConditionalBeginDestroy()
+void UAngleFact::UnlinkMembers()
 {
-	Super::ConditionalBeginDestroy();
+	if (this->PointA != nullptr)
+	{
+		this->PointA->UnlinkFact(this);
+		this->PointA = nullptr;
+	}
 
-	this->UnlinkFact((UFact*)PointA);
-	this->UnlinkFact((UFact*)PointB);
-	this->UnlinkFact((UFact*)PointC);
+	if (this->PointB != nullptr)
+	{
+		this->PointB->UnlinkFact(this);
+		this->PointB = nullptr;
+	}
+
+	if (this->PointC != nullptr)
+	{
+		this->PointC->UnlinkFact(this);
+		this->PointC = nullptr;
+	}
+}
+
+void UAngleFact::Destroy()
+{
+	this->UnlinkMembers();
+
+	Super::Destroy();
 }
 
 void UAngleFact::UnlinkFact(UFact* fact)
@@ -58,6 +114,13 @@ void UAngleFact::UnlinkFact(UFact* fact)
 		this->PointA = nullptr;
 		this->PointB = nullptr;
 	}
+	else
+	{
+		UE_LOG(FrameITLog, Error, TEXT("Fact is not part of Angle!"));
+		return;
+	}
+
+	Super::Destroy();
 }
 
 void UAngleFact::SerializeToMMT()
@@ -67,6 +130,6 @@ void UAngleFact::SerializeToMMT()
 
 FString UAngleFact::SerializeToString()
 {
-	return "Angle: " + this->ID + " = " + FString::SanitizeFloat(this->Angle);
+	return "Angle: " + this->ID + " = " + FString::SanitizeFloat(FMath::RadiansToDegrees(this->Angle));
 }
 

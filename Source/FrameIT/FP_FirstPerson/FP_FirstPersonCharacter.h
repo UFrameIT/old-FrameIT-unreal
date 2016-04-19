@@ -118,9 +118,6 @@ protected:
 	/** Handle Distance Gun Mode Two */
 	void HandleDistanceGunModeTwo();
 
-	/** Handle Angle Gun Helper*/
-	ASemanticPoint* HandleAngleGunHelper();
-
 	/** Handle Angle Gun Mode One i.e. Measure the smaller angle*/
 	void HandleAngleGunModeOne();
 

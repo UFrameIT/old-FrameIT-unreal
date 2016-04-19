@@ -16,9 +16,9 @@ class FRAMEIT_API UFact : public UObject
 public:
 	UFact();
 
-	void Initialize(FString ID, TArray<UFact*>* LinkFacts = nullptr);
+	bool Initialize(UWorld* World, FString ID);
 
-	virtual void ConditionalBeginDestroy();
+	virtual void Destroy();
 
 	virtual void UnlinkFact(UFact* fact);
 
@@ -28,8 +28,15 @@ public:
 	
 	virtual FString SerializeToString();
 
-	FString ID;
+	unsigned int GetDepth() const;
 
-	TMap<UFact*, UFact*> FactMap;
+	FString GetID() const;
+
+protected:
+	FString ID;
+	unsigned int Depth;
+	UWorld* World;
+
+	TMap<UFact*, UFact*> ConnectedFactMap;
 
 };

@@ -2,9 +2,11 @@
 
 #pragma once
 
-#include "Fact/Fact.h"
+
 #include "GameFramework/GameState.h"
 #include "FrameITGameState.generated.h"
+
+class UFact;
 
 
 /**
@@ -20,5 +22,8 @@ public:
 	TArray<FText> CreateFactTextList();
 	FString GetNextFreeName();
 
+	TMap<FString, UFact*>* GetFactMap();
+
+protected:
 	TMap<FString, UFact*> FactMap;
 };

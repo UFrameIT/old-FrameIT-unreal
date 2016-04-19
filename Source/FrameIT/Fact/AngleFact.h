@@ -16,9 +16,11 @@ class FRAMEIT_API UAngleFact : public UFact
 	GENERATED_BODY()
 
 public:
-	void Initialize(FString ID, UPointFact* PointA, UPointFact* PointB, UPointFact* PointC, float Angle);
+	bool Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, UPointFact* PointC, float Angle);
 
-	void ConditionalBeginDestroy();
+	virtual void Destroy();
+
+	virtual void UnlinkMembers();
 
 	virtual void UnlinkFact(UFact* fact);
 
