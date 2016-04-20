@@ -6,7 +6,7 @@
 #include "FrameITGameState.h"
 #include "FrameITGameMode.h"
 
-bool UAngleFact::Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, UPointFact* PointC, float Angle)
+bool UAngleFact::Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, UPointFact* PointC, float Angle, bool IsScrollFact)
 {
 	this->World = World;
 	this->ID = ID;
@@ -26,6 +26,14 @@ bool UAngleFact::Initialize(UWorld* World, FString ID, UPointFact* PointA, UPoin
 
 
 	this->Angle = Angle;
+
+	this->IsScrollFact = IsScrollFact;
+
+	if (this->IsScrollFact)
+	{
+		return true;
+	}
+
 	
 	// Get the current Game State and Game Mode
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();

@@ -5,6 +5,8 @@
 #include "Object.h"
 #include "Scroll.generated.h"
 
+class UFact;
+
 /**
  * 
  */
@@ -14,6 +16,12 @@ class FRAMEIT_API UScroll : public UObject
 	GENERATED_BODY()
 	
 	
-	
+public:
+	void Initialize(FText ScrollText, TArray<UFact*> RequiredFacts);
+
+	FText GetScrollText();
+protected:
+	FText ScrollText;
+	TArray<UFact*> RequiredFacts;
 	
 };

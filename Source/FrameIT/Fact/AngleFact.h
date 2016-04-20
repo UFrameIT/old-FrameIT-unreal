@@ -16,7 +16,7 @@ class FRAMEIT_API UAngleFact : public UFact
 	GENERATED_BODY()
 
 public:
-	bool Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, UPointFact* PointC, float Angle);
+	bool Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, UPointFact* PointC, float Angle, bool IsScrollFact = false);
 
 	virtual void Destroy();
 

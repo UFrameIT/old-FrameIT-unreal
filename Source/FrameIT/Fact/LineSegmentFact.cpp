@@ -8,7 +8,7 @@
 #include "FrameITGameState.h"
 #include "FrameITGameMode.h"
 
-bool ULineSegmentFact::Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, float Distance)
+bool ULineSegmentFact::Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, float Distance, bool IsScrollFact)
 {
 	this->World = World;
 	this->ID = ID;
@@ -24,6 +24,13 @@ bool ULineSegmentFact::Initialize(UWorld* World, FString ID, UPointFact* PointA,
 	PointB->LinkFact(this);
 	
 	this->Distance = Distance;
+
+	this->IsScrollFact = IsScrollFact;
+
+	if (this->IsScrollFact)
+	{
+		return true;
+	}
 
 	// Get the current Game State and Game Mode
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();

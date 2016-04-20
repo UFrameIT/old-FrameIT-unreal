@@ -19,17 +19,6 @@ DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
 
 
-// TODO
-// Create new bindings for actions
-// 2 possible modes measure distance measure / measure angle
-//
-// state machine inside i.e. fire 2/3 times and each new result point is part of it
-// left click -> get direct point / right click -> get semantic point
-// 
-// create actors to visualize it in the end
-// disable simulatneous shots
-
-
 //////////////////////////////////////////////////////////////////////////
 // AFP_FirstPersonCharacter
 
@@ -62,7 +51,7 @@ AFP_FirstPersonCharacter::AFP_FirstPersonCharacter()
 	FP_Gun->CastShadow = false;
 	FP_Gun->AttachTo(Mesh1P, TEXT("GripPoint"), EAttachLocation::SnapToTargetIncludingScale, true);
 
-	WeaponRange = 5000.0f;
+	WeaponRange = 10000.0f;
 
 	// Default offset from the character location for projectiles to spawn
 	GunOffset = FVector(100.0f, 30.0f, 10.0f);
@@ -110,6 +99,17 @@ void AFP_FirstPersonCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	InputComponent->BindAction("ScrollFactListDown", IE_Released, this, &AFP_FirstPersonCharacter::ScrollFactListDown);
 	InputComponent->BindAction("ScrollFactListUp", IE_Pressed, this, &AFP_FirstPersonCharacter::ScrollFactListUp);
 	InputComponent->BindAction("ScrollFactListUp", IE_Released, this, &AFP_FirstPersonCharacter::ScrollFactListUp);
+
+	// Bind Scroll select events
+	InputComponent->BindAction("ScrollSelectForward", IE_Pressed, this, &AFP_FirstPersonCharacter::OnScrollSelectForward);
+	InputComponent->BindAction("ScrollSelectBackward", IE_Pressed, this, &AFP_FirstPersonCharacter::OnScrollSelectBackward);
+	InputComponent->BindAction("ToggleViewMode", IE_Pressed, this, &AFP_FirstPersonCharacter::OnToggleViewMode);
+
+	// Bind view mode events
+	InputComponent->BindAction("ViewModeDown", IE_Pressed, this, &AFP_FirstPersonCharacter::OnViewModeDown);
+	InputComponent->BindAction("ViewModeUp", IE_Pressed, this, &AFP_FirstPersonCharacter::OnViewModeUp);
+	InputComponent->BindAction("ViewSelect", IE_Pressed, this, &AFP_FirstPersonCharacter::OnViewSelect);
+	
 
 	// Bind Undo Event
 	InputComponent->BindAction("UndoLastAction", IE_Pressed, this, &AFP_FirstPersonCharacter::UndoLastAction);
@@ -626,6 +626,36 @@ void AFP_FirstPersonCharacter::OnWeaponSelectBackward()
 		return;
 	}
 	CurrentGameMode->OnWeaponChange(this->WeaponSelected);
+
+}
+
+void AFP_FirstPersonCharacter::OnScrollSelectForward()
+{
+
+}
+
+void AFP_FirstPersonCharacter::OnScrollSelectBackward()
+{
+
+}
+
+void AFP_FirstPersonCharacter::OnToggleViewMode()
+{
+
+}
+
+void AFP_FirstPersonCharacter::OnViewModeDown()
+{
+
+}
+
+void AFP_FirstPersonCharacter::OnViewModeUp()
+{
+
+}
+
+void AFP_FirstPersonCharacter::OnViewSelect()
+{
 
 }
 

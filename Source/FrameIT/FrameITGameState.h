@@ -7,6 +7,7 @@
 #include "FrameITGameState.generated.h"
 
 class UFact;
+class UScroll;
 
 
 /**
@@ -25,5 +26,9 @@ public:
 	TMap<FString, UFact*>* GetFactMap();
 
 protected:
+	UPROPERTY()
 	TMap<FString, UFact*> FactMap;
+
+	UPROPERTY()
+	TArray<UScroll*> ScrollArray;
 };

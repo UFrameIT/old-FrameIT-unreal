@@ -11,7 +11,7 @@ UFact::UFact()
 	this->Depth = 0;
 }
 
-bool UFact::Initialize(UWorld* World, FString ID)
+bool UFact::Initialize(UWorld* World, FString ID, bool IsScrollFact)
 {
 
 	UE_LOG(FrameITLog, Log, TEXT("Initialized Fact %s!"), *ID);
@@ -22,17 +22,22 @@ bool UFact::Initialize(UWorld* World, FString ID)
 
 	this->Depth = 0;
 
+	this->IsScrollFact = IsScrollFact;
+
+	if (this->IsScrollFact)
+	{
+		return true;
+	}
+
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
 	if (CurrentGameState == nullptr)
 	{
-		UE_LOG(FrameITLog, Log, TEXT("Initialized Fact2 %s!"), *ID);
 		return false;
 	}
 
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)this->World->GetAuthGameMode();
 	if (CurrentGameMode == nullptr)
 	{
-		UE_LOG(FrameITLog, Log, TEXT("Initialized Fact3 %s!"), *ID);
 		return false;
 	}
 
@@ -40,7 +45,6 @@ bool UFact::Initialize(UWorld* World, FString ID)
 	
 	if (FactMap->Contains(this->ID))
 	{
-		UE_LOG(FrameITLog, Log, TEXT("Initialized Fact4 %s!"), *ID);
 		return false;
 	}
 
@@ -60,6 +64,11 @@ void UFact::Destroy()
 	}
 
 	this->ConnectedFactMap.Empty();
+
+	if (this->IsScrollFact)
+	{
+		return;
+	}
 
 	// Get the current Game State and Game Mode
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();

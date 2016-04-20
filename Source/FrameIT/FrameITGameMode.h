@@ -37,6 +37,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
 	void OnWeaponChange(int WeaponMode);
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
+	void OnScrollSelect(const FText& ScrollText);
+
 protected:
 	/** The widget class we will use as our menu when the game starts. */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "FrameIT")

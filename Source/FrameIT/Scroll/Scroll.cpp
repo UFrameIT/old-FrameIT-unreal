@@ -2,7 +2,20 @@
 
 #include "FrameIT.h"
 #include "Scroll.h"
+#include "Fact/Fact.h"
+#include "Fact/PointFact.h"
+#include "Fact/AngleFact.h"
+#include "Fact/LineSegmentFact.h"
 
 
+void UScroll::Initialize(FText ScrollText, TArray<UFact*> RequiredFacts)
+{
+	this->ScrollText = ScrollText;
+	this->RequiredFacts = RequiredFacts;
+}
 
+FText UScroll::GetScrollText()
+{
+	return this->ScrollText;
+}
 

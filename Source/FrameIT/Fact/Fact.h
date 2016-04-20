@@ -16,7 +16,7 @@ class FRAMEIT_API UFact : public UObject
 public:
 	UFact();
 
-	bool Initialize(UWorld* World, FString ID);
+	bool Initialize(UWorld* World, FString ID, bool IsScrollFact = false);
 
 	virtual void Destroy();
 
@@ -31,6 +31,9 @@ public:
 	unsigned int GetDepth() const;
 
 	FString GetID() const;
+
+
+	bool IsScrollFact;
 
 protected:
 	FString ID;

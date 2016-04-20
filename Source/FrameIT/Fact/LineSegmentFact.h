@@ -16,7 +16,7 @@ class FRAMEIT_API ULineSegmentFact : public UFact
 	GENERATED_BODY()
 
 public:
-	bool Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, float Distance);
+	bool Initialize(UWorld* World, FString ID, UPointFact* PointA, UPointFact* PointB, float Distance, bool IsScrollFact = false);
 	
 	virtual void Destroy();
 

@@ -3,11 +3,18 @@
 #include "FrameIT.h"
 #include "FrameITGameState.h"
 #include "Fact/Fact.h"
-
+#include "Scroll/Scroll.h"
+#include "Fact/PointFact.h"
+#include "Fact/LineSegmentFact.h"
+#include "Fact/AngleFact.h"
 
 
 AFrameITGameState::AFrameITGameState()
 {
+	UPointFact* PointAFact = NewObject<UPointFact>(UPointFact::StaticClass());
+	UPointFact* PointBFact = NewObject<UPointFact>(UPointFact::StaticClass());
+	UPointFact* PointCFact = NewObject<UPointFact>(UPointFact::StaticClass());
+
 
 }
 
@@ -17,7 +24,18 @@ TArray<FText> AFrameITGameState::CreateFactTextList()
 	retArr.Reserve(this->FactMap.Num());
 
 	this->FactMap.ValueSort([](UFact& A, UFact& B) {
-		return A.GetDepth() < B.GetDepth(); // sort Facts by depth
+		if (A.GetDepth() < B.GetDepth())
+		{
+			return true;
+		}
+		else if (A.GetDepth() > B.GetDepth())
+		{
+			return false;
+		}
+		else
+		{
+			return A.SerializeToString() < B.SerializeToString();
+		}
 	});
 
 	for (auto& e : this->FactMap)

@@ -136,6 +136,24 @@ protected:
 	/** Handles Weapon Mode change */
 	void OnWeaponSelectBackward();
 
+	/** Handles Scroll change */
+	void OnScrollSelectForward();
+
+	/** Handles Scroll change */
+	void OnScrollSelectBackward();
+
+	/** Handles Toggles View mode */
+	void OnToggleViewMode();
+
+	/** Handles view assignment down */
+	void OnViewModeDown();
+
+	/** Handles view assignment up */
+	void OnViewModeUp();
+
+	/** Handles view assignment  */
+	void OnViewSelect();
+
 	/** Undo the last action*/
 	void UndoLastAction();
 
