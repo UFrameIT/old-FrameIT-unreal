@@ -11,10 +11,62 @@
 
 AFrameITGameState::AFrameITGameState()
 {
-	UPointFact* PointAFact = NewObject<UPointFact>(UPointFact::StaticClass());
-	UPointFact* PointBFact = NewObject<UPointFact>(UPointFact::StaticClass());
-	UPointFact* PointCFact = NewObject<UPointFact>(UPointFact::StaticClass());
+	// Empty Scroll as deleting the widget was too much work and it is long after midnight
+	// @Todo Future Self Remove this, definitly maybe, yes
+	UScroll* Scroll0 = NewObject<UScroll>(UScroll::StaticClass());
+	Scroll0->Initialize(FText::FromString(""), TArray<UFact*>());
+	this->ScrollArray.Add(Scroll0);
 
+	// Scroll hard coded!
+	//     C
+	//   / |
+	//  /  | 
+	// A---B
+	//
+	UPointFact* PointAFact = NewObject<UPointFact>(UPointFact::StaticClass());
+	PointAFact->Initialize(nullptr, "A", true);
+	UPointFact* PointBFact = NewObject<UPointFact>(UPointFact::StaticClass());
+	PointBFact->Initialize(nullptr, "B", true);
+	UPointFact* PointCFact = NewObject<UPointFact>(UPointFact::StaticClass());
+	PointCFact->Initialize(nullptr, "C", true);
+
+	ULineSegmentFact* LineAB = NewObject<ULineSegmentFact>(ULineSegmentFact::StaticClass());
+	LineAB->Initialize(nullptr, "A-B", PointAFact, PointBFact, 0, true);
+
+	UAngleFact* AngleABC = NewObject<UAngleFact>(UAngleFact::StaticClass());
+	AngleABC->Initialize(nullptr, "A-B-C", PointAFact, PointBFact, PointCFact, 0, true);
+
+	UAngleFact* AngleCAB = NewObject<UAngleFact>(UAngleFact::StaticClass());
+	AngleCAB->Initialize(nullptr, "C-A-B", PointCFact, PointAFact, PointBFact, 0, true);
+
+	TArray<UFact*> ScrollFacts;
+	ScrollFacts.Add(PointAFact);
+	ScrollFacts.Add(PointBFact);
+	ScrollFacts.Add(PointCFact);
+	ScrollFacts.Add(LineAB);
+	ScrollFacts.Add(AngleABC);
+	ScrollFacts.Add(AngleCAB);
+
+	FText ScrollText = FText::FromString("Find three points A, B, C, which form the triangle ABC, such that the lines A-B and B-C are perpendicular.\n"
+		                                 "Then the length of the line segment B-C is:\n\n"
+		                                 "B-C = tan(Alpha) * D\n"
+		                                 ",where Alpha = Angle(C-A-B) and D = Length(A-B).");
+
+	UScroll* Scroll1 = NewObject<UScroll>(UScroll::StaticClass());
+	Scroll1->Initialize(ScrollText, ScrollFacts);	
+	this->ScrollArray.Add(Scroll1);
+
+	// Future Scrolls
+	UScroll* Scroll2 = NewObject<UScroll>(UScroll::StaticClass());
+	Scroll2->Initialize(FText::FromString("Future Scroll 1"), TArray<UFact*>());
+	this->ScrollArray.Add(Scroll2);
+
+	UScroll* Scroll3 = NewObject<UScroll>(UScroll::StaticClass());
+	Scroll3->Initialize(FText::FromString("Future Scroll 2"), TArray<UFact*>());
+	this->ScrollArray.Add(Scroll3);
+
+	// start on our empty scroll
+	this->CurrentScrollArrayIndex = 0;
 
 }
 
@@ -109,3 +161,17 @@ TMap<FString,UFact*>* AFrameITGameState::GetFactMap()
 	return &this->FactMap;
 }
 
+TArray<UScroll*>* AFrameITGameState::GetScrollArray()
+{
+	return &this->ScrollArray;
+}
+
+int AFrameITGameState::GetCurrentScrollArrayIndex()
+{
+	return this->CurrentScrollArrayIndex;
+}
+
+void AFrameITGameState::SetCurrentScrollArrayIndex(int index)
+{
+	this->CurrentScrollArrayIndex = index;
+}

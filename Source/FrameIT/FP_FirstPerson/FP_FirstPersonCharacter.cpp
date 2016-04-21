@@ -11,6 +11,7 @@
 #include "Fact/PointFact.h"
 #include "Fact/LineSegmentFact.h"
 #include "Fact/AngleFact.h"
+#include "Scroll/Scroll.h"
 
 static FName WeaponFireTraceIdent = FName(TEXT("WeaponTrace"));
 #define COLLISION_WEAPON		ECC_GameTraceChannel1
@@ -37,20 +38,6 @@ AFP_FirstPersonCharacter::AFP_FirstPersonCharacter()
 	FirstPersonCameraComponent->RelativeLocation = FVector(0, 0, 64.f); // Position the camera
 	FirstPersonCameraComponent->bUsePawnControlRotation = true;
 	
-	// Create a mesh component that will be used when being viewed from a '1st person' view (when controlling this pawn)
-	Mesh1P = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMesh1P"));
-	Mesh1P->SetOnlyOwnerSee(true);
-	Mesh1P->AttachParent = FirstPersonCameraComponent;
-	Mesh1P->bCastDynamicShadow = false;
-	Mesh1P->CastShadow = false;
-
-	// Create a gun mesh component
-	FP_Gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FP_Gun"));
-	FP_Gun->SetOnlyOwnerSee(true);			// only the owning player will see this mesh
-	FP_Gun->bCastDynamicShadow = false;
-	FP_Gun->CastShadow = false;
-	FP_Gun->AttachTo(Mesh1P, TEXT("GripPoint"), EAttachLocation::SnapToTargetIncludingScale, true);
-
 	WeaponRange = 10000.0f;
 
 	// Default offset from the character location for projectiles to spawn
@@ -310,17 +297,6 @@ FHitResult AFP_FirstPersonCharacter::HandlePointGunHelper()
 		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
 	}
 
-	// try and play a firing animation if specified
-	if (FireAnimation != NULL)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != NULL)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
-	}
-
 	// Now send a trace from the end of our gun to see if we should hit anything
 	APlayerController* PlayerController = Cast<APlayerController>(GetController());
 
@@ -424,17 +400,6 @@ ASemanticPoint* AFP_FirstPersonCharacter::SelectSemanticPoint()
 		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
 	}
 
-	// try and play a firing animation if specified
-	if (FireAnimation != NULL)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != NULL)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
-	}
-
 	// Now send a trace from the end of our gun to see if we should hit anything
 	APlayerController* PlayerController = Cast<APlayerController>(GetController());
 
@@ -492,10 +457,20 @@ void AFP_FirstPersonCharacter::HandleDistanceGunModeOne()
 		ASemanticPoint* SemPoint = SelectSemanticPoint();
 		if (SemPoint != nullptr)
 		{
-			this->AddLineSegmentFact(this->DistanceGunPoint->GetLabel(),
-				SemPoint->GetLabel(),
-				FVector::Dist(this->DistanceGunPoint->GetActorLocation(), SemPoint->GetActorLocation()));
-
+			// check if we did not measure a vertical vector only allow up to a certain incline
+			float MinAngle = 20.0f;
+			FVector FirstVec = SemPoint->GetActorLocation() - this->DistanceGunPoint->GetActorLocation();
+			FVector SecondVec = FVector::UpVector;
+			FirstVec.Normalize();
+			SecondVec.Normalize();
+			float Angle = FMath::RadiansToDegrees(acosf(FVector::DotProduct(FirstVec, SecondVec)));
+			UE_LOG(FrameITLog, Log, TEXT("Distance Point Angle: %f"), Angle);
+			if (Angle > MinAngle)
+			{
+				this->AddLineSegmentFact(this->DistanceGunPoint->GetLabel(),
+					SemPoint->GetLabel(),
+					FVector::Dist(this->DistanceGunPoint->GetActorLocation(), SemPoint->GetActorLocation()));
+			}
 			UE_LOG(FrameITLog, Log, TEXT("Distance Gun Second Point Selected %s"), *SemPoint->GetLabel());
 		}
 		
@@ -631,12 +606,38 @@ void AFP_FirstPersonCharacter::OnWeaponSelectBackward()
 
 void AFP_FirstPersonCharacter::OnScrollSelectForward()
 {
+	// Get the current Game Mode and call scroll change event
+	UWorld* const World = GetWorld();
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+	auto ScrollArray = CurrentGameState->GetScrollArray();
+	int CurIndex = CurrentGameState->GetCurrentScrollArrayIndex();
+	CurIndex = (CurIndex + 1) % ScrollArray->Num();
+	CurrentGameState->SetCurrentScrollArrayIndex(CurIndex);
+	auto Scroll = (*ScrollArray)[CurIndex];
+
+	CurrentGameMode->OnScrollSelect(Scroll->GetScrollText());
 }
 
 void AFP_FirstPersonCharacter::OnScrollSelectBackward()
 {
+	// Get the current Game Mode and call scroll change event
+	UWorld* const World = GetWorld();
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+	auto ScrollArray = CurrentGameState->GetScrollArray();
+	int CurIndex = CurrentGameState->GetCurrentScrollArrayIndex();
+	CurIndex--;
+	if (CurIndex < 0)
+	{
+		CurIndex = ScrollArray->Num() - 1;
+	}
+	CurrentGameState->SetCurrentScrollArrayIndex(CurIndex);
+	auto Scroll = (*ScrollArray)[CurIndex];
+
+	CurrentGameMode->OnScrollSelect(Scroll->GetScrollText());
 }
 
 void AFP_FirstPersonCharacter::OnToggleViewMode()
