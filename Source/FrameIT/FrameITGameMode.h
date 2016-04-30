@@ -40,6 +40,15 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
 	void OnScrollSelect(const FText& ScrollText);
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
+	void OnToggleViewMode(bool ViewMode);
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
+	void OnUpdateViewText(const FText& Text);
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
+	void OnUpdateSelectFact(bool State, int FactIndex);
+
 protected:
 	/** The widget class we will use as our menu when the game starts. */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "FrameIT")

@@ -109,9 +109,63 @@ void ULineSegmentFact::UnlinkFact(UFact* fact)
 	Super::Destroy();
 }
 
-void ULineSegmentFact::SerializeToMMT()
+FString ULineSegmentFact::SerializeToMMT()
 {
+	FString LineName = "lineSegp" + this->PointA->GetID() + "p" + this->PointB->GetID();
 
+	FString RetStr =
+		"<constant name=\"" + LineName + "_value\">\n"
+		"    <type>\n"
+		"        <om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\">\n"
+		"            <om:OMA>\n"
+		"                <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"                <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"tm\"></om:OMS>\n"
+		"                <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"reals\"></om:OMS>\n"
+		"            </om:OMA>\n"
+		"        </om:OMOBJ>\n"
+		"    </type>\n"
+		"    <definition>\n"
+		"        <om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\">\n"
+		"            <om:OMLIT value=\"" + FString::SanitizeFloat(this->Distance) + "\">\n"
+		"                <type>\n"
+		"                    <om:OMA>\n"
+		"                        <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"                        <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"tm\"></om:OMS>\n"
+		"                        <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"reals\"></om:OMS>\n"
+		"                    </om:OMA>\n"
+		"                </type>\n"
+		"            </om:OMLIT>\n"
+		"        </om:OMOBJ>\n"
+		"    </definition>\n"
+		"</constant>\n"
+		"<constant name=\"" + LineName + "\">\n"
+		"    <type>\n"
+		"        <om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\">\n"
+		"            <om:OMA>\n"
+		"                <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"                <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"ded\"></om:OMS>\n"
+		"                <om:OMA>\n"
+		"                    <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"                    <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"equal\"></om:OMS>\n"
+		"                    <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"reals\"></om:OMS>\n"
+		"                    <om:OMA>\n"
+		"                        <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"                        <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"lineSegmentLength\">\n"
+		"                        </om:OMS>\n"
+		"                        <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + "p" + this->PointA->GetID() + "\">\n"
+		"                        </om:OMS>\n"
+		"                        <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + "p" + this->PointB->GetID() + "\">\n"
+		"                        </om:OMS>\n"
+		"                    </om:OMA>\n"
+		"                    <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + LineName + "_value\">\n"
+		"                    </om:OMS>\n"
+		"                </om:OMA>\n"
+		"            </om:OMA>\n"
+		"        </om:OMOBJ>\n"
+		"    </type>\n"
+		"</constant>\n";
+
+		return RetStr;
 }
 
 FString ULineSegmentFact::SerializeToString()

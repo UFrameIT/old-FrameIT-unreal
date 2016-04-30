@@ -12,6 +12,7 @@
 #include "Fact/LineSegmentFact.h"
 #include "Fact/AngleFact.h"
 #include "Scroll/Scroll.h"
+#include "Scroll/ScrollView.h"
 
 static FName WeaponFireTraceIdent = FName(TEXT("WeaponTrace"));
 #define COLLISION_WEAPON		ECC_GameTraceChannel1
@@ -59,6 +60,15 @@ AFP_FirstPersonCharacter::AFP_FirstPersonCharacter()
 	this->AngleGunPointsSelected = 0;
 	this->AngleGunPointOne = nullptr;
 	this->AngleGunPointTwo = nullptr;
+
+	// scroll view
+	this->bInViewMode = false;
+	this->CurrentScrollArrayIndex = 0;
+	this->CurrentScrollView = NewObject<UScrollView>(UScrollView::StaticClass());
+	this->CurrentFactIndexSelected = 0;
+	this->CurrentFactSelected = nullptr;
+	this->CurrentScroll = nullptr;
+	this->CurrentScrollRequiredFactIndex = 0;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -118,6 +128,11 @@ void AFP_FirstPersonCharacter::SetupPlayerInputComponent(class UInputComponent* 
 
 void AFP_FirstPersonCharacter::OnFireModeOne()
 {
+	if (this->bInViewMode)
+	{
+		return;
+	}
+
 	switch (this->WeaponSelected)
 	{
 	case 0:
@@ -139,6 +154,11 @@ void AFP_FirstPersonCharacter::OnFireModeOne()
 
 void AFP_FirstPersonCharacter::OnFireModeTwo()
 {
+	if (this->bInViewMode)
+	{
+		return;
+	}
+
 	switch (this->WeaponSelected)
 	{
 	case 0:
@@ -539,6 +559,11 @@ void AFP_FirstPersonCharacter::HandleAngleGunModeTwo()
 
 void AFP_FirstPersonCharacter::OnWeaponSelectForward()
 {
+	if (this->bInViewMode)
+	{
+		return;
+	}
+
 	// Reset Distance Gun
 	this->DistanceGunPointsSelected = 0;
 	this->DistanceGunPoint = nullptr;
@@ -569,6 +594,11 @@ void AFP_FirstPersonCharacter::OnWeaponSelectForward()
 
 void AFP_FirstPersonCharacter::OnWeaponSelectBackward()
 {
+	if (this->bInViewMode)
+	{
+		return;
+	}
+
 	// Reset Distance Gun
 	this->DistanceGunPointsSelected = 0;
 	this->DistanceGunPoint = nullptr;
@@ -606,63 +636,253 @@ void AFP_FirstPersonCharacter::OnWeaponSelectBackward()
 
 void AFP_FirstPersonCharacter::OnScrollSelectForward()
 {
+	if (this->bInViewMode)
+	{
+		return;
+	}
+
 	// Get the current Game Mode and call scroll change event
 	UWorld* const World = GetWorld();
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
 	auto ScrollArray = CurrentGameState->GetScrollArray();
-	int CurIndex = CurrentGameState->GetCurrentScrollArrayIndex();
-	CurIndex = (CurIndex + 1) % ScrollArray->Num();
-	CurrentGameState->SetCurrentScrollArrayIndex(CurIndex);
-	auto Scroll = (*ScrollArray)[CurIndex];
+	this->CurrentScrollArrayIndex = (this->CurrentScrollArrayIndex + 1) % ScrollArray->Num();
+	auto Scroll = (*ScrollArray)[this->CurrentScrollArrayIndex];
+
+	this->CurrentScroll = Scroll;
 
 	CurrentGameMode->OnScrollSelect(Scroll->GetScrollText());
 }
 
 void AFP_FirstPersonCharacter::OnScrollSelectBackward()
 {
+	if (this->bInViewMode)
+	{
+		return;
+	}
+
 	// Get the current Game Mode and call scroll change event
 	UWorld* const World = GetWorld();
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
 	auto ScrollArray = CurrentGameState->GetScrollArray();
-	int CurIndex = CurrentGameState->GetCurrentScrollArrayIndex();
-	CurIndex--;
-	if (CurIndex < 0)
+	this->CurrentScrollArrayIndex--;
+	if (this->CurrentScrollArrayIndex < 0)
 	{
-		CurIndex = ScrollArray->Num() - 1;
+		this->CurrentScrollArrayIndex = ScrollArray->Num() - 1;
 	}
-	CurrentGameState->SetCurrentScrollArrayIndex(CurIndex);
-	auto Scroll = (*ScrollArray)[CurIndex];
+	auto Scroll = (*ScrollArray)[this->CurrentScrollArrayIndex];
+
+	this->CurrentScroll = Scroll;
 
 	CurrentGameMode->OnScrollSelect(Scroll->GetScrollText());
 }
 
 void AFP_FirstPersonCharacter::OnToggleViewMode()
 {
+	// @todo Remove this when we implement nice scroll switching!
+	if (this->CurrentScrollArrayIndex == 0 || this->CurrentScroll->GetRequiredFacts()->Num() == 0)
+	{
+		this->bInViewMode = false;
+		return;
+	}
 
+	// Get the current Game Mode and Game State
+	UWorld* const World = GetWorld();
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+
+
+
+	this->bInViewMode = !this->bInViewMode;
+	CurrentGameMode->OnToggleViewMode(this->bInViewMode);
+	if (this->bInViewMode)
+	{
+		// Set the current selected fact to the first one of the list
+		this->CurrentFactIndexSelected = 0;
+		this->CurrentFactSelected = CurrentGameState->GetFact(this->CurrentFactIndexSelected);
+		CurrentGameMode->OnUpdateSelectFact(true, this->CurrentFactIndexSelected);
+
+		// Init scroll view
+		this->CurrentScrollView->Initialize(this->CurrentScroll);
+
+		// Set the view text to the first text
+		auto ScrollFactArray = this->CurrentScroll->GetRequiredFacts();
+		auto Fact = (*ScrollFactArray)[this->CurrentScrollRequiredFactIndex];
+		CurrentGameMode->OnUpdateViewText(FText::FromString("Assign: " +  Fact->GetID()));
+	}
+	else
+	{
+		// Reset the current selected fact and its display
+		this->CurrentFactSelected = nullptr;
+		CurrentGameMode->OnUpdateSelectFact(false, this->CurrentFactIndexSelected);
+		// Reset the scroll view data structure
+		CurrentScrollView->ResetView();
+		this->CurrentScrollRequiredFactIndex = 0;
+	}
 }
 
 void AFP_FirstPersonCharacter::OnViewModeDown()
 {
+	if (this->bInViewMode)
+	{
+		// Get the current Game Mode and Game State
+		UWorld* const World = GetWorld();
+		AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+		AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+		// move selection down
+		// check if we even have any elements
+		auto EleCount = CurrentGameState->GetFactMap()->Num();
+		if (EleCount == 0)
+		{
+			return;
+		}
+				
+		// remove old marker
+		this->CurrentFactSelected = CurrentGameState->GetFact(this->CurrentFactIndexSelected);
+		CurrentGameMode->OnUpdateSelectFact(false, this->CurrentFactIndexSelected);
+
+		// select next lower element
+		this->CurrentFactIndexSelected = (this->CurrentFactIndexSelected + 1) % EleCount;
+
+		this->CurrentFactSelected = CurrentGameState->GetFact(this->CurrentFactIndexSelected);
+		CurrentGameMode->OnUpdateSelectFact(true, this->CurrentFactIndexSelected);
+	}
 }
 
 void AFP_FirstPersonCharacter::OnViewModeUp()
 {
+	if (this->bInViewMode)
+	{
+		// Get the current Game Mode and Game State
+		UWorld* const World = GetWorld();
+		AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+		AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+		// move selection down
+		// check if we even have any elements
+		auto EleCount = CurrentGameState->GetFactMap()->Num();
+		if (EleCount == 0)
+		{
+			return;
+		}
+
+		// remove old marker
+		this->CurrentFactSelected = CurrentGameState->GetFact(this->CurrentFactIndexSelected);
+		CurrentGameMode->OnUpdateSelectFact(false, this->CurrentFactIndexSelected);
+
+		// select next higher element
+		this->CurrentFactIndexSelected = (this->CurrentFactIndexSelected - 1);
+		if (this->CurrentFactIndexSelected < 0)
+		{
+			this->CurrentFactIndexSelected = EleCount - 1;
+		}
+
+		this->CurrentFactSelected = CurrentGameState->GetFact(this->CurrentFactIndexSelected);
+		CurrentGameMode->OnUpdateSelectFact(true, this->CurrentFactIndexSelected);
+	}
 }
 
 void AFP_FirstPersonCharacter::OnViewSelect()
 {
+	if (this->bInViewMode)
+	{
+		// Get the current Game Mode and Game State
+		UWorld* const World = GetWorld();
+		AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+		AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+		auto EleCount = CurrentGameState->GetFactMap()->Num();
+		if (EleCount == 0)
+		{
+			return;
+		}
+
+		// Add this fact assignment to the scroll view
+		if (!this->CurrentScrollView->AssignFact(this->CurrentFactIndexSelected,
+			this->CurrentFactSelected,
+			this->CurrentScrollRequiredFactIndex))
+		{
+			return;
+		}
+
+		// Check if we are done with assigning facts or still have an incomplete view
+		this->CurrentScrollRequiredFactIndex++;
+		auto ScrollFactArray = this->CurrentScroll->GetRequiredFacts();
+		if (this->CurrentScrollRequiredFactIndex >= ScrollFactArray->Num())
+		{
+			// Lastly compute new facts
+			this->CurrentScrollView->ComputeNewFact();
+
+			// We are done, so reset everything and switch away from the view assignment view
+			this->OnToggleViewMode();
+		}
+		else
+		{
+			// Update the View assignment text
+			auto Fact = (*ScrollFactArray)[this->CurrentScrollRequiredFactIndex];
+			CurrentGameMode->OnUpdateViewText(FText::FromString("Assign: " + Fact->GetID()));
+		}
+	}
 }
 
 void AFP_FirstPersonCharacter::UndoLastAction()
 {
-	UE_LOG(FrameITLog, Log, TEXT("Undo - Currently test code"));
+
+
+
+	/**
+	D:\\Apps\\MinGW\\msys\\1.0\\bin\\cat.exe
+	C:\\Users\\rocha\\Desktop\\a.txt
+	*/
+
+	/*
+	UE_LOG(FrameITLog, Log, TEXT("Testing Pipe"));
+	void* ReadPipe;
+	void* WritePipe;
+	if (FPlatformProcess::CreatePipe(ReadPipe, WritePipe) == false)
+	{
+		UE_LOG(FrameITLog, Log, TEXT("Pipe creation failed"));
+	}
+
+	auto ProcessHandle = FPlatformProcess::CreateProc(TEXT("D:\\Apps\\MinGW\\msys\\1.0\\bin\\cat.exe"), TEXT("C:\\Users\\rocha\\Desktop\\a.txt"), true, false, false, nullptr, 0, nullptr, WritePipe, ReadPipe);
+	
+	
+	
+    if (!ProcessHandle.IsValid())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to launch"));
+	}
+	else
+	{
+		bool FinishedReading = false;
+
+		while (!FinishedReading)
+		{
+			uint32 BytesRead = 0;
+			const uint32 BytesToRead = 1024;
+			UTF8CHAR Buffer[BytesToRead + 1] = { 0 };
+
+			if (!ReadFile(ReadPipe, &Buffer, BytesToRead, (::DWORD*)&BytesRead, NULL))
+			{
+				UE_LOG(FrameITLog, Log, TEXT("Read File failed"));
+				return;
+			}
+			Buffer[BytesRead] = '\0';
+			UE_LOG(FrameITLog, Log, TEXT("Output: \n %s"), UTF8_TO_TCHAR(Buffer));
+
+			if (BytesRead < BytesToRead)
+			{
+				FinishedReading = true;
+			}
+		}
+
+		UE_LOG(FrameITLog, Log, TEXT("Testing Pipe Worked"));
+	}
+	*/
 }
 
 void AFP_FirstPersonCharacter::ScrollFactListUp()

@@ -25,9 +25,7 @@ public:
 
 	TMap<FString, UFact*>* GetFactMap();
 	TArray<UScroll*>* GetScrollArray();
-
-	int GetCurrentScrollArrayIndex();
-	void SetCurrentScrollArrayIndex(int index);
+	UFact* GetFact(int Index);
 
 protected:
 	UPROPERTY()
@@ -36,6 +34,4 @@ protected:
 	UPROPERTY()
 	TArray<UScroll*> ScrollArray;
 
-	UPROPERTY()
-	int CurrentScrollArrayIndex;
 };

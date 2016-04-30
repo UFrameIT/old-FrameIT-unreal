@@ -24,7 +24,7 @@ public:
 
 	virtual void LinkFact(UFact* fact);
 
-	virtual void SerializeToMMT() PURE_VIRTUAL(UFact::SerializeToMMT, ;);	
+	virtual FString SerializeToMMT();
 	
 	virtual FString SerializeToString();
 

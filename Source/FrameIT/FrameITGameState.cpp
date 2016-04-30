@@ -24,20 +24,20 @@ AFrameITGameState::AFrameITGameState()
 	// A---B
 	//
 	UPointFact* PointAFact = NewObject<UPointFact>(UPointFact::StaticClass());
-	PointAFact->Initialize(nullptr, "A", true);
+	PointAFact->Initialize(nullptr, "a", true);
 	UPointFact* PointBFact = NewObject<UPointFact>(UPointFact::StaticClass());
-	PointBFact->Initialize(nullptr, "B", true);
+	PointBFact->Initialize(nullptr, "b", true);
 	UPointFact* PointCFact = NewObject<UPointFact>(UPointFact::StaticClass());
-	PointCFact->Initialize(nullptr, "C", true);
+	PointCFact->Initialize(nullptr, "c", true);
 
 	ULineSegmentFact* LineAB = NewObject<ULineSegmentFact>(ULineSegmentFact::StaticClass());
-	LineAB->Initialize(nullptr, "A-B", PointAFact, PointBFact, 0, true);
+	LineAB->Initialize(nullptr, "a-b", PointAFact, PointBFact, 0, true);
 
 	UAngleFact* AngleABC = NewObject<UAngleFact>(UAngleFact::StaticClass());
-	AngleABC->Initialize(nullptr, "A-B-C", PointAFact, PointBFact, PointCFact, 0, true);
+	AngleABC->Initialize(nullptr, "a-b-c", PointAFact, PointBFact, PointCFact, 0, true);
 
 	UAngleFact* AngleCAB = NewObject<UAngleFact>(UAngleFact::StaticClass());
-	AngleCAB->Initialize(nullptr, "C-A-B", PointCFact, PointAFact, PointBFact, 0, true);
+	AngleCAB->Initialize(nullptr, "c-a-b", PointCFact, PointAFact, PointBFact, 0, true);
 
 	TArray<UFact*> ScrollFacts;
 	ScrollFacts.Add(PointAFact);
@@ -47,10 +47,10 @@ AFrameITGameState::AFrameITGameState()
 	ScrollFacts.Add(AngleABC);
 	ScrollFacts.Add(AngleCAB);
 
-	FText ScrollText = FText::FromString("Find three points A, B, C, which form the triangle ABC, such that the lines A-B and B-C are perpendicular.\n"
-		                                 "Then the length of the line segment B-C is:\n\n"
-		                                 "B-C = tan(Alpha) * D\n"
-		                                 ",where Alpha = Angle(C-A-B) and D = Length(A-B).");
+	FText ScrollText = FText::FromString("Find three points a, b, c, which form the triangle abc, such that the lines a-b and b-c are perpendicular.\n"
+		                                 "Then the length of the line segment b-c is:\n\n"
+		                                 "b-c = tan(Alpha) * D\n"
+		                                 ",where Alpha = Angle(c-a-b) and D = Length(a-b).");
 
 	UScroll* Scroll1 = NewObject<UScroll>(UScroll::StaticClass());
 	Scroll1->Initialize(ScrollText, ScrollFacts);	
@@ -64,9 +64,6 @@ AFrameITGameState::AFrameITGameState()
 	UScroll* Scroll3 = NewObject<UScroll>(UScroll::StaticClass());
 	Scroll3->Initialize(FText::FromString("Future Scroll 2"), TArray<UFact*>());
 	this->ScrollArray.Add(Scroll3);
-
-	// start on our empty scroll
-	this->CurrentScrollArrayIndex = 0;
 
 }
 
@@ -96,6 +93,37 @@ TArray<FText> AFrameITGameState::CreateFactTextList()
 	}
 
 	return retArr;
+}
+
+UFact* AFrameITGameState::GetFact(int Index)
+{
+	this->FactMap.ValueSort([](UFact& A, UFact& B) {
+		if (A.GetDepth() < B.GetDepth())
+		{
+			return true;
+		}
+		else if (A.GetDepth() > B.GetDepth())
+		{
+			return false;
+		}
+		else
+		{
+			return A.SerializeToString() < B.SerializeToString();
+		}
+	});
+
+	// Why do we have no index select function argh...
+	int count = 0;
+	for (auto& e : this->FactMap)
+	{
+		if (count == Index)
+		{
+			return e.Value;
+		}
+		count++;
+	}
+
+	return nullptr;
 }
 
 FString AFrameITGameState::GetNextFreeName()
@@ -164,14 +192,4 @@ TMap<FString,UFact*>* AFrameITGameState::GetFactMap()
 TArray<UScroll*>* AFrameITGameState::GetScrollArray()
 {
 	return &this->ScrollArray;
-}
-
-int AFrameITGameState::GetCurrentScrollArrayIndex()
-{
-	return this->CurrentScrollArrayIndex;
-}
-
-void AFrameITGameState::SetCurrentScrollArrayIndex(int index)
-{
-	this->CurrentScrollArrayIndex = index;
 }

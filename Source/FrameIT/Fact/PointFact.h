@@ -15,7 +15,7 @@ class FRAMEIT_API UPointFact : public UFact
 
 public:
 
-	virtual void SerializeToMMT();
+	virtual FString SerializeToMMT();
 	
 	virtual FString SerializeToString();
 

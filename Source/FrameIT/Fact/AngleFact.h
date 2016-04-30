@@ -24,16 +24,16 @@ public:
 
 	virtual void UnlinkFact(UFact* fact);
 
-	virtual void SerializeToMMT();
+	virtual FString SerializeToMMT();
 
 	virtual FString SerializeToString();
 
-private:
+
 	// Three PointFact
 	UPointFact* PointA;
 	UPointFact* PointB;
 	UPointFact* PointC;
-
+private:
 	// The Angle
 	float Angle;
 };

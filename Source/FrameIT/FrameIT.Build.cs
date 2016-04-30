@@ -6,7 +6,7 @@ public class FrameIT : ModuleRules
 {
 	public FrameIT(TargetInfo Target)
 	{
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "XmlParser" });
 
 		// PrivateDependencyModuleNames.AddRange(new string[] {  });
 

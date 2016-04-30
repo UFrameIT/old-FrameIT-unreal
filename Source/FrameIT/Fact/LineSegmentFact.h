@@ -24,7 +24,7 @@ public:
 
 	virtual void UnlinkFact(UFact* fact);
 
-	virtual void SerializeToMMT();
+	virtual FString SerializeToMMT();
 
 	virtual FString SerializeToString();
 

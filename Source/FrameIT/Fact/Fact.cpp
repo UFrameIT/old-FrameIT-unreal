@@ -111,6 +111,11 @@ FString UFact::SerializeToString()
 	return "";
 }
 
+FString UFact::SerializeToMMT()
+{
+	return "";
+}
+
 unsigned int UFact::GetDepth() const
 {
 	return this->Depth;

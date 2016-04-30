@@ -11,7 +11,9 @@ class USkeletalMeshComponent;
 class USoundBase;
 class UAnimMontage;
 class ASemanticPoint;
-
+class UScrollView;
+class UFact;
+class UScroll;
 
 UCLASS(config=Game)
 class AFP_FirstPersonCharacter : public ACharacter
@@ -56,8 +58,19 @@ public:
 	/** The maximum number of weapons. */
 	unsigned int MaxNumberOfWeapons;
 
+	bool bInViewMode;
 
+	int CurrentScrollArrayIndex;
 
+	UScrollView* CurrentScrollView;
+
+	int CurrentFactIndexSelected;
+
+	UFact* CurrentFactSelected;
+
+	UScroll* CurrentScroll;
+
+	int CurrentScrollRequiredFactIndex;
 
 protected:
 
