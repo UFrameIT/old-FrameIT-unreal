@@ -30,10 +30,16 @@ public:
 
 
 	// Three PointFact
+	UPROPERTY()
 	UPointFact* PointA;
+
+	UPROPERTY()
 	UPointFact* PointB;
+
+	UPROPERTY()
 	UPointFact* PointC;
 private:
 	// The Angle
+	UPROPERTY()
 	float Angle;
 };

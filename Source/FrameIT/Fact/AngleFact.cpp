@@ -135,7 +135,35 @@ FString UAngleFact::SerializeToMMT()
 {
 	FString AngleName = "anglep" + this->PointA->GetID() + "p" + this->PointB->GetID() + "p" + this->PointC->GetID();
 
+	FString RetStr =
+		"     <constant name=\"" + AngleName + "_value\">\n"
+		"       <type><om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\"><om:OMA>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"tm\"></om:OMS><om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"reals\"></om:OMS>\n"
+		"      </om:OMA></om:OMOBJ></type>\n"
+		"       <definition><om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\"><om:OMLIT value=\"" + FString::SanitizeFloat(FMath::RadiansToDegrees(this->Angle)) + "\"><type><om:OMA>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"tm\"></om:OMS><om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"reals\"></om:OMS>\n"
+		"      </om:OMA></type></om:OMLIT></om:OMOBJ></definition>\n"
+		"       \n"
+		"     </constant>\n"
+		"     <constant name=\"" + AngleName + "\">\n"
+		"       <type><om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\"><om:OMA>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"ded\"></om:OMS><om:OMA>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"equal\"></om:OMS><om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"reals\"></om:OMS><om:OMA>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
+		"              <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"angle\"></om:OMS><om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + "p" + this->PointA->GetID() + "\"></om:OMS><om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + "p" + this->PointB->GetID() + "\"></om:OMS><om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + "p" + this->PointC->GetID() + "\"></om:OMS>\n"
+		"      </om:OMA><om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + AngleName + "_value\"></om:OMS>\n"
+		"      </om:OMA>\n"
+		"      </om:OMA></om:OMOBJ></type>\n"
+		"       \n"
+		"       \n"
+		"     </constant>\n";
+	return RetStr;
 
+	/* MMT fails to parse beautified omdoc for some weird reason therefore we use the ugly way it puts it out
 	FString RetStr =
 		"<constant name=\"" + AngleName + "_value\">\n"
 		"    <type>\n"
@@ -188,8 +216,7 @@ FString UAngleFact::SerializeToMMT()
 		"        </om:OMOBJ>\n"
 		"    </type>\n"
 		"</constant>\n";
-
-	return RetStr;
+		*/
 }
 
 FString UAngleFact::SerializeToString()

@@ -62,12 +62,15 @@ public:
 
 	int CurrentScrollArrayIndex;
 
+	UPROPERTY()
 	UScrollView* CurrentScrollView;
 
 	int CurrentFactIndexSelected;
 
+	UPROPERTY()
 	UFact* CurrentFactSelected;
 
+	UPROPERTY()
 	UScroll* CurrentScroll;
 
 	int CurrentScrollRequiredFactIndex;
@@ -75,10 +78,13 @@ public:
 protected:
 
 	int DistanceGunPointsSelected;
+	UPROPERTY()
 	ASemanticPoint* DistanceGunPoint;
 
 	int AngleGunPointsSelected;
+	UPROPERTY()
 	ASemanticPoint* AngleGunPointOne;
+	UPROPERTY()
 	ASemanticPoint* AngleGunPointTwo;
 
 	/** Handler for a touch input beginning. */

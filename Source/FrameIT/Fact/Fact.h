@@ -36,8 +36,13 @@ public:
 	bool IsScrollFact;
 
 protected:
+	UPROPERTY()
 	FString ID;
+
+	UPROPERTY()
 	unsigned int Depth;
+
+	UPROPERTY()
 	UWorld* World;
 
 	TMap<UFact*, UFact*> ConnectedFactMap;

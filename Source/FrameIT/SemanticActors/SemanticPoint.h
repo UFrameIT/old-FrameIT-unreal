@@ -24,7 +24,9 @@ public:
 	TPair<bool, FVector> GetClosestPoint(FVector hitPoint);
 	
 private:
+	UPROPERTY()
 	UStaticMeshComponent* PointMesh;
+	UPROPERTY()
 	UTextRenderComponent* PointLabel;
 	float SphereRadius;
 	FString ID;

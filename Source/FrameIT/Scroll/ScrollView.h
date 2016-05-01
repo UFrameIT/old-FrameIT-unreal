@@ -7,6 +7,9 @@
 
 class UFact;
 class UScroll;
+class UPointFact;
+class ULineSegmentFact;
+class UAngleFact;
 
 /**
  * 
@@ -26,7 +29,16 @@ public:
 
 	bool CallMMT(FString* OutputString);
 	void CreateSituationTheory();
+	void CreateView();
+
+
 	FString SerializeProofToMMT();
+	FString SerializeViewPointFactToMMT(UPointFact* ScrollFact, UPointFact* Fact);
+	FString SerializeViewLineSegmentFactToMMT(ULineSegmentFact* ScrollFact, ULineSegmentFact* Fact);
+	FString SerializeViewAngleFactToMMT(UAngleFact* ScrollFact, UAngleFact* Fact);
+
+
+
 	FString SerializeViewToMMT();
 
 	TMap<int, bool>* GetFactListIndexMap();
@@ -37,6 +49,8 @@ protected:
 	TArray<TPair<UFact*, UFact*>> ViewMapping;
 
 	TMap<int, bool> FactListIndexMap;
+
+	UPROPERTY()
 	UScroll* Scroll;
 
 	

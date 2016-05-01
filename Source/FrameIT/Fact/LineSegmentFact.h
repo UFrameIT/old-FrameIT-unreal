@@ -28,11 +28,15 @@ public:
 
 	virtual FString SerializeToString();
 
-protected:
-	// Three PointFact
-	UPointFact* PointA;
-	UPointFact* PointB;
 
+	// Two PointFact
+	UPROPERTY()
+	UPointFact* PointA;
+
+	UPROPERTY()
+	UPointFact* PointB;
+protected:
 	// The Distance
+	UPROPERTY()
 	float Distance;
 };
