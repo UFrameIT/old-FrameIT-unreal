@@ -7,16 +7,17 @@
 #include "Fact/PointFact.h"
 #include "Fact/LineSegmentFact.h"
 #include "Fact/AngleFact.h"
-
+#include "rapidxml-1.13/rapidxml.hpp"
 
 UScrollView::UScrollView()
 {
 	this->Scroll = nullptr;
 }
 
-void UScrollView::Initialize(UScroll* Scroll)
+void UScrollView::Initialize(UScroll* Scroll, UWorld* World)
 {
 	this->Scroll = Scroll;
+	this->World = World;
 }
 
 bool UScrollView::AssignFact(int FactListIndex, UFact* Fact, int RequiredFactIndex)
@@ -83,12 +84,57 @@ TPair<bool, UFact*> UScrollView::ComputeNewFact()
 		return ResultPair;
 	}
 
+
+	
 	// Parse it
-	auto NewFactArray = this->Scroll->ParseMMT(&OutputString);
+	this->ParseMMT(&OutputString);
 
 
 	return ResultPair;
 }
+
+void UScrollView::ParseMMT(FString* Input)
+{
+	// We should really parse the xml but due to time constraints and as it is only a demo lets just get the value
+	auto StartOfValueStr = Input->Find("om:OMLIT value=\"") + FString("om:OMLIT value=\"").Len();
+	auto EndOfValueStr = Input->Find("\">", ESearchCase::IgnoreCase, ESearchDir::FromStart, StartOfValueStr);
+	auto ValueStr = Input->Mid(StartOfValueStr, EndOfValueStr - StartOfValueStr);
+
+	float NewDistance = fabs(FCString::Atof(*ValueStr));
+
+	UE_LOG(FrameITLog, Log, TEXT("Start: %d, End %d, SubStr: %s = %f"), StartOfValueStr, EndOfValueStr, *ValueStr, NewDistance);
+
+	auto pB = (UPointFact*)this->ViewMapping[1].Value;
+	auto pC = (UPointFact*)this->ViewMapping[2].Value;
+
+	// Construct the Fact and add it to the Fact registry
+	ULineSegmentFact* Fact = NewObject<ULineSegmentFact>(ULineSegmentFact::StaticClass());
+	FString ID = pB->GetID() + "-" + pC->GetID();
+
+	Fact->Initialize(this->World, ID, pB, pC, NewDistance);
+
+
+
+	/*
+	using namespace rapidxml;
+	xml_document<> doc;    // character type defaults to char
+	doc.parse<0>(TCHAR_TO_ANSI(*(*Input)));    // 0 means default parse flags
+	
+	xml_node<> *pRoot = doc.first_node();
+	xml_node<> *pCampaignNode = 0;
+	xml_node<> *pMissionNode = 0;
+
+	for (xml_node<> *pNode = pRoot->first_node("constant"); pNode; pNode = pNode->next_sibling())
+	{
+		if (pNode->first_attribute("name")->value() == std::to_string(campaignID))
+		{
+			pCampaignNode = pNode;
+			break;
+		}
+	}*/
+
+}
+
 
 TMap<int, bool>* UScrollView::GetFactListIndexMap()
 {
@@ -114,10 +160,25 @@ bool UScrollView::CallMMT(FString* OutputString)
 	FString AbsoluteFilePath = "C:\\Users\\rocha\\Documents\\content\\pushout.xml";
 	FPlatformFileManager::Get().GetPlatformFile().DeleteFile(*AbsoluteFilePath);
 
-
+	
+	system("C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\mmt.bat mbt C:\\Users\\rocha\\Documents\\content\\FrameIT\\frameit.scala");//C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\FrameIT.bat");
+	/*
 	// This is windows specific and retarded
-	WinExec("C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\FrameIT.bat", SW_HIDE);
+	//WinExec("C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\FrameIT.bat", SW_HIDE);
+	auto ProcessHandle = FPlatformProcess::CreateProc(TEXT("C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\FrameIT.bat"), TEXT(""), true, true, true, nullptr, 0, nullptr, nullptr, nullptr);
+	
+	if (!ProcessHandle.IsValid())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to launch"));
+	}
 
+	// I want to hate myself for this so badly
+	while (FPlatformProcess::IsProcRunning(ProcessHandle))
+	{
+		FPlatformProcess::Sleep(0.01);
+	}
+	FPlatformProcess::CloseProc(ProcessHandle);
+	*/
 
 	if (!FPlatformFileManager::Get().GetPlatformFile().FileExists(*AbsoluteFilePath))
 	{

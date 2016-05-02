@@ -706,7 +706,7 @@ void AFP_FirstPersonCharacter::OnToggleViewMode()
 		CurrentGameMode->OnUpdateSelectFact(true, this->CurrentFactIndexSelected);
 
 		// Init scroll view
-		this->CurrentScrollView->Initialize(this->CurrentScroll);
+		this->CurrentScrollView->Initialize(this->CurrentScroll, World);
 
 		// Set the view text to the first text
 		auto ScrollFactArray = this->CurrentScroll->GetRequiredFacts();
@@ -831,58 +831,11 @@ void AFP_FirstPersonCharacter::OnViewSelect()
 
 void AFP_FirstPersonCharacter::UndoLastAction()
 {
+	FString OutputString;
+	FFileHelper::LoadFileToString(OutputString, *FString("C:\\Users\\rocha\\Documents\\content\\pushout.xml"));
+	// Parse it
+	this->CurrentScrollView->ParseMMT(&OutputString);
 
-
-
-	/**
-	D:\\Apps\\MinGW\\msys\\1.0\\bin\\cat.exe
-	C:\\Users\\rocha\\Desktop\\a.txt
-	*/
-
-	/*
-	UE_LOG(FrameITLog, Log, TEXT("Testing Pipe"));
-	void* ReadPipe;
-	void* WritePipe;
-	if (FPlatformProcess::CreatePipe(ReadPipe, WritePipe) == false)
-	{
-		UE_LOG(FrameITLog, Log, TEXT("Pipe creation failed"));
-	}
-
-	auto ProcessHandle = FPlatformProcess::CreateProc(TEXT("D:\\Apps\\MinGW\\msys\\1.0\\bin\\cat.exe"), TEXT("C:\\Users\\rocha\\Desktop\\a.txt"), true, false, false, nullptr, 0, nullptr, WritePipe, ReadPipe);
-	
-	
-	
-    if (!ProcessHandle.IsValid())
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Failed to launch"));
-	}
-	else
-	{
-		bool FinishedReading = false;
-
-		while (!FinishedReading)
-		{
-			uint32 BytesRead = 0;
-			const uint32 BytesToRead = 1024;
-			UTF8CHAR Buffer[BytesToRead + 1] = { 0 };
-
-			if (!ReadFile(ReadPipe, &Buffer, BytesToRead, (::DWORD*)&BytesRead, NULL))
-			{
-				UE_LOG(FrameITLog, Log, TEXT("Read File failed"));
-				return;
-			}
-			Buffer[BytesRead] = '\0';
-			UE_LOG(FrameITLog, Log, TEXT("Output: \n %s"), UTF8_TO_TCHAR(Buffer));
-
-			if (BytesRead < BytesToRead)
-			{
-				FinishedReading = true;
-			}
-		}
-
-		UE_LOG(FrameITLog, Log, TEXT("Testing Pipe Worked"));
-	}
-	*/
 }
 
 void AFP_FirstPersonCharacter::ScrollFactListUp()

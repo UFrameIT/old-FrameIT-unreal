@@ -19,8 +19,6 @@ class FRAMEIT_API UScroll : public UObject
 public:
 	void Initialize(FText ScrollText, TArray<UFact*> RequiredFacts);
 
-	TArray<UFact*> ParseMMT(FString* Input);
-
 	FText GetScrollText();
 	TArray<UFact*>* GetRequiredFacts();
 protected:

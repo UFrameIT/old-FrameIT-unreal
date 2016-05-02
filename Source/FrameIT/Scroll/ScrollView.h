@@ -21,7 +21,7 @@ class FRAMEIT_API UScrollView : public UObject
 	
 public:
 	UScrollView();
-	void Initialize(UScroll* Scroll);
+	void Initialize(UScroll* Scroll, UWorld* World);
 
 	bool AssignFact(int FactListIndex, UFact* Fact, int RequiredFactIndex);
 
@@ -31,6 +31,7 @@ public:
 	void CreateSituationTheory();
 	void CreateView();
 
+	void UScrollView::ParseMMT(FString* Input);
 
 	FString SerializeProofToMMT();
 	FString SerializeViewPointFactToMMT(UPointFact* ScrollFact, UPointFact* Fact);
@@ -53,5 +54,7 @@ protected:
 	UPROPERTY()
 	UScroll* Scroll;
 
+	UPROPERTY()
+	UWorld* World;
 	
 };
