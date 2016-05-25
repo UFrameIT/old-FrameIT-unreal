@@ -1,0 +1,117 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="PredicateSubtypes" base="http://cds.omdoc.org/urtheories" meta="http://cds.omdoc.org/urtheories?PLF"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2245.46.0:2611.58.1"/></metadata><import from="http://cds.omdoc.org/urtheories?Subtyping"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2281.47.2:2300.47.21"/></metadata></import><import from="http://cds.omdoc.org/urtheories?Inhabitation"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2303.48.2:2325.48.24"/></metadata></import><constant name="Sub">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2331.50.2:2399.50.70"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2340.50.11:2366.50.37"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2341.50.12:2341.50.12"/></metadata><type><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2350.50.21:2366.50.37"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2350.50.21:2359.50.30"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMV name="A"></om:OMV><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2363.50.34:2366.50.37"/></metadata></om:OMS>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="20" fixity="mixfix" arguments="1 | 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="sub">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2402.51.2:2463.51.63"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
+                 <om:OMBVAR><om:OMV name="/P/1"></om:OMV><om:OMV name="/A/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2411.51.11:2436.51.36"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2412.51.12:2412.51.12"/></metadata><type><om:OMV name="/A/0"></om:OMV></type></om:OMV><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2415.51.15:2415.51.15"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMV name="/P/1"></om:OMV><om:OMV name="A"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2418.51.18:2436.51.36"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2419.51.19:2419.51.19"/></metadata><type><om:OMV name="A"></om:OMV></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2425.51.25:2436.51.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2425.51.25:2430.51.30"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="Inhabitation" name="Inh"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2426.51.26:2430.51.30"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2427.51.27:2427.51.27"/></metadata></om:OMV><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2429.51.29:2429.51.29"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2434.51.34:2436.51.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="PredicateSubtypes" name="Sub"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2434.51.34:2434.51.34"/></metadata></om:OMV><om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2436.51.36:2436.51.36"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="3 by 4"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="subA_A">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2467.53.2:2494.53.29"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
+                 <om:OMBVAR><om:OMV name="/P/1"></om:OMV><om:OMV name="/A/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2479.53.14:2492.53.27"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2480.53.15:2480.53.15"/></metadata><type><om:OMV name="/A/0"></om:OMV></type></om:OMV><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2482.53.17:2482.53.17"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMV name="/P/1"></om:OMV><om:OMV name="A"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2485.53.20:2492.53.27"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="Subtyping" name="subtype"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2485.53.20:2487.53.22"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="PredicateSubtypes" name="Sub"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2485.53.20:2485.53.20"/></metadata></om:OMV><om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2487.53.22:2487.53.22"/></metadata></om:OMV>
+      </om:OMA><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2492.53.27:2492.53.27"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       
+     </constant><constant name="subA_subA">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2497.54.2:2546.54.51"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/mmt" module="mmt" name="unknown"></om:OMS>
+                 <om:OMBVAR><om:OMV name="/Q/3"></om:OMV><om:OMV name="/P/2"></om:OMV><om:OMV name="/A/1"></om:OMV><om:OMV name="/x/0"></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2509.54.14:2544.54.49"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2510.54.15:2510.54.15"/></metadata><type><om:OMV name="/A/1"></om:OMV></type></om:OMV><om:OMV name="P"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2512.54.17:2512.54.17"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMV name="/P/2"></om:OMV><om:OMV name="A"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="Q"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2514.54.19:2514.54.19"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMV name="/Q/3"></om:OMV><om:OMV name="A"></om:OMV><om:OMV name="P"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2517.54.22:2544.54.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2517.54.22:2531.54.36"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="x"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2519.54.24:2519.54.24"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMV name="/x/0"></om:OMV><om:OMV name="A"></om:OMV><om:OMV name="P"></om:OMV><om:OMV name="Q"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2522.54.27:2530.54.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2522.54.27:2524.54.29"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2522.54.27:2522.54.27"/></metadata></om:OMV><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2524.54.29:2524.54.29"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2528.54.33:2530.54.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMV name="Q"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2528.54.33:2528.54.33"/></metadata></om:OMV><om:OMV name="x"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2530.54.35:2530.54.35"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2535.54.40:2544.54.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="Subtyping" name="subtype"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2535.54.40:2537.54.42"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="PredicateSubtypes" name="Sub"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2535.54.40:2535.54.40"/></metadata></om:OMV><om:OMV name="P"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2537.54.42:2537.54.42"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2542.54.47:2544.54.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="PredicateSubtypes" name="Sub"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2542.54.47:2542.54.47"/></metadata></om:OMV><om:OMV name="Q"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/subtypes.mmt#2544.54.49:2544.54.49"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       
+     </constant></theory></omdoc>

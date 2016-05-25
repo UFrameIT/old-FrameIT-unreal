@@ -1,0 +1,6 @@
+theory http://cds.omdoc.org/urtheories?Typed
+Includes http://cds.omdoc.org/urtheories?Typed http://cds.omdoc.org/mmt?Errors
+Includes http://cds.omdoc.org/urtheories?Typed http://cds.omdoc.org/mmt?ModExp
+Includes http://cds.omdoc.org/urtheories?Typed http://cds.omdoc.org/mmt?mmt
+Includes http://cds.omdoc.org/urtheories?Typed http://cds.omdoc.org/urtheories?TypedSymbols
+Includes http://cds.omdoc.org/urtheories?Typed http://cds.omdoc.org/urtheories?TypedRules

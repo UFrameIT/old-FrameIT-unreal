@@ -1,0 +1,59 @@
+namespace http://cds.omdoc.org/urtheories
+
+//   LF as meta-theory means using LF HOAS
+
+theory Subtyping : ?PLF =
+  subtype : {A: type, B: type} type                   # 1 ⊆‍ 2 prec -9980
+  refl    : {A} A ⊆‍ A
+  trans   : {A,B,C} A ⊆‍ B → B ⊆‍ C → A ⊆‍ C
+  
+  covariant : {A: type, B1: A → type, B2: A → type} ({x:A} B1 x ⊆‍ B2 x) → ({x:A} B1 x) ⊆‍ ({x:A} B2 x) 
+
+
+theory Inhabitation : ?PLF =
+  // "! A" is a judgments for the inhabitation (= non-emptiness) of "A".
+     If "A" is empty, so is "!A". If "A" is non-empty, "!A" is a singleton.
+     These types are useful when using proofs as judgments as guards, i.e., in situations where only the inhabitation of a type matters, not the choice of inhabitant.
+     Also note, that if "A" is a type of proofs, then "! A" is essentially the same type but with proof irrelevance.   
+  
+  Inh    : type → type                      # ! 1 prec 20role Judgment
+  // introduction: If we have an inhabitant of "A", then "A" is inhabited.
+
+     This is similar to modal logic's necessitation rule, but we apply it even if there are unboxed assumptions in the context.
+  
+  inh    : {A} A → !A # inh 2
+  // The inverse operator does not exist exactly but almost: If we have "!A", we can assume an "x:A" as long as we only use "x" to prove other "!B"-judgments.
+  
+  More generally, the declarations in this theory only return !-types.
+  Thus, adding this theory does not affect the adequacy of an existing encoding.
+  elim   : {A, B} !A → (A → !B) → !B
+
+  // The operator "inh" is functorial. 
+  // Note that this is also the modal axiom K 
+  K      : {A,B} !(A → B) → !A → !B
+         = [A,B] [p,q] elim p [r: A → B] elim q [s: A] inh (r s)
+
+  // Thus, we have: "A → B" is stronger than "!(A → B)" is stronger than "!A → !B" (which is equivalent to "A → !B").
+     Set-theoretically, all 3 are equivalent, but proving the inverse directions requires non-canonically choosing an element, which we cannot do in type theory. 
+         
+  // We can prove that multiple inhabitation operators are redundant.
+  idempotent : {A} !!A → !A 
+         = [A][p] elim p [a]a
+  
+  // operationalizes the rule {A, P:!A, Q:!A} P = Q
+  rule info.kwarc.mmt.lf.inhabitation.ProofIrrelevance
+
+
+theory PredicateSubtypes : ?PLF =
+  include ?Subtyping
+  include ?Inhabitation
+  
+  Sub    : {A: type} (A → type) → type               # 1 | 2 prec 20
+  sub    : {A, P} {x: A} !(P x) → A|P                # 3 by 4
+
+  subA_A    : {A,P} A|P ⊆‍ A
+  subA_subA : {A,P,Q} ({x} P x → Q x) → A|P ⊆‍ A|Q
+
+  // elim   : {A,P}{x: A|P} ! (P x)
+  // sub x (elim x) = x
+

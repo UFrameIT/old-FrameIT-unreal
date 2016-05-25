@@ -1,0 +1,36 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="OpenMath" base="http://www.openmath.org/cd"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/openmath.mmt#39.2.0:450.16.1"/></metadata><constant name="Object">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/openmath.mmt#59.3.2:66.3.9"/></metadata>
+       
+       
+       
+     </constant><constant name="mapsto">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/openmath.mmt#69.4.2:76.4.9"/></metadata>
+       
+       
+       
+     </constant><constant name="naryObject">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/openmath.mmt#79.5.2:90.5.13"/></metadata>
+       
+       
+       
+     </constant><constant name="binder">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/openmath.mmt#93.6.2:100.6.9"/></metadata>
+       
+       
+       
+     </constant><constant name="OMI">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/openmath.mmt#103.7.2:107.7.6"/></metadata>
+       
+       
+       
+     </constant><constant name="OMF">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/openmath.mmt#218.10.2:222.10.6"/></metadata>
+       
+       
+       
+     </constant><constant name="OMSTR">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/openmath.mmt#331.13.2:337.13.8"/></metadata>
+       
+       
+       
+     </constant></theory></omdoc>

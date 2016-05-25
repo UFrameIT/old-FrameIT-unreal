@@ -1,0 +1,43 @@
+namespace http://cds.omdoc.org/urtheories
+
+//  theory TypeSequences =
+   include ?Typed
+   include http://cds.omdoc.org/examples?NatMinus
+// include http://cds.omdoc.org/examples?NatLiterals
+   ntype # type^ 1 prec -20
+
+   rule info.kwarc.mmt.sequences.NTypeTerm
+   rule info.kwarc.mmt.sequences.UniverseNType
+// ellipsis  # < 4 | V3 = 1 .. 2 > prec -10000
+// index     # 1 . 2
+
+
+//  theory Ellipses : ?LF =
+   include ?TypeSequences
+   include ?PLF
+   upto   : nat → type
+   types  : {n} (upto n → type) → type^n                           # types 2
+   rep    : {n} type → type^n 
+          = [n][a] types [x:upto n] a                              # 2 ^ 1 prec -5
+   terms  : {n} {tp: upto n → type} ({i: upto n} tp i) → types tp  # terms 3
+   tindex : {n} type^n → upto n → type                             # 2 .. 3 prec -5
+   index  : {n} {tp: upto n → type} types tp → {i: upto n} tp i    # 3 . 4 prec -4
+   
+   // tcomp  : {n, tp: upto n → type, i: upto n} (equality (types tp) .. i) (tp i) 
+   // comp   : {n, tp: upto n → type, tm: types tp, i: upto n} (equality (terms tm) . i) (tm i) 
+   
+   // nest   : {n, a: type^(n'), f: types ([i: upto (n')] a..i → a..(i))} a..1 → a..(n') 
+
+   
+//  theory LFS =
+   include ?LF
+   include ?Sequences
+   include http://cds.omdoc.org/examples?NatMinus
+   include http://cds.omdoc.org/examples?NatLiterals
+   
+   rule info.kwarc.mmt.sequences.UniverseNType
+   rule info.kwarc.mmt.sequences.NTypeTerm
+   rule info.kwarc.mmt.sequences.EllipsisInfer
+   rule info.kwarc.mmt.sequences.IndexInfer
+   rule info.kwarc.mmt.sequences.ExpandEllipsis
+

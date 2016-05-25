@@ -1,0 +1,138 @@
+theory http://cds.omdoc.org/FrameIT?planar_geometry
+HasMeta http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?HOL
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?reals
+constant http://cds.omdoc.org/FrameIT?planar_geometry?reals
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?realSym
+constant http://cds.omdoc.org/FrameIT?planar_geometry?realSym
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?negative
+constant http://cds.omdoc.org/FrameIT?planar_geometry?negative
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?add
+constant http://cds.omdoc.org/FrameIT?planar_geometry?add
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?sub
+constant http://cds.omdoc.org/FrameIT?planar_geometry?sub
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?mul
+constant http://cds.omdoc.org/FrameIT?planar_geometry?mul
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?div
+constant http://cds.omdoc.org/FrameIT?planar_geometry?div
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?mod
+constant http://cds.omdoc.org/FrameIT?planar_geometry?mod
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tan
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tan
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?sin
+constant http://cds.omdoc.org/FrameIT?planar_geometry?sin
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?cos
+constant http://cds.omdoc.org/FrameIT?planar_geometry?cos
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?atan
+constant http://cds.omdoc.org/FrameIT?planar_geometry?atan
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?asin
+constant http://cds.omdoc.org/FrameIT?planar_geometry?asin
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?acos
+constant http://cds.omdoc.org/FrameIT?planar_geometry?acos
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?sqrt
+constant http://cds.omdoc.org/FrameIT?planar_geometry?sqrt
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.RealLiterals
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.RealLiterals
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Negative
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Negative
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Addition
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Addition
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Multiplication
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Multiplication
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Division
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Division
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Modulo
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Modulo
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Tangent
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Tangent
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Sine
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Sine
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Cosine
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.Cosine
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.ArcTangent
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.ArcTangent
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.ArcSine
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.ArcSine
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.ArcCosine
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.ArcCosine
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.SquareRoot
+constant http://cds.omdoc.org/FrameIT?planar_geometry?info.kwarc.mmt.frameit.SquareRoot
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pi
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pi
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?cartesianProduct
+constant http://cds.omdoc.org/FrameIT?planar_geometry?cartesianProduct
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pair
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pair
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pairFirst
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pairFirst
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pairFirstAxiom
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pairFirstAxiom
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pairSecond
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pairSecond
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pairSecondAxiom
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pairSecondAxiom
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?triple
+constant http://cds.omdoc.org/FrameIT?planar_geometry?triple
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleFirst
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleFirst
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleFirstAxiom
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleFirstAxiom
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleSecond
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleSecond
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleSecondAxiom
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleSecondAxiom
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleThird
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleThird
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleThirdAxiom
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleThirdAxiom
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?Vec2DType
+constant http://cds.omdoc.org/FrameIT?planar_geometry?Vec2DType
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?Vec2D
+constant http://cds.omdoc.org/FrameIT?planar_geometry?Vec2D
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?Vec3DType
+constant http://cds.omdoc.org/FrameIT?planar_geometry?Vec3DType
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?Vec3D
+constant http://cds.omdoc.org/FrameIT?planar_geometry?Vec3D
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?vec3DNegative
+constant http://cds.omdoc.org/FrameIT?planar_geometry?vec3DNegative
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?vec3DNorm
+constant http://cds.omdoc.org/FrameIT?planar_geometry?vec3DNorm
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?vec3DAdd
+constant http://cds.omdoc.org/FrameIT?planar_geometry?vec3DAdd
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?vec3DSub
+constant http://cds.omdoc.org/FrameIT?planar_geometry?vec3DSub
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?vec3DScalarMultiply
+constant http://cds.omdoc.org/FrameIT?planar_geometry?vec3DScalarMultiply
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?vec3DDotProduct
+constant http://cds.omdoc.org/FrameIT?planar_geometry?vec3DDotProduct
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?Line3DType
+constant http://cds.omdoc.org/FrameIT?planar_geometry?Line3DType
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?Line3D
+constant http://cds.omdoc.org/FrameIT?planar_geometry?Line3D
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?angle
+constant http://cds.omdoc.org/FrameIT?planar_geometry?angle
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?lineSegmentLength
+constant http://cds.omdoc.org/FrameIT?planar_geometry?lineSegmentLength
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?perp
+constant http://cds.omdoc.org/FrameIT?planar_geometry?perp
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?perp_axiom1
+constant http://cds.omdoc.org/FrameIT?planar_geometry?perp_axiom1
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pairFirstAxiom/Simplify
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pairFirstAxiom/Simplify
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pairFirstAxiom/Solve
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pairFirstAxiom/Solve
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pairSecondAxiom/Simplify
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pairSecondAxiom/Simplify
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?pairSecondAxiom/Solve
+constant http://cds.omdoc.org/FrameIT?planar_geometry?pairSecondAxiom/Solve
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleFirstAxiom/Simplify
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleFirstAxiom/Simplify
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleFirstAxiom/Solve
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleFirstAxiom/Solve
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleSecondAxiom/Simplify
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleSecondAxiom/Simplify
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleSecondAxiom/Solve
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleSecondAxiom/Solve
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleThirdAxiom/Simplify
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleThirdAxiom/Simplify
+Declares http://cds.omdoc.org/FrameIT?planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry?tripleThirdAxiom/Solve
+constant http://cds.omdoc.org/FrameIT?planar_geometry?tripleThirdAxiom/Solve

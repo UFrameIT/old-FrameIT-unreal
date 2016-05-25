@@ -1,0 +1,93 @@
+theory http://cds.omdoc.org/FrameIT?test_planar_geometry
+HasMeta http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?HOL
+Includes http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?planar_geometry
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?realtest
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?realtest
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?tester
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?tester
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?test
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?test
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?k
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?k
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?p
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?p
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?a
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?a
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claim
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claim
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?a1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?a1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claim1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claim1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?a2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?a2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claim2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claim2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?a3
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?a3
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claim3
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claim3
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?a4
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?a4
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claim4
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claim4
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?a5
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?a5
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claim5
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claim5
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?pVec3D
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?pVec3D
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?pR
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?pR
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DEqual
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DEqual
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DEqual
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DEqual
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DNegative
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DNegative
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DNegative
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DNegative
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DAdd1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DAdd1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DAdd1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DAdd1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DAdd2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DAdd2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DAdd2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DAdd2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DSub1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DSub1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DSub1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DSub1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DSub2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DSub2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DSub2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DSub2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DAddSub
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DAddSub
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DAddSub
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DAddSub
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DNorm1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DNorm1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DNorm1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DNorm1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DNorm2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DNorm2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DNorm2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DNorm2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DScalarMultiply1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DScalarMultiply1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DScalarMultiply1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DScalarMultiply1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DScalarMultiply2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DScalarMultiply2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DScalarMultiply2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DScalarMultiply2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DDotProduct1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DDotProduct1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DDotProduct1
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DDotProduct1
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DDotProduct2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?testVec3DDotProduct2
+Declares http://cds.omdoc.org/FrameIT?test_planar_geometry http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DDotProduct2
+constant http://cds.omdoc.org/FrameIT?test_planar_geometry?claimTestVec3DDotProduct2

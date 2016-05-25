@@ -1,0 +1,12 @@
+theory http://cds.omdoc.org/urtheories?PredicateSubtypes
+HasMeta http://cds.omdoc.org/urtheories?PredicateSubtypes http://cds.omdoc.org/urtheories?PLF
+Includes http://cds.omdoc.org/urtheories?PredicateSubtypes http://cds.omdoc.org/urtheories?Subtyping
+Includes http://cds.omdoc.org/urtheories?PredicateSubtypes http://cds.omdoc.org/urtheories?Inhabitation
+Declares http://cds.omdoc.org/urtheories?PredicateSubtypes http://cds.omdoc.org/urtheories?PredicateSubtypes?Sub
+constant http://cds.omdoc.org/urtheories?PredicateSubtypes?Sub
+Declares http://cds.omdoc.org/urtheories?PredicateSubtypes http://cds.omdoc.org/urtheories?PredicateSubtypes?sub
+constant http://cds.omdoc.org/urtheories?PredicateSubtypes?sub
+Declares http://cds.omdoc.org/urtheories?PredicateSubtypes http://cds.omdoc.org/urtheories?PredicateSubtypes?subA_A
+constant http://cds.omdoc.org/urtheories?PredicateSubtypes?subA_A
+Declares http://cds.omdoc.org/urtheories?PredicateSubtypes http://cds.omdoc.org/urtheories?PredicateSubtypes?subA_subA
+constant http://cds.omdoc.org/urtheories?PredicateSubtypes?subA_subA

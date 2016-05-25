@@ -1,0 +1,9 @@
+theory http://cds.omdoc.org/urtheories?TypedSymbols
+Declares http://cds.omdoc.org/urtheories?TypedSymbols http://cds.omdoc.org/urtheories?TypedSymbols?kind
+constant http://cds.omdoc.org/urtheories?TypedSymbols?kind
+Declares http://cds.omdoc.org/urtheories?TypedSymbols http://cds.omdoc.org/urtheories?TypedSymbols?type
+constant http://cds.omdoc.org/urtheories?TypedSymbols?type
+Declares http://cds.omdoc.org/urtheories?TypedSymbols http://cds.omdoc.org/urtheories?TypedSymbols?oftype
+constant http://cds.omdoc.org/urtheories?TypedSymbols?oftype
+Declares http://cds.omdoc.org/urtheories?TypedSymbols http://cds.omdoc.org/urtheories?TypedSymbols?equality
+constant http://cds.omdoc.org/urtheories?TypedSymbols?equality

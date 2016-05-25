@@ -1,0 +1,26 @@
+namespace http://cds.omdoc.org/FrameIT 
+
+theory problem_theory : ?planar_geometry =
+	// Our three points, which form the the right triangle below
+	//
+	//       C
+	//     / |
+	//    /  |
+  //   /   |
+  // A --- B
+  // 
+	Pa : Vec3D 
+	Pb : Vec3D 
+	Pc : Vec3D 
+  
+	anglePaPbPc_value : realSym 
+	anglePaPbPc : ⊦ (∠ Pa Pb Pc) ≐ anglePaPbPc_value 
+
+  anglePcPaPb_value : realSym 
+  anglePcPaPb : ⊦ (∠ Pc Pa Pb) ≐ anglePcPaPb_value 
+	
+	lineSegPaPb_value : realSym 
+  lineSegPaPb : ⊦ (lineSegmentLength Pa Pb) ≐ lineSegPaPb_value 
+	
+  proof : ⊦ ((⟨Pa, Pb⟩) ⊥ (⟨Pb, Pc⟩)) 
+

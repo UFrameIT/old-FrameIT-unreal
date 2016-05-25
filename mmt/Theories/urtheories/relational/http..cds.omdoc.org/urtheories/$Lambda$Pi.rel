@@ -1,0 +1,9 @@
+theory http://cds.omdoc.org/urtheories?LambdaPi
+Declares http://cds.omdoc.org/urtheories?LambdaPi http://cds.omdoc.org/urtheories?LambdaPi?Pi
+constant http://cds.omdoc.org/urtheories?LambdaPi?Pi
+Declares http://cds.omdoc.org/urtheories?LambdaPi http://cds.omdoc.org/urtheories?LambdaPi?lambda
+constant http://cds.omdoc.org/urtheories?LambdaPi?lambda
+Declares http://cds.omdoc.org/urtheories?LambdaPi http://cds.omdoc.org/urtheories?LambdaPi?apply
+constant http://cds.omdoc.org/urtheories?LambdaPi?apply
+Declares http://cds.omdoc.org/urtheories?LambdaPi http://cds.omdoc.org/urtheories?LambdaPi?arrow
+constant http://cds.omdoc.org/urtheories?LambdaPi?arrow

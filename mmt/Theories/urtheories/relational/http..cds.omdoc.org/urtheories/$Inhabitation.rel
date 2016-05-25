@@ -1,0 +1,14 @@
+theory http://cds.omdoc.org/urtheories?Inhabitation
+HasMeta http://cds.omdoc.org/urtheories?Inhabitation http://cds.omdoc.org/urtheories?PLF
+Declares http://cds.omdoc.org/urtheories?Inhabitation http://cds.omdoc.org/urtheories?Inhabitation?Inh
+constant http://cds.omdoc.org/urtheories?Inhabitation?Inh
+Declares http://cds.omdoc.org/urtheories?Inhabitation http://cds.omdoc.org/urtheories?Inhabitation?inh
+constant http://cds.omdoc.org/urtheories?Inhabitation?inh
+Declares http://cds.omdoc.org/urtheories?Inhabitation http://cds.omdoc.org/urtheories?Inhabitation?elim
+constant http://cds.omdoc.org/urtheories?Inhabitation?elim
+Declares http://cds.omdoc.org/urtheories?Inhabitation http://cds.omdoc.org/urtheories?Inhabitation?K
+constant http://cds.omdoc.org/urtheories?Inhabitation?K
+Declares http://cds.omdoc.org/urtheories?Inhabitation http://cds.omdoc.org/urtheories?Inhabitation?idempotent
+constant http://cds.omdoc.org/urtheories?Inhabitation?idempotent
+Declares http://cds.omdoc.org/urtheories?Inhabitation http://cds.omdoc.org/urtheories?Inhabitation?info.kwarc.mmt.lf.inhabitation.ProofIrrelevance
+constant http://cds.omdoc.org/urtheories?Inhabitation?info.kwarc.mmt.lf.inhabitation.ProofIrrelevance

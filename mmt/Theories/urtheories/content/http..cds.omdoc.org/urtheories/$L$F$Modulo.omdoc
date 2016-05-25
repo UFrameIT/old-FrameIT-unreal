@@ -1,0 +1,13 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="LFModulo" base="http://cds.omdoc.org/urtheories" meta="http://cds.omdoc.org/urtheories?PLF"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#44.2.0:135.4.1"/></metadata><constant name="equality" role="Eq">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#72.3.3:133.3.64"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#83.3.14:103.3.34"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#84.3.15:84.3.15"/></metadata><type><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#86.3.17:89.3.20"/></metadata></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#92.3.23:103.3.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#92.3.23:92.3.23"/></metadata></om:OMV><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#96.3.27:96.3.27"/></metadata></om:OMV><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lfmodulo.mmt#100.3.31:103.3.34"/></metadata></om:OMS>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="-9000" fixity="mixfix" arguments="2 = 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

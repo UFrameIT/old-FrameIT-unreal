@@ -1,0 +1,36 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="CF" base="http://cds.omdoc.org/urtheories"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#44.2.0:394.20.1"/></metadata><import from="http://cds.omdoc.org/urtheories?PLF"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#59.3.3:72.3.16"/></metadata></import><constant name="instance">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#77.5.3:108.5.34"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="instance 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="new">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#112.6.3:127.6.18"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="new 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><ruleconstant name="info.kwarc.mmt.cf.NewInstance"/><constant name="field">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#170.8.3:187.8.20"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="1 . 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="sequence">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#196.11.3:223.11.30"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="var V1;… in 2;…"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><ruleconstant name="info.kwarc.mmt.cf.Sequence"/><constant name="None">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#264.14.3:275.14.14"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#270.14.9:273.14.12"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="none">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#279.15.3:290.15.14"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="CF" name="None"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#285.15.9:288.15.12"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="assign">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/cf.mmt#297.17.3:312.17.18"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="1 = 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><ruleconstant name="info.kwarc.mmt.cf.Assignment"/><ruleconstant name="info.kwarc.mmt.cf.AssignmentTerm"/></theory></omdoc>

@@ -1,0 +1,22 @@
+theory http://cds.omdoc.org/FrameIT?problem_theory
+HasMeta http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?planar_geometry
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?Pa
+constant http://cds.omdoc.org/FrameIT?problem_theory?Pa
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?Pb
+constant http://cds.omdoc.org/FrameIT?problem_theory?Pb
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?Pc
+constant http://cds.omdoc.org/FrameIT?problem_theory?Pc
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?anglePaPbPc_value
+constant http://cds.omdoc.org/FrameIT?problem_theory?anglePaPbPc_value
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?anglePaPbPc
+constant http://cds.omdoc.org/FrameIT?problem_theory?anglePaPbPc
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?anglePcPaPb_value
+constant http://cds.omdoc.org/FrameIT?problem_theory?anglePcPaPb_value
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?anglePcPaPb
+constant http://cds.omdoc.org/FrameIT?problem_theory?anglePcPaPb
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?lineSegPaPb_value
+constant http://cds.omdoc.org/FrameIT?problem_theory?lineSegPaPb_value
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?lineSegPaPb
+constant http://cds.omdoc.org/FrameIT?problem_theory?lineSegPaPb
+Declares http://cds.omdoc.org/FrameIT?problem_theory http://cds.omdoc.org/FrameIT?problem_theory?proof
+constant http://cds.omdoc.org/FrameIT?problem_theory?proof

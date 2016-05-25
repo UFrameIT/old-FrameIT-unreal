@@ -1,0 +1,246 @@
+namespace http://cds.omdoc.org/FrameIT 
+
+theory planar_geometry : ?HOL =
+
+  // This should be a theory by itself that provides real numbers common operators on them. 
+	reals : tp       
+	realSym : type     
+	  = tm reals 
+	negative : realSym → realSym 
+           # - 1 prec 20 
+	add   : realSym → realSym → realSym 
+			  # 1 + 2 prec 5 
+	sub   : realSym → realSym → realSym 
+			  = [a, b] a + (-b) 
+        # 1 - 2 prec 5
+	mul   : realSym → realSym → realSym 
+			  # 1 * 2 prec 10 
+	div   : realSym → realSym → realSym 
+			  # 1 / 2 prec 10 
+	mod   : realSym → realSym → realSym 
+			  # 1 % 2 prec 10 
+	tan   : realSym → realSym    
+	sin   : realSym → realSym    
+	cos   : realSym → realSym    
+	atan   : realSym → realSym    
+	asin   : realSym → realSym    
+	acos   : realSym → realSym    
+	sqrt  : realSym → realSym    
+
+	rule info.kwarc.mmt.frameit.RealLiterals 
+	rule info.kwarc.mmt.frameit.Negative 
+	rule info.kwarc.mmt.frameit.Addition 
+	rule info.kwarc.mmt.frameit.Multiplication 
+	rule info.kwarc.mmt.frameit.Division 
+	rule info.kwarc.mmt.frameit.Modulo 
+	rule info.kwarc.mmt.frameit.Tangent 
+	rule info.kwarc.mmt.frameit.Sine 
+	rule info.kwarc.mmt.frameit.Cosine 
+	rule info.kwarc.mmt.frameit.ArcTangent 
+	rule info.kwarc.mmt.frameit.ArcSine 
+	rule info.kwarc.mmt.frameit.ArcCosine 
+	rule info.kwarc.mmt.frameit.SquareRoot 
+
+	
+	pi : realSym  = (3.141592653589793238462643383279) 
+	
+  // This should be a theory by itself that provides basic operators to create more complex types. 
+  cartesianProduct : tp → tp → tp 
+                   # 1 × 2 prec 1000
+  
+  // Pair and its axioms                   
+  pair : {A : tp, B : tp} tm A → tm B → tm (A × B) 
+       # ⟨ 3 , 4 ⟩ prec 100 
+  pairFirst : {A : tp, B : tp} tm (A × B) → tm A 
+            # pairFirst 3  
+  pairFirstAxiom : {A, B} {a : tm A, b : tm B} ⊦ (pairFirst ⟨a,b⟩) ≐ a 
+                 role Simplify 
+  pairSecond : {A : tp, B : tp} tm (A × B) → tm B 
+             # pairSecond 3  
+  pairSecondAxiom : {A, B} {a : tm A, b : tm B} ⊦ (pairSecond ⟨a,b⟩) ≐ b 
+                  role Simplify 
+                 
+  // Triple and its axioms 
+  triple : {A : tp, B : tp, C : tp} tm A → tm B → tm C → tm (A × B × C) 
+         # ⟨ 4 , 5 , 6 ⟩ prec 50 
+  tripleFirst : {A : tp, B : tp, C : tp} tm (A × B × C) → tm A 
+              # tripleFirst 4  
+  tripleFirstAxiom : {A, B, C} {a : tm A, b : tm B, c : tm C} ⊦ (tripleFirst ⟨a,b,c⟩) ≐ a 
+                   role Simplify 
+  tripleSecond : {A : tp, B : tp, C : tp} tm (A × B × C) → tm B 
+               # tripleSecond 4  
+  tripleSecondAxiom : {A, B, C} {a : tm A, b : tm B, c : tm C} ⊦ (tripleSecond ⟨a,b,c⟩) ≐ b 
+                    role Simplify 
+  tripleThird : {A : tp, B : tp, C : tp} tm (A × B × C) → tm C 
+               # tripleThird 4  
+  tripleThirdAxiom : {A, B, C} {a : tm A, b : tm B, c : tm C} ⊦ (tripleThird ⟨a,b,c⟩) ≐ c 
+                   role Simplify          
+         
+  // This should be a seperate theory that provides vectors operations on them. 
+  Vec2DType : tp  = (reals × reals) 
+  Vec2D = tm (Vec2DType) 
+  Vec3DType : tp  = (reals × reals × reals) 
+  Vec3D = tm (Vec3DType) 
+
+  
+  vec3DNegative : Vec3D → Vec3D 
+                = [a] ⟨(-(tripleFirst a)),
+                       (-(tripleSecond a)),
+                       (-(tripleThird a))⟩ 
+                # ~ 1 prec -5 
+
+  vec3DNorm : Vec3D → realSym 
+                = [a] sqrt((tripleFirst a) * (tripleFirst a) +
+                      (tripleSecond a) * (tripleSecond a) +
+                      (tripleThird a) * (tripleThird a)) 
+                # | 1 | prec -5 
+
+  vec3DAdd : Vec3D → Vec3D → Vec3D 
+           = [a,b] ⟨((tripleFirst a) + (tripleFirst b)),
+                    ((tripleSecond a) + (tripleSecond b)),
+                    ((tripleThird a) + (tripleThird b))⟩ 
+           # 1 v+ 2 prec -15 
+
+  vec3DSub : Vec3D → Vec3D → Vec3D 
+           = [a,b] ⟨((tripleFirst a) - (tripleFirst b)),
+                    ((tripleSecond a) - (tripleSecond b)),
+                    ((tripleThird a) - (tripleThird b))⟩ 
+           # 1 v- 2 prec -15 
+                
+  vec3DScalarMultiply : realSym → Vec3D → Vec3D 
+           = [a,b] ⟨(a * (tripleFirst b)),
+                    (a * (tripleSecond b)),
+                    (a * (tripleThird b))⟩ 
+           # 1 v* 2 prec -10 
+  
+  vec3DDotProduct : Vec3D → Vec3D → realSym 
+                  = [a,b] ((tripleFirst a)  * (tripleFirst b)) +
+                          ((tripleSecond a) * (tripleSecond b)) +
+                          ((tripleThird a)  * (tripleThird b)) 
+                  # 1 vdot 2 prec -5 
+
+           
+  // Tarski's axioms could be cool here (https://en.wikipedia.org/wiki/Tarski%27s_axioms) but for now we keep it stupid 
+        
+  // Line types and axioms 
+	
+  Line3DType : tp  = (Vec3DType × Vec3DType) 
+  Line3D = tm (Line3DType) 
+ 
+  // ∠ : Line3D → Line3D → realSym 
+  angle : Vec3D → Vec3D → Vec3D → realSym  # ∠ 1 2 3 
+  lineSegmentLength : Vec3D → Vec3D → realSym 
+  
+  // angleAxiom  : {line1 : Line3D, line2 : Line3D} ⊦ (∠ line1 line2) ≐ (acos
+    									 (((pairFirst(line1) v- pairSecond(line1)) vdot
+                         (pairFirst(line2) v- pairSecond(line2))) /
+                        ((| (pairFirst(line1) v- pairSecond(line1)) |) * 
+                         (| (pairFirst(line2) v- pairSecond(line2)) |)))) 
+              role Simplify 
+  
+  perp : Line3D → Line3D → o  # 1 ⊥ 2                      
+  perp_axiom1 : {a,b,c} ⊦ (∠ a b c) ≐ (pi / 2.0) → ⊦ ⟨ a, b ⟩ ⊥ ⟨ b, c ⟩  # perp_axiom1 4
+
+                        
+                        
+  // definied via equality later on we replace it by a nicer proof based ⊥
+  // ⊥ : Line3D → Line3D → o 
+    = [line1, line2] ((pairFirst(line1) v- pairSecond(line1)) vdot
+                      (pairFirst(line2) v- pairSecond(line2))) ≐ 0 
+  // perpAxiom : {a : Line3D, b : Line3D} ⊦ ((a vdot b) ≐ 0) ⇒ ⊦ (⊥ a b)    
+  
+
+  
+
+
+theory test_planar_geometry : ?HOL =
+  include ?planar_geometry 
+  realtest : realSym  = tan (2 * 3 + 2) 
+  tester : realSym  = ((-(3.0)) - 7.0) 
+  test : Vec2D  = ⟨2.0, 3.0⟩ 
+  k : realSym  = pairFirst ⟨2.0, 3.0⟩ 
+  // lineTest : type  = tm (Line3D (⟨1, 2, 3⟩) (⟨1, 2, 3⟩))  
+  // lineTest2 : Line3D  = 
+  
+  
+  p : realSym → o 
+
+  a : ded (p 0.0) 
+  claim : ded (p (tan 0))  = a 
+  a1 : ded (p 1.0) 
+  claim1 : ded (p (cos (tan 0)))  = a1 
+  a2 : ded (p 5.0) 
+  claim2 : ded (p (2.4 + (2.6)))  = a2 
+  a3 : ded (p (4.0)) 
+  claim3 : ded (p ((-3.0) + 7.0))  = a3 
+  a4 : ded (p (-16.0)) 
+  claim4 : ded (p (3 * (-3.0) - 7.0))  = a4 
+  a5 : ded (p (2.0)) 
+  claim5 : ded (p (pairFirst (⟨2.0, 3.0⟩)))  = a5 
+  
+  // Theory tests for Vec3D 
+  pVec3D : Vec3D → o 
+  pR : realSym → o 
+
+  testVec3DEqual : ded (pVec3D (⟨1, 2, 3⟩)) 
+  claimTestVec3DEqual : ded (pVec3D (⟨1, 2, 3⟩)) 
+                      = testVec3DEqual 
+
+  testVec3DNegative : ded (pVec3D (⟨(-1.0), (-2.0), (-3.0)⟩)) 
+  claimTestVec3DNegative : ded (pVec3D (~(⟨1.0, 2.0, 3.0⟩)))  
+                         = testVec3DNegative 
+
+  testVec3DAdd1 : ded (pVec3D (⟨2, 4, 6⟩)) 
+  claimTestVec3DAdd1 : ded (pVec3D ((⟨1, 2, 3⟩) v+ (⟨1, 2, 3⟩))) 
+                    = testVec3DAdd1   
+                    
+  testVec3DAdd2 : ded (pVec3D (⟨0, 0, 0⟩)) 
+  claimTestVec3DAdd2 : ded (pVec3D ((⟨1, 2, 3⟩) v+ (⟨(-1), (-2), (-3)⟩))) 
+                    = testVec3DAdd2 
+                                       
+  testVec3DSub1 : ded (pVec3D (⟨0, 0, 0⟩)) 
+  claimTestVec3DSub1 : ded (pVec3D ((⟨1, 2, 3⟩) v- (⟨1, 2, 3⟩))) 
+                    = testVec3DSub1   
+                    
+  testVec3DSub2 : ded (pVec3D (⟨2, 4, 6⟩)) 
+  claimTestVec3DSub2 : ded (pVec3D ((⟨1, 2, 3⟩) v- (⟨(-1), (-2), (-3)⟩))) 
+                    = testVec3DSub2 
+                    
+  testVec3DAddSub : ded (pVec3D (⟨1, 2, 3⟩)) 
+  claimTestVec3DAddSub : ded (pVec3D ((⟨1, 2, 3⟩) v+
+                                      (⟨(-1), (-2), (-3)⟩) v-
+                                      (⟨(-1), (-2), (-3)⟩))) 
+                    = testVec3DAddSub 
+                    
+  testVec3DNorm1 : ded (pR (14)) 
+  claimTestVec3DNorm1 : ded (pR (|⟨1, 2, 3⟩| * |⟨1, 2, 3⟩|)) 
+                      = testVec3DNorm1 
+
+  testVec3DNorm2 : ded (pR (sqrt 14)) 
+  claimTestVec3DNorm2 : ded (pR (|⟨1, 2, 3⟩|)) 
+                      = testVec3DNorm2 
+                      
+  testVec3DScalarMultiply1 : ded (pVec3D (⟨10, 20, 30⟩)) 
+  claimTestVec3DScalarMultiply1 : ded (pVec3D (10 v* (⟨1, 2, 3⟩))) 
+                    = testVec3DScalarMultiply1                      
+
+  testVec3DScalarMultiply2 : ded (pVec3D (⟨(-10), 20, (-30)⟩)) 
+  claimTestVec3DScalarMultiply2 : ded (pVec3D ((-10) v* (⟨1, (-2), 3⟩))) 
+                    = testVec3DScalarMultiply2    
+  
+  testVec3DDotProduct1 : ded (pR (14)) 
+  claimTestVec3DDotProduct1 : ded (pR ((⟨1, 2, 3⟩) vdot (⟨1, 2, 3⟩))) 
+                      = testVec3DDotProduct1 
+
+  testVec3DDotProduct2 : ded (pR (29)) 
+  claimTestVec3DDotProduct2 : ded (pR ((⟨4, 8, 1⟩) vdot (⟨1, 2, 9⟩))) 
+                      = testVec3DDotProduct2                       
+  
+  // testVec3DAngle : ded (pR (pi / 2.0)) 
+  // claimTestVec3DAngle : ded (pR (∠ (⟨(⟨0, 0, 0⟩) , (⟨1, 0, 0⟩)⟩)
+                                   (⟨(⟨1, 1, 0⟩) , (⟨1, 0, 0⟩)⟩) )) 
+                      = testVec3DAngle    
+
+                     
+  
+  

@@ -1,0 +1,8 @@
+namespace http://cds.omdoc.org/FrameIT 
+
+theory solution_theory : ?planar_geometry =
+	include ?problem_theory  
+
+  lineSegPbPc_value : realSym  = (tan anglePcPaPb_value) * lineSegPaPb_value  
+  lineSegPbPc : ⊦ (lineSegmentLength Pb Pc) ≐ lineSegPbPc_value 
+

@@ -1,0 +1,5 @@
+document http://docs.omdoc.org/FrameIT
+Declares http://docs.omdoc.org/FrameIT http://docs.omdoc.org/FrameIT/hol.omdoc
+Declares http://docs.omdoc.org/FrameIT http://docs.omdoc.org/FrameIT/planar_geometry.omdoc
+Declares http://docs.omdoc.org/FrameIT http://docs.omdoc.org/FrameIT/problem_theory.omdoc
+Declares http://docs.omdoc.org/FrameIT http://docs.omdoc.org/FrameIT/solution_theory.omdoc
