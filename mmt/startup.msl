@@ -1,0 +1,8 @@
+//log console
+//log+ object-checker
+extension info.kwarc.mmt.api.ontology.AlignmentsServer
+extension info.kwarc.mmt.frameit.FrameitPlugin
+mathpath archive ./Theories
+server on 10000
+build FrameIT mmt-omdoc
+build FrameIT relational
