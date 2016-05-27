@@ -1,0 +1,6 @@
+test_job:
+ script:
+  - uname -a
+  - id
+  - pwd
+

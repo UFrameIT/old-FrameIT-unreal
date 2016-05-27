@@ -1,0 +1,3 @@
+theory http://cds.omdoc.org/urtheories?TypedConstants
+Declares http://cds.omdoc.org/urtheories?TypedConstants http://cds.omdoc.org/urtheories?TypedConstants?info.kwarc.mmt.lf.UniverseType
+constant http://cds.omdoc.org/urtheories?TypedConstants?info.kwarc.mmt.lf.UniverseType
