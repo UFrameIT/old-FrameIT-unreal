@@ -1,1 +1,16 @@
-<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Typed" base="http://cds.omdoc.org/urtheories"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#339.17.0:479.23.1"/></metadata><import from="http://cds.omdoc.org/mmt?Errors"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#357.18.3:378.18.24"/></metadata></import><import from="http://cds.omdoc.org/mmt?ModExp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#382.19.3:403.19.24"/></metadata></import><import from="http://cds.omdoc.org/mmt?mmt"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#407.20.3:425.20.21"/></metadata></import><import from="http://cds.omdoc.org/urtheories?TypedSymbols"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#429.21.3:451.21.25"/></metadata></import><import from="http://cds.omdoc.org/urtheories?TypedRules"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#456.22.3:476.22.23"/></metadata></import></theory></omdoc>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Typed" base="http://cds.omdoc.org/urtheories"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#83.4.0:178.8.1"/></metadata><constant name="type">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#101.5.3:106.5.8"/></metadata>
+       
+       
+       
+     </constant><constant name="oftype">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#110.6.3:137.6.30"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-9995" fixity="mixfix" arguments=": 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="equality" role="Eq">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/lf.mmt#141.7.3:176.7.38"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="equality 1 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

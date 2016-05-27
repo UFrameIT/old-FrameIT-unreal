@@ -25,9 +25,12 @@ theory mmt =
    brackets     # ( 1 ) prec -1000005
    // left bracket with omitted partner as far to the right as consistent with round brackets 
    andrewsDot   # ▪ 1  prec -1000000
+   // binds unsolved meta-variables 
+   unknown
+   // binds free variables that are implicitly quantified at the toplevel
+   free
    // the type of all rules
    constant rule
-   rule info.kwarc.mmt.api.notations.MixfixNotation
 
    rule info.kwarc.mmt.api.parser.GenericEscapeLexer
    rule info.kwarc.mmt.api.parser.UnicodeReplacer

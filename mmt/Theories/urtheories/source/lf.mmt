@@ -2,25 +2,34 @@ namespace http://cds.omdoc.org/urtheories
 
 import meta http://cds.omdoc.org/mmt
 
-theory TypedSymbols =
-	 kind
+theory Typed =
    type
    oftype   # : 1 prec  -9995
    equality # equality 1 2   role Eq
 
    
-theory TypedRules =
+theory Kinded =
+   include ?Typed
+	 kind
+
+   
+theory TypedConstants =
    rule info.kwarc.mmt.lf.UniverseType
-   rule info.kwarc.mmt.lf.UniverseKind
-   rule info.kwarc.mmt.lf.UnivTerm  
 
 
-theory Typed =
+theory KindedConstants =
+   rule info.kwarc.mmt.lf.UniverseKind
+
+
+theory TermsTypesKinds =
    include meta:?Errors
    include meta:?ModExp
    include meta:?mmt
-   include ?TypedSymbols 
-   include ?TypedRules 
+   include ?Typed 
+   include ?Kinded 
+   include ?TypedConstants 
+   include ?KindedConstants 
+   rule info.kwarc.mmt.lf.UnivTerm  
 
    
 theory LambdaPi =
@@ -30,7 +39,7 @@ theory LambdaPi =
    arrow  # 1→…         prec  -9990
 
    
-theory LambdaPiRules =
+theory LFRules =
    rule info.kwarc.mmt.lf.PiType
    rule info.kwarc.mmt.lf.PiTerm
    rule info.kwarc.mmt.lf.ApplyTerm
@@ -51,9 +60,9 @@ theory LambdaPiRules =
 
 
 theory LF =
-   include ?Typed
+   include ?TermsTypesKinds
    include ?LambdaPi 
-   include ?LambdaPiRules 
+   include ?LFRules 
 
    
 theory ShallowPolymorphism =

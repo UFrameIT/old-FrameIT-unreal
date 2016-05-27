@@ -1,7 +1,0 @@
-theory http://cds.omdoc.org/urtheories?TypedRules
-Declares http://cds.omdoc.org/urtheories?TypedRules http://cds.omdoc.org/urtheories?TypedRules?info.kwarc.mmt.lf.UniverseType
-constant http://cds.omdoc.org/urtheories?TypedRules?info.kwarc.mmt.lf.UniverseType
-Declares http://cds.omdoc.org/urtheories?TypedRules http://cds.omdoc.org/urtheories?TypedRules?info.kwarc.mmt.lf.UniverseKind
-constant http://cds.omdoc.org/urtheories?TypedRules?info.kwarc.mmt.lf.UniverseKind
-Declares http://cds.omdoc.org/urtheories?TypedRules http://cds.omdoc.org/urtheories?TypedRules?info.kwarc.mmt.lf.UnivTerm
-constant http://cds.omdoc.org/urtheories?TypedRules?info.kwarc.mmt.lf.UnivTerm

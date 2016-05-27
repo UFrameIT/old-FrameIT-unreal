@@ -3,10 +3,12 @@ Declares http://cds.omdoc.org/mmt?mmt http://cds.omdoc.org/mmt?mmt?brackets
 constant http://cds.omdoc.org/mmt?mmt?brackets
 Declares http://cds.omdoc.org/mmt?mmt http://cds.omdoc.org/mmt?mmt?andrewsDot
 constant http://cds.omdoc.org/mmt?mmt?andrewsDot
+Declares http://cds.omdoc.org/mmt?mmt http://cds.omdoc.org/mmt?mmt?unknown
+constant http://cds.omdoc.org/mmt?mmt?unknown
+Declares http://cds.omdoc.org/mmt?mmt http://cds.omdoc.org/mmt?mmt?free
+constant http://cds.omdoc.org/mmt?mmt?free
 Declares http://cds.omdoc.org/mmt?mmt http://cds.omdoc.org/mmt?mmt?rule
 constant http://cds.omdoc.org/mmt?mmt?rule
-Declares http://cds.omdoc.org/mmt?mmt http://cds.omdoc.org/mmt?mmt?info.kwarc.mmt.api.notations.MixfixNotation
-constant http://cds.omdoc.org/mmt?mmt?info.kwarc.mmt.api.notations.MixfixNotation
 Declares http://cds.omdoc.org/mmt?mmt http://cds.omdoc.org/mmt?mmt?info.kwarc.mmt.api.parser.GenericEscapeLexer
 constant http://cds.omdoc.org/mmt?mmt?info.kwarc.mmt.api.parser.GenericEscapeLexer
 Declares http://cds.omdoc.org/mmt?mmt http://cds.omdoc.org/mmt?mmt?info.kwarc.mmt.api.parser.UnicodeReplacer

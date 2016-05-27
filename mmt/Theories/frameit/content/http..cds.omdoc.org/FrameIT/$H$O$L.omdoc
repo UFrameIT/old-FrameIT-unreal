@@ -1,13 +1,13 @@
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="HOL" base="http://cds.omdoc.org/FrameIT" meta="http://cds.omdoc.org/urtheories?LF"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#42.2.0:744.29.1"/></metadata><constant name="tp">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#65.3.1:76.3.12"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#70.3.6:73.3.9"/></metadata></om:OMS></om:OMOBJ></type>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#70.3.6:73.3.9"/></metadata></om:OMS></om:OMOBJ></type>
        
        
      </constant><constant name="tm">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#78.4.1:94.4.17"/></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#83.4.6:91.4.14"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
-              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#83.4.6:84.4.7"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#88.4.11:91.4.14"/></metadata></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#83.4.6:84.4.7"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#88.4.11:91.4.14"/></metadata></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
        
@@ -18,7 +18,7 @@
        
      </constant><constant name="o">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#111.7.1:133.7.23"/></metadata>
-       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#115.7.5:118.7.8"/></metadata></om:OMS></om:OMOBJ></type>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#115.7.5:118.7.8"/></metadata></om:OMS></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#168.9.32:168.9.32"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#124.7.14:125.7.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="prop"></om:OMS>
@@ -46,7 +46,7 @@
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#201.11.1:251.11.51"/></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#207.11.7:214.11.14"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
-              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#207.11.7:207.11.7"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="TypedSymbols" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#211.11.11:214.11.14"/></metadata></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#207.11.7:207.11.7"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#211.11.11:214.11.14"/></metadata></om:OMS>
       </om:OMA></om:OMOBJ></type>
        
        <notations><notation dimension="1" precedence="-500" fixity="mixfix" arguments="⊦ 1"> <scope languages="" priority="0"/> </notation></notations>

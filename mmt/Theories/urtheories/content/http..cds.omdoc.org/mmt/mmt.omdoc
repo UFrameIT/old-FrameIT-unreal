@@ -1,4 +1,4 @@
-<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="mmt" base="http://cds.omdoc.org/mmt"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#898.22.0:1433.34.1"/></metadata><constant name="brackets">
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="mmt" base="http://cds.omdoc.org/mmt"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#898.22.0:1514.37.1"/></metadata><constant name="brackets">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1009.24.3:1044.24.38"/></metadata>
        
        
@@ -8,9 +8,19 @@
        
        
        <notations><notation dimension="1" precedence="-1000000" fixity="mixfix" arguments="▪ 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="unknown">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1220.28.3:1228.28.11"/></metadata>
+       
+       
+       
+     </constant><constant name="free">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1307.30.3:1312.30.8"/></metadata>
+       
+       
+       
      </constant><constant name="rule">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1211.28.3:1225.28.17"/></metadata>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1345.32.3:1359.32.17"/></metadata>
        
        
        
-     </constant><ruleconstant name="info.kwarc.mmt.api.notations.MixfixNotation"/><ruleconstant name="info.kwarc.mmt.api.parser.GenericEscapeLexer"/><ruleconstant name="info.kwarc.mmt.api.parser.UnicodeReplacer"/><ruleconstant name="info.kwarc.mmt.api.parser.MMTURILexer"/></theory></omdoc>
+     </constant><ruleconstant name="info.kwarc.mmt.api.parser.GenericEscapeLexer"/><ruleconstant name="info.kwarc.mmt.api.parser.UnicodeReplacer"/><ruleconstant name="info.kwarc.mmt.api.parser.MMTURILexer"/></theory></omdoc>

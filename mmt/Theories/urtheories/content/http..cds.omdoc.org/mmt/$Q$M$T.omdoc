@@ -1,35 +1,35 @@
-<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="QMT" base="http://cds.omdoc.org/mmt"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1438.36.0:1569.46.1"/></metadata><constant name="query">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1453.37.2:1461.37.10"/></metadata>
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="QMT" base="http://cds.omdoc.org/mmt"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1519.39.0:1650.49.1"/></metadata><constant name="query">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1534.40.2:1542.40.10"/></metadata>
        
        
        
      </constant><constant name="prop">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1464.38.2:1472.38.10"/></metadata>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1545.41.2:1553.41.10"/></metadata>
        
        
        
      </constant><constant name="basetp">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1475.39.2:1483.39.10"/></metadata>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1556.42.2:1564.42.10"/></metadata>
        
        
        
      </constant><constant name="tp">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1486.40.2:1494.40.10"/></metadata>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1567.43.2:1575.43.10"/></metadata>
        
        
        
      </constant><constant name="tuple">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1502.42.2:1520.42.20"/></metadata>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1583.45.2:1601.45.20"/></metadata>
        
        
        <notations><notation dimension="1" precedence="-1000001" fixity="mixfix" arguments="( 1…* )"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="set">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1523.43.2:1541.43.20"/></metadata>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1604.46.2:1622.46.20"/></metadata>
        
        
        <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="{ 1…* }"> <scope languages="" priority="0"/> </notation></notations>
      </constant><constant name="singleton">
-       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1547.45.2:1567.45.22"/></metadata>
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#1628.48.2:1648.48.22"/></metadata>
        
        
        <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="{ 1 }"> <scope languages="" priority="0"/> </notation></notations>
