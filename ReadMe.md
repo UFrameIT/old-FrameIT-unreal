@@ -1,3 +1,9 @@
+** License **
+
+All of our code, i.e. code and assets created by the KWARC research group is lisenced under the MIT lisence. Any other code/assets are subject to their own lisences. Moreover, using this software requires you to accept the UNREAL® ENGINE END USER LICENSE AGREEMENT (https://www.unrealengine.com/eula).
+
+The used vegetation pack is provided by the user "fighter5347" from the offical unreal forum. Find the official download at (https://forums.unrealengine.com/showthread.php?59812-FREE-Foliage-Starter-Kit) for the complete package.
+
 ** Directory Structure **
 
 <Game-Folder>
