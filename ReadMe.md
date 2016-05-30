@@ -1,11 +1,11 @@
-** License **
+## License 
 
 All of our code, i.e. code and assets created by the KWARC research group is lisenced under the MIT lisence. Any other code/assets are subject to their own lisences. Moreover, using this software requires you to accept the UNREAL® ENGINE END USER LICENSE AGREEMENT (https://www.unrealengine.com/eula).
 
 The used vegetation pack is provided by the user "fighter5347" from the offical unreal forum. Find the official download at (https://forums.unrealengine.com/showthread.php?59812-FREE-Foliage-Starter-Kit) for the complete package.
 
-** Directory Structure **
-
+## Directory Structure 
+```
 <Game-Folder>
     |--mmt
 	|--Theories
@@ -15,17 +15,17 @@ The used vegetation pack is provided by the user "fighter5347" from the offical 
 	|--frameit-mmt.jar
 	|--mmtrc
 	|--startup.msl
-
+```
 Theories contains the archives
-
-** Starting MMT **
+## MMT
+#### Starting MMT 
 
 run mmt (relative to the game-folder) with
 	java -Xmx2048m -cp "mmt/mmt.jar:mmt/frameit-mmt.jar" info.kwarc.mmt.api.frontend.Run "$@" --keepalive
 
 this will also build the frameit archive and start the server on port 10000
 
-** Communicating with MMT **
+#### Communicating with MMT 
 
 there are two HTTP requests:
 
@@ -36,7 +36,7 @@ with body <content><omdoc>SITUATIONTHEORY</omdoc><omdoc>VIEW</omdoc></content>
 to compute the pushout
 
 
-** Example Requests **
+#### Example Requests 
 
 The pushout for our example is computed using
 	http://localhost:10000/:frameit/pushout?theory=http://cds.omdoc.org/FrameIT?solution_theory
