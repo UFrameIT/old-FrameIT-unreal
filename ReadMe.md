@@ -7,9 +7,9 @@ The used vegetation pack is provided by the user "fighter5347" from the offical 
 ## Directory Structure 
 ```
 <Game-Folder>
-    |--mmt
+|--mmt
 	|--Theories
-    |--urtheories
+		|--urtheories
 		|--frameit
 	|--mmt.jar
 	|--frameit-mmt.jar
