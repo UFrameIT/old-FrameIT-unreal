@@ -44,6 +44,12 @@ public:
 	void OnToggleViewMode(bool ViewMode);
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
+	void OnToggleSolutionMode(bool SolutionMod);
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
+	void OnUpdateSolutionText(const FText& Text);
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Events")
 	void OnUpdateViewText(const FText& Text);
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Events")

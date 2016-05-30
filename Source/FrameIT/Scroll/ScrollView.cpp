@@ -7,7 +7,6 @@
 #include "Fact/PointFact.h"
 #include "Fact/LineSegmentFact.h"
 #include "Fact/AngleFact.h"
-#include "rapidxml-1.13/rapidxml.hpp"
 
 UScrollView::UScrollView()
 {
@@ -84,12 +83,11 @@ TPair<bool, UFact*> UScrollView::ComputeNewFact()
 		return ResultPair;
 	}
 
-
 	
 	// Parse it
 	this->ParseMMT(&OutputString);
 
-
+	ResultPair.Key = true;
 	return ResultPair;
 }
 
@@ -112,27 +110,6 @@ void UScrollView::ParseMMT(FString* Input)
 	FString ID = pB->GetID() + "-" + pC->GetID();
 
 	Fact->Initialize(this->World, ID, pB, pC, NewDistance);
-
-
-
-	/*
-	using namespace rapidxml;
-	xml_document<> doc;    // character type defaults to char
-	doc.parse<0>(TCHAR_TO_ANSI(*(*Input)));    // 0 means default parse flags
-	
-	xml_node<> *pRoot = doc.first_node();
-	xml_node<> *pCampaignNode = 0;
-	xml_node<> *pMissionNode = 0;
-
-	for (xml_node<> *pNode = pRoot->first_node("constant"); pNode; pNode = pNode->next_sibling())
-	{
-		if (pNode->first_attribute("name")->value() == std::to_string(campaignID))
-		{
-			pCampaignNode = pNode;
-			break;
-		}
-	}*/
-
 }
 
 
@@ -162,23 +139,6 @@ bool UScrollView::CallMMT(FString* OutputString)
 
 	
 	system("C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\mmt.bat mbt C:\\Users\\rocha\\Documents\\content\\FrameIT\\frameit.scala");//C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\FrameIT.bat");
-	/*
-	// This is windows specific and retarded
-	//WinExec("C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\FrameIT.bat", SW_HIDE);
-	auto ProcessHandle = FPlatformProcess::CreateProc(TEXT("C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\FrameIT.bat"), TEXT(""), true, true, true, nullptr, 0, nullptr, nullptr, nullptr);
-	
-	if (!ProcessHandle.IsValid())
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Failed to launch"));
-	}
-
-	// I want to hate myself for this so badly
-	while (FPlatformProcess::IsProcRunning(ProcessHandle))
-	{
-		FPlatformProcess::Sleep(0.01);
-	}
-	FPlatformProcess::CloseProc(ProcessHandle);
-	*/
 
 	if (!FPlatformFileManager::Get().GetPlatformFile().FileExists(*AbsoluteFilePath))
 	{
@@ -449,56 +409,6 @@ FString UScrollView::SerializeViewAngleFactToMMT(UAngleFact* ScrollFact, UAngleF
 		"       \n"
 		"     </constant>\n";
 	return ResStr;
-
-	/*
-	FString ResStr =
-		"        <constant name=\"[http://cds.omdoc.org/FrameIT?problem_theory]/" + ScrollAngleName + "_value\">\n"
-		"            <type>\n"
-		"                <om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\">\n"
-		"                    <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"realSym\"></om:OMS>\n"
-		"                </om:OMOBJ>\n"
-		"            </type>\n"
-		"            <definition>\n"
-		"                <om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\">\n"
-		"                    <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + FactAngleName + "_value\">\n"
-		"                    </om:OMS>\n"
-		"                </om:OMOBJ>\n"
-		"            </definition>\n"
-		"        </constant>\n"
-		"        <constant name=\"[http://cds.omdoc.org/FrameIT?problem_theory]/" + ScrollAngleName + "\">\n"
-		"            <type>\n"
-		"                <om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\">\n"
-		"                    <om:OMA>\n"
-		"                        <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
-		"                        <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"ded\"></om:OMS>\n"
-		"                        <om:OMA>\n"
-		"                            <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
-		"                            <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"HOL\" name=\"equal\"></om:OMS>\n"
-		"                            <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"reals\"></om:OMS>\n"
-		"                            <om:OMA>\n"
-		"                                <om:OMS base=\"http://cds.omdoc.org/urtheories\" module=\"LambdaPi\" name=\"apply\"></om:OMS>\n"
-		"                                <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"planar_geometry\" name=\"angle\"></om:OMS>\n"
-		"                                <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + FactStrPFirst + "\">\n"
-		"                                </om:OMS>\n"
-		"                                <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + FactStrPSecond + "\">\n"
-		"                                </om:OMS>\n"
-		"                                <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + FactStrPThird + "\">\n"
-		"                                </om:OMS>\n"
-		"                            </om:OMA>\n"
-		"                            <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + FactAngleName + "\">\n"
-		"                            </om:OMS>\n"
-		"                        </om:OMA>\n"
-		"                    </om:OMA>\n"
-		"                </om:OMOBJ>\n"
-		"            </type>\n"
-		"            <definition>\n"
-		"                <om:OMOBJ xmlns:om=\"http://www.openmath.org/OpenMath\">\n"
-		"                    <om:OMS base=\"http://cds.omdoc.org/FrameIT\" module=\"situation_theory\" name=\"" + FactAngleName + "\">\n"
-		"                    </om:OMS>\n"
-		"                </om:OMOBJ>\n"
-		"            </definition>\n"
-		"        </constant>\n";
-	*/
 }
 
 FString UScrollView::SerializeViewToMMT()

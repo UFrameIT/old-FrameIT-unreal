@@ -56,4 +56,3 @@ TPair<bool, FVector> ASemanticPoint::GetClosestPoint(FVector hitPoint)
 	ret.Value = this->GetActorLocation();
 	return ret;
 }
-

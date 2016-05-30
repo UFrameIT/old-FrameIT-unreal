@@ -1,5 +1,3 @@
-// Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
-
 #include "FrameIT.h"
 #include "FP_FirstPersonCharacter.h"
 #include "Animation/AnimInstance.h"
@@ -69,6 +67,9 @@ AFP_FirstPersonCharacter::AFP_FirstPersonCharacter()
 	this->CurrentFactSelected = nullptr;
 	this->CurrentScroll = nullptr;
 	this->CurrentScrollRequiredFactIndex = 0;
+
+	// solution mode
+	this->bInSolutionMode = false;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -109,7 +110,7 @@ void AFP_FirstPersonCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	
 
 	// Bind Undo Event
-	InputComponent->BindAction("UndoLastAction", IE_Pressed, this, &AFP_FirstPersonCharacter::UndoLastAction);
+	InputComponent->BindAction("ToggleSolutionMode", IE_Pressed, this, &AFP_FirstPersonCharacter::ToggleSolutionMode);
 	
 	TryEnableTouchscreenMovement(InputComponent);
 
@@ -683,7 +684,9 @@ void AFP_FirstPersonCharacter::OnScrollSelectBackward()
 void AFP_FirstPersonCharacter::OnToggleViewMode()
 {
 	// @todo Remove this when we implement nice scroll switching!
-	if (this->CurrentScrollArrayIndex == 0 || this->CurrentScroll->GetRequiredFacts()->Num() == 0)
+	if (this->CurrentScrollArrayIndex == 0 ||
+		this->CurrentScroll->GetRequiredFacts()->Num() == 0 ||
+		this->bInSolutionMode == true)
 	{
 		this->bInViewMode = false;
 		return;
@@ -694,8 +697,7 @@ void AFP_FirstPersonCharacter::OnToggleViewMode()
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
-
-
+	
 	this->bInViewMode = !this->bInViewMode;
 	CurrentGameMode->OnToggleViewMode(this->bInViewMode);
 	if (this->bInViewMode)
@@ -726,7 +728,7 @@ void AFP_FirstPersonCharacter::OnToggleViewMode()
 
 void AFP_FirstPersonCharacter::OnViewModeDown()
 {
-	if (this->bInViewMode)
+	if (this->bInViewMode || this->bInSolutionMode)
 	{
 		// Get the current Game Mode and Game State
 		UWorld* const World = GetWorld();
@@ -755,7 +757,7 @@ void AFP_FirstPersonCharacter::OnViewModeDown()
 
 void AFP_FirstPersonCharacter::OnViewModeUp()
 {
-	if (this->bInViewMode)
+	if (this->bInViewMode || this->bInSolutionMode)
 	{
 		// Get the current Game Mode and Game State
 		UWorld* const World = GetWorld();
@@ -788,13 +790,13 @@ void AFP_FirstPersonCharacter::OnViewModeUp()
 
 void AFP_FirstPersonCharacter::OnViewSelect()
 {
+	// Get the current Game Mode and Game State
+	UWorld* const World = GetWorld();
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+
 	if (this->bInViewMode)
 	{
-		// Get the current Game Mode and Game State
-		UWorld* const World = GetWorld();
-		AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
-		AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
-
 		auto EleCount = CurrentGameState->GetFactMap()->Num();
 		if (EleCount == 0)
 		{
@@ -815,10 +817,35 @@ void AFP_FirstPersonCharacter::OnViewSelect()
 		if (this->CurrentScrollRequiredFactIndex >= ScrollFactArray->Num())
 		{
 			// Lastly compute new facts
-			this->CurrentScrollView->ComputeNewFact();
+			auto FactRes = this->CurrentScrollView->ComputeNewFact();
 
-			// We are done, so reset everything and switch away from the view assignment view
-			this->OnToggleViewMode();
+			if (FactRes.Key == false)
+			{
+				// Reset Everything
+				// Reset the scroll view data structure
+				CurrentScrollView->ResetView();
+				this->CurrentScrollRequiredFactIndex = 0;
+				CurrentGameMode->OnUpdateSelectFact(false, this->CurrentFactIndexSelected);
+
+				// Initalize Stuff again
+				// Set the current selected fact to the first one of the list
+				this->CurrentFactIndexSelected = 0;
+				this->CurrentFactSelected = CurrentGameState->GetFact(this->CurrentFactIndexSelected);
+				CurrentGameMode->OnUpdateSelectFact(true, this->CurrentFactIndexSelected);
+
+				// Init scroll view
+				this->CurrentScrollView->Initialize(this->CurrentScroll, World);
+
+				// Set the view text to the first text
+				auto ScrollFactArray = this->CurrentScroll->GetRequiredFacts();
+				auto Fact = (*ScrollFactArray)[this->CurrentScrollRequiredFactIndex];
+				CurrentGameMode->OnUpdateViewText(FText::FromString("Last Assignment failed! Retry!\nAssign: " + Fact->GetID()));
+			}
+			else
+			{
+				// We are done, so reset everything and switch away from the view assignment view
+				this->OnToggleViewMode();
+			}
 		}
 		else
 		{
@@ -827,15 +854,49 @@ void AFP_FirstPersonCharacter::OnViewSelect()
 			CurrentGameMode->OnUpdateViewText(FText::FromString("Assign: " + Fact->GetID()));
 		}
 	}
+	else if (this->bInSolutionMode)
+	{
+		if (this->CurrentFactSelected->GetClass()->IsChildOf(ULineSegmentFact::StaticClass()) && FMath::IsNearlyEqual(((ULineSegmentFact*)this->CurrentFactSelected)->Distance, 875.0f, 0.01f))
+		{
+			CurrentGameMode->OnUpdateSolutionText(FText::FromString("Congratulations you solved the problem correctly!"));
+		}
+		else
+		{
+			CurrentGameMode->OnUpdateSolutionText(FText::FromString("Unfortunatly your solution is incorrect!"));
+		}
+	}
 }
 
-void AFP_FirstPersonCharacter::UndoLastAction()
+void AFP_FirstPersonCharacter::ToggleSolutionMode()
 {
-	FString OutputString;
-	FFileHelper::LoadFileToString(OutputString, *FString("C:\\Users\\rocha\\Documents\\content\\pushout.xml"));
-	// Parse it
-	this->CurrentScrollView->ParseMMT(&OutputString);
+	// Get the current Game Mode and Game State
+	UWorld* const World = GetWorld();
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+	auto FactMap = CurrentGameState->GetFactMap();
+	if (FactMap->Num() == 0 || this->bInViewMode == true)
+	{
+		this->bInSolutionMode = false;
+		return;
+	}
+
+	this->bInSolutionMode = !this->bInSolutionMode;
+	CurrentGameMode->OnToggleSolutionMode(this->bInSolutionMode);
+	CurrentGameMode->OnUpdateSolutionText(FText::FromString("Assign a solution for the height of the tree!"));
+	if (this->bInSolutionMode)
+	{
+		// Set the current selected fact to the first one of the list
+		this->CurrentFactIndexSelected = 0;
+		this->CurrentFactSelected = CurrentGameState->GetFact(this->CurrentFactIndexSelected);
+		CurrentGameMode->OnUpdateSelectFact(true, this->CurrentFactIndexSelected);
+	}
+	else
+	{
+		// Reset the current selected fact and its display
+		this->CurrentFactSelected = nullptr;
+		CurrentGameMode->OnUpdateSelectFact(false, this->CurrentFactIndexSelected);
+	}
 }
 
 void AFP_FirstPersonCharacter::ScrollFactListUp()

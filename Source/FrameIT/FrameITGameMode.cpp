@@ -41,6 +41,3 @@ void AFrameITGameMode::ChangeMenuWidget(TSubclassOf<UUserWidget> NewWidgetClass)
 		}
 	}
 }
-
-
-

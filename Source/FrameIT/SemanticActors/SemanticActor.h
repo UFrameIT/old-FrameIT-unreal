@@ -21,6 +21,4 @@ public:
 	virtual void Tick( float DeltaSeconds ) override;
 
 	virtual TPair<bool, FVector> GetClosestPoint(FVector hitPoint);
-
-
 };
