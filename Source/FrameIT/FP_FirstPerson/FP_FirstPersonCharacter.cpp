@@ -817,8 +817,10 @@ void AFP_FirstPersonCharacter::OnViewSelect()
 		if (this->CurrentScrollRequiredFactIndex >= ScrollFactArray->Num())
 		{
 			// Lastly compute new facts
+			// this should be different!
+			// Listen to event from http and reset depending on that!
 			auto FactRes = this->CurrentScrollView->ComputeNewFact();
-
+			/*FactRes.Key = true;
 			if (FactRes.Key == false)
 			{
 				// Reset Everything
@@ -845,7 +847,7 @@ void AFP_FirstPersonCharacter::OnViewSelect()
 			{
 				// We are done, so reset everything and switch away from the view assignment view
 				this->OnToggleViewMode();
-			}
+			}*/
 		}
 		else
 		{
