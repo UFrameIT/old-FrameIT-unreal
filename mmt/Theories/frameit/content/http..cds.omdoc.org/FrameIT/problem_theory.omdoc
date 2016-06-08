@@ -1,0 +1,114 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="problem_theory" base="http://cds.omdoc.org/FrameIT" meta="http://cds.omdoc.org/FrameIT?planar_geometry"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#42.2.0:576.25.1"/></metadata><constant name="Pa">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#221.11.1:233.11.13"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#226.11.6:230.11.10"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="Pb">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#235.12.1:247.12.13"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#240.12.6:244.12.10"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="Pc">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#249.13.1:261.13.13"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#254.13.6:258.13.10"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="anglePaPbPc_value">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#266.15.1:295.15.30"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#286.15.21:292.15.27"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="anglePaPbPc">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#297.16.1:347.16.51"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#311.16.15:344.16.48"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#313.16.17:344.16.48"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#313.16.17:324.16.28"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="angle"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pa"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#316.16.20:317.16.21"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pb"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#319.16.23:320.16.24"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pc"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#322.16.26:323.16.27"/></metadata></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="anglePaPbPc_value"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#328.16.32:344.16.48"/></metadata></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="anglePcPaPb_value">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#351.18.2:380.18.31"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#371.18.22:377.18.28"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="anglePcPaPb">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#383.19.2:433.19.52"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#397.19.16:430.19.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#399.19.18:430.19.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#399.19.18:410.19.29"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="angle"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pc"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#402.19.21:403.19.22"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pa"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#405.19.24:406.19.25"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pb"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#408.19.27:409.19.28"/></metadata></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="anglePcPaPb_value"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#414.19.33:430.19.49"/></metadata></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="lineSegPaPb_value">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#437.21.1:466.21.30"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#457.21.21:463.21.27"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="lineSegPaPb">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#469.22.2:532.22.65"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#483.22.16:529.22.62"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#485.22.18:529.22.62"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#485.22.18:509.22.42"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="lineSegmentLength"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#486.22.19:502.22.35"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pa"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#504.22.37:505.22.38"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pb"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#507.22.40:508.22.41"/></metadata></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="lineSegPaPb_value"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#513.22.46:529.22.62"/></metadata></om:OMS>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="proof">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#537.24.2:574.24.39"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#545.24.10:571.24.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#547.24.12:571.24.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="perp"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#548.24.13:557.24.22"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pair"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pa"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#550.24.15:551.24.16"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pb"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#554.24.19:555.24.20"/></metadata></om:OMS>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#561.24.26:570.24.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pair"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pb"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#563.24.28:564.24.29"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="problem_theory" name="Pc"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/problem_theory.mmt#567.24.32:568.24.33"/></metadata></om:OMS>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant></theory></omdoc>

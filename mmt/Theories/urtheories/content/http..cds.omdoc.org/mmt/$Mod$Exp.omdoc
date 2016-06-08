@@ -1,0 +1,36 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="ModExp" base="http://cds.omdoc.org/mmt"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/module-expressions.mmt#37.2.0:700.21.1"/></metadata><constant name="theory">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/module-expressions.mmt#56.3.3:80.3.27"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="THY"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="morphism">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/module-expressions.mmt#84.4.3:112.4.31"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="MOR 1 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="complextheory">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/module-expressions.mmt#116.5.3:160.5.47"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-1000000" fixity="mixfix" arguments="{| V1T,… |}"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="complexmorphism">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/module-expressions.mmt#164.6.3:208.6.47"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-1000000" fixity="mixfix" arguments="[| V1T,… |]"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="identity">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/module-expressions.mmt#216.8.3:252.8.39"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-1" fixity="mixfix" arguments="mmtid 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="composition">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/module-expressions.mmt#256.9.3:289.9.36"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-1" fixity="mixfix" arguments="1;…"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="morphismapplication">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/module-expressions.mmt#294.11.3:323.11.32"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="1 @@ 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><ruleconstant name="info.kwarc.mmt.morphisms.TheoryTypeInhabitable"/><ruleconstant name="info.kwarc.mmt.morphisms.TheoryTypeUniverse"/><ruleconstant name="info.kwarc.mmt.morphisms.MorphTypeInhabitable"/><ruleconstant name="info.kwarc.mmt.morphisms.ComplexTheoryInfer"/><ruleconstant name="info.kwarc.mmt.morphisms.MorphCheck"/></theory></omdoc>

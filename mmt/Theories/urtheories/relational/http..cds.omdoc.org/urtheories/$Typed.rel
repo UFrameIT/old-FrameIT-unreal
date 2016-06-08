@@ -1,0 +1,7 @@
+theory http://cds.omdoc.org/urtheories?Typed
+Declares http://cds.omdoc.org/urtheories?Typed http://cds.omdoc.org/urtheories?Typed?type
+constant http://cds.omdoc.org/urtheories?Typed?type
+Declares http://cds.omdoc.org/urtheories?Typed http://cds.omdoc.org/urtheories?Typed?oftype
+constant http://cds.omdoc.org/urtheories?Typed?oftype
+Declares http://cds.omdoc.org/urtheories?Typed http://cds.omdoc.org/urtheories?Typed?equality
+constant http://cds.omdoc.org/urtheories?Typed?equality

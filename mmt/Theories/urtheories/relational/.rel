@@ -1,0 +1,13 @@
+document http://docs.omdoc.org/urtheories
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/cf.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/lf.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/lfmodulo.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/meta.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/mini-pl.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/module-expressions.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/openmath.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/records.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/scala.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/sequences.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/subtypes.omdoc
+Declares http://docs.omdoc.org/urtheories http://docs.omdoc.org/urtheories/term-reflection.omdoc

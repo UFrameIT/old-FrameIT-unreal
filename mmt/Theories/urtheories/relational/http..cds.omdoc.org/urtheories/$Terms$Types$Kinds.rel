@@ -1,0 +1,10 @@
+theory http://cds.omdoc.org/urtheories?TermsTypesKinds
+Includes http://cds.omdoc.org/urtheories?TermsTypesKinds http://cds.omdoc.org/mmt?Errors
+Includes http://cds.omdoc.org/urtheories?TermsTypesKinds http://cds.omdoc.org/mmt?ModExp
+Includes http://cds.omdoc.org/urtheories?TermsTypesKinds http://cds.omdoc.org/mmt?mmt
+Includes http://cds.omdoc.org/urtheories?TermsTypesKinds http://cds.omdoc.org/urtheories?Typed
+Includes http://cds.omdoc.org/urtheories?TermsTypesKinds http://cds.omdoc.org/urtheories?Kinded
+Includes http://cds.omdoc.org/urtheories?TermsTypesKinds http://cds.omdoc.org/urtheories?TypedConstants
+Includes http://cds.omdoc.org/urtheories?TermsTypesKinds http://cds.omdoc.org/urtheories?KindedConstants
+Declares http://cds.omdoc.org/urtheories?TermsTypesKinds http://cds.omdoc.org/urtheories?TermsTypesKinds?info.kwarc.mmt.lf.UnivTerm
+constant http://cds.omdoc.org/urtheories?TermsTypesKinds?info.kwarc.mmt.lf.UnivTerm

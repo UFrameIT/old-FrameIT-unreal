@@ -1,0 +1,30 @@
+namespace http://cds.omdoc.org/FrameIT 
+
+theory HOL : ur:?LF =
+	tp : type 
+	tm : tp → type 
+	prop : tp 
+	
+	o : type  = tm prop 
+	
+	equal : {A : tp} tm A → tm A → o  # 2 ≐ 3 prec 0  role Eq
+	
+	ded : o → type  # ⊦ 1 prec -500  role Judgment 
+
+	conjunction : o → o → o  # 1 ∧ 2 prec 10 
+	disjunction : o → o → o  # 1 ∨ 2 prec 8 
+	negation	  : o → o      # ¬ 1 prec 15 
+	
+	true : o 
+	false : o 
+	
+	equivalence : o → o → o  = [a,b] a ≐ b  # 1 ⇔ 2 prec 5
+	
+	nequal : {A : tp} tm A → tm A → o  = [A,a,b] ¬ (a ≐ b)  # 2 ≠ 3 prec 0
+	
+	forall : {A : tp} (tm A → o) → o  # ∀ 2 prec 20 
+	exists : {A : tp} (tm A → o) → o  # ∃ 2 prec 20  = [A,f] ¬∀[x] ¬ (f x) 
+	
+	refl : {A: tp} {a : tm A} ⊦ a ≐ a 
+			 # refl 2 prec -500 
+

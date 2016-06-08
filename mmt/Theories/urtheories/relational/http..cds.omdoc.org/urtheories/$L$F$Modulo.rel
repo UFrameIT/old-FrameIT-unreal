@@ -1,0 +1,4 @@
+theory http://cds.omdoc.org/urtheories?LFModulo
+HasMeta http://cds.omdoc.org/urtheories?LFModulo http://cds.omdoc.org/urtheories?PLF
+Declares http://cds.omdoc.org/urtheories?LFModulo http://cds.omdoc.org/urtheories?LFModulo?equality
+constant http://cds.omdoc.org/urtheories?LFModulo?equality

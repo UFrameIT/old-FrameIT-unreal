@@ -1,4 +1,3 @@
-// Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 #pragma once
 
 #include "Fact/AngleFact.h"
@@ -59,6 +58,8 @@ public:
 	unsigned int MaxNumberOfWeapons;
 
 	bool bInViewMode;
+
+	bool bInSolutionMode;
 
 	int CurrentScrollArrayIndex;
 
@@ -163,7 +164,7 @@ protected:
 	void OnViewSelect();
 
 	/** Undo the last action*/
-	void UndoLastAction();
+	void ToggleSolutionMode();
 
 	/** Scroll Fact List up*/
 	void ScrollFactListUp();

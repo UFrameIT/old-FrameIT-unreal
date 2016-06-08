@@ -1,0 +1,4 @@
+theory http://cds.omdoc.org/urtheories?ShallowPolymorphism
+Includes http://cds.omdoc.org/urtheories?ShallowPolymorphism http://cds.omdoc.org/urtheories?Typed
+Declares http://cds.omdoc.org/urtheories?ShallowPolymorphism http://cds.omdoc.org/urtheories?ShallowPolymorphism?info.kwarc.mmt.lf.ShallowPolymorphism
+constant http://cds.omdoc.org/urtheories?ShallowPolymorphism?info.kwarc.mmt.lf.ShallowPolymorphism

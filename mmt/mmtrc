@@ -1,0 +1,39 @@
+#extensions
+twelf-omdoc info.kwarc.mmt.lf.Twelf
+mmt-latex   info.kwarc.mmt.api.archives.latex.LatexExporter
+mws         info.kwarc.mmt.api.archives.MWSHarvestExporter
+planetary   info.kwarc.mmt.planetary.PlanetaryPresenter
+mh-html     info.kwarc.mmt.planetary.MathHubFormalPresenter
+html        info.kwarc.mmt.api.archives.HTMLExporter
+svg         info.kwarc.mmt.api.archives.GraphViz
+index       info.kwarc.mmt.api.archives.OMDocImporter
+pvs-omdoc   info.kwarc.mmt.pvs.Plugin
+
+sms        info.kwarc.mmt.stex.SmsGenerator
+tex-deps   info.kwarc.mmt.stex.DepsGenerator
+latexml    info.kwarc.mmt.stex.LaTeXML
+pdflatex   info.kwarc.mmt.stex.PdfLatex
+tikzsvg    info.kwarc.mmt.stex.TikzSvg
+stex-omdoc info.kwarc.mmt.stex.STeXImporter
+alltex     info.kwarc.mmt.stex.AllTeX
+allpdf     info.kwarc.mmt.stex.AllPdf
+
+foobar     info.kwarc.mmt.api.archives.DummyBuildTarget
+
+mmttex     info.kwarc.mmt.latex.MMTTeX
+
+setup      info.kwarc.mmt.doc.Setup
+jeditsetup info.kwarc.mmt.jeditsetup.Setup
+
+align info.kwarc.mmt.api.ontology.AlignmentsServer
+
+frameit info.kwarc.mmt.frameit.FrameitPlugin
+
+#semantics
+http://cds.omdoc.org/urtheories?LF info.kwarc.mmt.lf.Plugin
+
+#namespaces
+ur         http://cds.omdoc.org/urtheories
+odk        http://www.opendreamkit.org/
+syn        http://latin.omdoc.org/logics/syntax
+models     http://models.latin.omdoc.org/

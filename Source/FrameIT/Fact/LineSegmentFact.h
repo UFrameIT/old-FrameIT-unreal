@@ -35,8 +35,11 @@ public:
 
 	UPROPERTY()
 	UPointFact* PointB;
-protected:
+
 	// The Distance
 	UPROPERTY()
 	float Distance;
+
+protected:
+
 };

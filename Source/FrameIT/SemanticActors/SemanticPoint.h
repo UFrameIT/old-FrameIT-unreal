@@ -31,4 +31,3 @@ private:
 	float SphereRadius;
 	FString ID;
 };
-

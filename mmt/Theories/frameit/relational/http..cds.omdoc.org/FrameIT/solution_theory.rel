@@ -1,0 +1,7 @@
+theory http://cds.omdoc.org/FrameIT?solution_theory
+HasMeta http://cds.omdoc.org/FrameIT?solution_theory http://cds.omdoc.org/FrameIT?planar_geometry
+Includes http://cds.omdoc.org/FrameIT?solution_theory http://cds.omdoc.org/FrameIT?problem_theory
+Declares http://cds.omdoc.org/FrameIT?solution_theory http://cds.omdoc.org/FrameIT?solution_theory?lineSegPbPc_value
+constant http://cds.omdoc.org/FrameIT?solution_theory?lineSegPbPc_value
+Declares http://cds.omdoc.org/FrameIT?solution_theory http://cds.omdoc.org/FrameIT?solution_theory?lineSegPbPc
+constant http://cds.omdoc.org/FrameIT?solution_theory?lineSegPbPc

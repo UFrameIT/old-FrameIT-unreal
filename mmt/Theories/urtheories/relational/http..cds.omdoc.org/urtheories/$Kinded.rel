@@ -1,0 +1,4 @@
+theory http://cds.omdoc.org/urtheories?Kinded
+Includes http://cds.omdoc.org/urtheories?Kinded http://cds.omdoc.org/urtheories?Typed
+Declares http://cds.omdoc.org/urtheories?Kinded http://cds.omdoc.org/urtheories?Kinded?kind
+constant http://cds.omdoc.org/urtheories?Kinded?kind

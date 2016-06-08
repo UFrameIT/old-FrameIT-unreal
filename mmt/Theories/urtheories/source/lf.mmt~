@@ -1,0 +1,62 @@
+namespace http://cds.omdoc.org/urtheories
+
+import meta http://cds.omdoc.org/mmt
+
+theory TypedSymbols =
+	 kind
+   type
+   oftype   # : 1 prec  -9995
+   equality # equality 1 2   role Eq
+
+
+theory Typed =
+   include meta:?Errors
+   include meta:?ModExp
+   include meta:?mmt
+   include ?TypedSymbols 
+   
+
+   rule info.kwarc.mmt.lf.UniverseType
+   rule info.kwarc.mmt.lf.UniverseKind
+   rule info.kwarc.mmt.lf.UnivTerm   
+
+   
+theory LFSymbols =
+   Pi     # { V1T,… } 2 prec -10000
+   lambda # [ V1T,… ] 2 prec -10000
+   apply  # 1%w…        prec -10
+   arrow  # 1→…         prec  -9990
+
+
+theory LF =
+   include ?Typed
+   include ?LFSymbols 
+   
+   rule info.kwarc.mmt.lf.PiType
+   rule info.kwarc.mmt.lf.PiTerm
+   rule info.kwarc.mmt.lf.ApplyTerm
+   rule info.kwarc.mmt.lf.LambdaTerm
+   rule info.kwarc.mmt.lf.Beta
+   rule info.kwarc.mmt.lf.Extensionality
+   rule info.kwarc.mmt.lf.PiCongruence
+   rule info.kwarc.mmt.lf.LambdaCongruence
+   rule info.kwarc.mmt.lf.Solve
+   rule info.kwarc.mmt.lf.SolveType
+   rule info.kwarc.mmt.lf.ExpandArrow
+   rule info.kwarc.mmt.lf.TheoryTypeWithLF
+   rule info.kwarc.mmt.lf.UnsafeBeta
+   rule info.kwarc.mmt.lf.PiIntroduction
+   rule info.kwarc.mmt.lf.ForwardPiElimination
+   rule info.kwarc.mmt.lf.BackwardPiElimination
+
+   
+theory ShallowPolymorphism =
+   include ?Typed
+   
+   rule info.kwarc.mmt.lf.ShallowPolymorphism
+
+   
+theory PLF =
+   include ?LF
+   include ?ShallowPolymorphism
+

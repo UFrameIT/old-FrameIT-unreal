@@ -1,0 +1,51 @@
+namespace http://cds.omdoc.org/mmt
+
+theory Errors =
+   // a missing term of a given type  
+   missing   # ≪ 1 ≫        prec -99500
+   // a term not matching a required type 
+   illtyped  # ≪ 1 :: 2 ≫   prec -100000
+   // an unknown term (e.g., an omitted proof) that uses certain subterms (e.g., the used axioms) 
+   unknown   # ≪ using 1,… ≫ prec -100003
+   unsolved  # ≪ [ V1T,… ] 2 ≫ prec -100006
+   
+   // an ambiguous term with multiple options; its first argument is the number of the argument that was obtained as the result of disambiguation (starting from 0) 
+   oneOf     # ≪ 1 @ 2,… ≫ prec -100002
+   
+   // infers the type of missing terms
+   rule info.kwarc.mmt.api.checking.HoleTerm
+   // reduces disambiguated term 
+   rule info.kwarc.mmt.api.checking.Disambiguation
+   // disambiguates terms formed by oneOf 
+   rule info.kwarc.mmt.api.checking.InferAmbiguous
+
+   
+theory mmt = 
+   // notations with round brackets must have a lower precedence than this to be recognized 
+   brackets     # ( 1 ) prec -1000005
+   // left bracket with omitted partner as far to the right as consistent with round brackets 
+   andrewsDot   # ▪ 1  prec -1000000
+   // binds unsolved meta-variables 
+   unknown
+   // binds free variables that are implicitly quantified at the toplevel
+   free
+   // the type of all rules
+   constant rule
+
+   rule info.kwarc.mmt.api.parser.GenericEscapeLexer
+   rule info.kwarc.mmt.api.parser.UnicodeReplacer
+   rule info.kwarc.mmt.api.parser.MMTURILexer
+
+   
+theory QMT =
+  query  
+  prop   
+  basetp 
+  tp     
+    
+  tuple  # ( 1…* ) 
+  set    # { 1…* } 
+  
+  singleton # { 1 }  
+   
+  

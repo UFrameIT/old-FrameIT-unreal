@@ -1,0 +1,10 @@
+theory http://cds.omdoc.org/urtheories?Record
+Includes http://cds.omdoc.org/urtheories?Record http://cds.omdoc.org/urtheories?Typed
+Declares http://cds.omdoc.org/urtheories?Record http://cds.omdoc.org/urtheories?Record?Record
+constant http://cds.omdoc.org/urtheories?Record?Record
+Declares http://cds.omdoc.org/urtheories?Record http://cds.omdoc.org/urtheories?Record?record
+constant http://cds.omdoc.org/urtheories?Record?record
+Declares http://cds.omdoc.org/urtheories?Record http://cds.omdoc.org/urtheories?Record?projection
+constant http://cds.omdoc.org/urtheories?Record?projection
+Declares http://cds.omdoc.org/urtheories?Record http://cds.omdoc.org/urtheories?Record?info.kwarc.mmt.lf.records.Simplification
+constant http://cds.omdoc.org/urtheories?Record?info.kwarc.mmt.lf.records.Simplification

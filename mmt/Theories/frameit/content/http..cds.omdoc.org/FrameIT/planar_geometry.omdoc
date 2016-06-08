@@ -1,0 +1,875 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="planar_geometry" base="http://cds.omdoc.org/FrameIT" meta="http://cds.omdoc.org/FrameIT?HOL"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#42.2.0:5972.153.1"/></metadata><constant name="reals">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#170.5.1:188.5.19"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#178.5.9:179.5.10"/></metadata></om:OMS></om:OMOBJ></type>
+       
+       
+     </constant><constant name="realSym">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#190.6.1:226.7.15"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#200.6.11:203.6.14"/></metadata></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#6776.182.7:6782.182.13"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#216.7.5:217.7.6"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="negative">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#228.8.1:285.9.26"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#239.8.12:255.8.28"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#239.8.12:245.8.18"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#249.8.22:255.8.28"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="20" fixity="mixfix" arguments="- 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="add">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#287.10.1:346.11.21"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#295.10.9:321.10.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#295.10.9:301.10.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#305.10.19:311.10.25"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#315.10.29:321.10.35"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="5" fixity="mixfix" arguments="1 + 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="sub">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#348.12.1:434.14.23"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#356.12.9:382.12.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#376.12.29:382.12.35"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#394.13.8:394.13.8"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"></om:OMS></type></om:OMV><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#397.13.11:397.13.11"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#400.13.14:407.13.21"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="add"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#400.13.14:400.13.14"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#404.13.18:407.13.21"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="negative"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#406.13.20:406.13.20"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       <notations><notation dimension="1" precedence="5" fixity="mixfix" arguments="1 - 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="mul">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#436.15.1:496.16.22"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#444.15.9:470.15.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#444.15.9:450.15.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#454.15.19:460.15.25"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#464.15.29:470.15.35"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="10" fixity="mixfix" arguments="1 * 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="div">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#498.17.1:558.18.22"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#506.17.9:532.17.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#506.17.9:512.17.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#516.17.19:522.17.25"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#526.17.29:532.17.35"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="10" fixity="mixfix" arguments="1 / 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="mod">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#560.19.1:620.20.22"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#568.19.9:594.19.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#568.19.9:574.19.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#578.19.19:584.19.25"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#588.19.29:594.19.35"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="10" fixity="mixfix" arguments="1 %D% 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="tan">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#622.21.1:652.21.31"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#630.21.9:646.21.25"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#630.21.9:636.21.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#640.21.19:646.21.25"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="sin">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#654.22.1:684.22.31"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#662.22.9:678.22.25"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#662.22.9:668.22.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#672.22.19:678.22.25"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="cos">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#686.23.1:716.23.31"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#694.23.9:710.23.25"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#694.23.9:700.23.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#704.23.19:710.23.25"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="atan">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#718.24.1:749.24.32"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#727.24.10:743.24.26"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#727.24.10:733.24.16"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#737.24.20:743.24.26"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="asin">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#751.25.1:782.25.32"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#760.25.10:776.25.26"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#760.25.10:766.25.16"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#770.25.20:776.25.26"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="acos">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#784.26.1:815.26.32"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#793.26.10:809.26.26"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#793.26.10:799.26.16"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#803.26.20:809.26.26"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="sqrt">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#817.27.1:847.27.31"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#825.27.9:841.27.25"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#825.27.9:831.27.15"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#835.27.19:841.27.25"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><ruleconstant name="info.kwarc.mmt.frameit.RealLiterals"/><ruleconstant name="info.kwarc.mmt.frameit.Negative"/><ruleconstant name="info.kwarc.mmt.frameit.Addition"/><ruleconstant name="info.kwarc.mmt.frameit.Multiplication"/><ruleconstant name="info.kwarc.mmt.frameit.Division"/><ruleconstant name="info.kwarc.mmt.frameit.Modulo"/><ruleconstant name="info.kwarc.mmt.frameit.Tangent"/><ruleconstant name="info.kwarc.mmt.frameit.Sine"/><ruleconstant name="info.kwarc.mmt.frameit.Cosine"/><ruleconstant name="info.kwarc.mmt.frameit.ArcTangent"/><ruleconstant name="info.kwarc.mmt.frameit.ArcSine"/><ruleconstant name="info.kwarc.mmt.frameit.ArcCosine"/><ruleconstant name="info.kwarc.mmt.frameit.SquareRoot"/><constant name="pi">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1378.44.1:1431.44.54"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1383.44.6:1389.44.12"/></metadata></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMLIT value="3.141592653589793"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA></type></om:OMLIT></om:OMOBJ></definition>
+       
+     </constant><constant name="cartesianProduct">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1537.47.2:1608.48.37"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1556.47.21:1567.47.32"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1556.47.21:1557.47.22"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1561.47.26:1562.47.27"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1566.47.31:1567.47.32"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="1000" fixity="mixfix" arguments="1 × 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="pair">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1659.51.2:1739.52.29"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1666.51.9:1706.51.49"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1667.51.10:1667.51.10"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1671.51.14:1672.51.15"/></metadata></om:OMS></type></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1675.51.18:1675.51.18"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1679.51.22:1680.51.23"/></metadata></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1683.51.26:1706.51.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1683.51.26:1686.51.29"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1683.51.26:1684.51.27"/></metadata></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1686.51.29:1686.51.29"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1690.51.33:1693.51.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1690.51.33:1691.51.34"/></metadata></om:OMS><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1693.51.36:1693.51.36"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1697.51.40:1706.51.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1697.51.40:1698.51.41"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1700.51.43:1706.51.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1701.51.44:1701.51.44"/></metadata></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="100" fixity="mixfix" arguments="⟨ 3 , 4 ⟩"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="pairFirst">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1742.53.2:1819.54.28"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1754.53.14:1787.53.47"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1755.53.15:1755.53.15"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1759.53.19:1760.53.20"/></metadata></om:OMS></type></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1763.53.23:1763.53.23"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1767.53.27:1768.53.28"/></metadata></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1771.53.31:1787.53.47"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1771.53.31:1780.53.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1771.53.31:1772.53.32"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1774.53.34:1780.53.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1775.53.35:1775.53.35"/></metadata></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1779.53.39:1779.53.39"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1784.53.44:1787.53.47"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1784.53.44:1785.53.45"/></metadata></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="pairFirst 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="pairFirstAxiom" role="Simplify">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1822.55.2:1925.56.32"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1839.55.19:1889.55.69"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1840.55.20:1840.55.20"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1843.55.23:1843.55.23"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1846.55.26:1889.55.69"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1847.55.27:1847.55.27"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1851.55.31:1854.55.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1851.55.31:1852.55.32"/></metadata></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1857.55.37:1857.55.37"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1861.55.41:1864.55.44"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1861.55.41:1862.55.42"/></metadata></om:OMS><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1867.55.47:1889.55.69"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1869.55.49:1889.55.69"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMV name="A"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1869.55.49:1885.55.65"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pairFirst"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1880.55.60:1884.55.64"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pair"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1881.55.61:1881.55.61"/></metadata></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1883.55.63:1883.55.63"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1889.55.69:1889.55.69"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations></notations>
+     </constant><constant name="pairSecond">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1928.57.2:2008.58.30"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1941.57.15:1974.57.48"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1942.57.16:1942.57.16"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1946.57.20:1947.57.21"/></metadata></om:OMS></type></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1950.57.24:1950.57.24"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1954.57.28:1955.57.29"/></metadata></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1958.57.32:1974.57.48"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1958.57.32:1967.57.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1958.57.32:1959.57.33"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1961.57.35:1967.57.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1962.57.36:1962.57.36"/></metadata></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1966.57.40:1966.57.40"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1971.57.45:1974.57.48"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1971.57.45:1972.57.46"/></metadata></om:OMS><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#1974.57.48:1974.57.48"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="pairSecond 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="pairSecondAxiom" role="Simplify">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2011.59.2:2117.60.33"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2029.59.20:2080.59.71"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2030.59.21:2030.59.21"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2033.59.24:2033.59.24"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2036.59.27:2080.59.71"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2037.59.28:2037.59.28"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2041.59.32:2044.59.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2041.59.32:2042.59.33"/></metadata></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2047.59.38:2047.59.38"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2051.59.42:2054.59.45"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2051.59.42:2052.59.43"/></metadata></om:OMS><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2057.59.48:2080.59.71"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2059.59.50:2080.59.71"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMV name="B"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2059.59.50:2076.59.67"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pairSecond"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2071.59.62:2075.59.66"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pair"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2072.59.63:2072.59.63"/></metadata></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2074.59.65:2074.59.65"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2080.59.71:2080.59.71"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations></notations>
+     </constant><constant name="triple">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2167.63.2:2273.64.34"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2176.63.11:2235.63.70"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2177.63.12:2177.63.12"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2181.63.16:2182.63.17"/></metadata></om:OMS></type></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2185.63.20:2185.63.20"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2189.63.24:2190.63.25"/></metadata></om:OMS></type></om:OMV><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2193.63.28:2193.63.28"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2197.63.32:2198.63.33"/></metadata></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2201.63.36:2235.63.70"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2201.63.36:2204.63.39"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2201.63.36:2202.63.37"/></metadata></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2204.63.39:2204.63.39"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2208.63.43:2211.63.46"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2208.63.43:2209.63.44"/></metadata></om:OMS><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2211.63.46:2211.63.46"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2215.63.50:2218.63.53"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2215.63.50:2216.63.51"/></metadata></om:OMS><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2218.63.53:2218.63.53"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2222.63.57:2235.63.70"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2222.63.57:2223.63.58"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2225.63.60:2235.63.70"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2226.63.61:2230.63.65"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2226.63.61:2226.63.61"/></metadata></om:OMV><om:OMV name="B"></om:OMV>
+      </om:OMA><om:OMV name="C"></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="50" fixity="mixfix" arguments="⟨ 4 , 5 , 6 ⟩"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="tripleFirst">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2276.65.2:2371.66.32"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2290.65.16:2335.65.61"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2291.65.17:2291.65.17"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2295.65.21:2296.65.22"/></metadata></om:OMS></type></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2299.65.25:2299.65.25"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2303.65.29:2304.65.30"/></metadata></om:OMS></type></om:OMV><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2307.65.33:2307.65.33"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2311.65.37:2312.65.38"/></metadata></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2315.65.41:2335.65.61"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2315.65.41:2328.65.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2315.65.41:2316.65.42"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2318.65.44:2328.65.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2319.65.45:2323.65.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2319.65.45:2319.65.45"/></metadata></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2323.65.49:2323.65.49"/></metadata></om:OMV>
+      </om:OMA><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2327.65.53:2327.65.53"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2332.65.58:2335.65.61"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2332.65.58:2333.65.59"/></metadata></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2335.65.61:2335.65.61"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="tripleFirst 4"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="tripleFirstAxiom" role="Simplify">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2374.67.2:2498.68.34"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2393.67.21:2460.67.88"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2394.67.22:2394.67.22"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2397.67.25:2397.67.25"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2400.67.28:2400.67.28"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2403.67.31:2460.67.88"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2404.67.32:2404.67.32"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2408.67.36:2411.67.39"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2408.67.36:2409.67.37"/></metadata></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2414.67.42:2414.67.42"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2418.67.46:2421.67.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2418.67.46:2419.67.47"/></metadata></om:OMS><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2424.67.52:2424.67.52"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2428.67.56:2431.67.59"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2428.67.56:2429.67.57"/></metadata></om:OMS><om:OMV name="C"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2434.67.62:2460.67.88"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2436.67.64:2460.67.88"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMV name="A"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2436.67.64:2456.67.84"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2449.67.77:2455.67.83"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="triple"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2450.67.78:2450.67.78"/></metadata></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2452.67.80:2452.67.80"/></metadata></om:OMV><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2454.67.82:2454.67.82"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2460.67.88:2460.67.88"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations></notations>
+     </constant><constant name="tripleSecond">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2501.69.2:2599.70.34"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2516.69.17:2561.69.62"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2517.69.18:2517.69.18"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2521.69.22:2522.69.23"/></metadata></om:OMS></type></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2525.69.26:2525.69.26"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2529.69.30:2530.69.31"/></metadata></om:OMS></type></om:OMV><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2533.69.34:2533.69.34"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2537.69.38:2538.69.39"/></metadata></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2541.69.42:2561.69.62"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2541.69.42:2554.69.55"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2541.69.42:2542.69.43"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2544.69.45:2554.69.55"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2545.69.46:2549.69.50"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2545.69.46:2545.69.46"/></metadata></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2549.69.50:2549.69.50"/></metadata></om:OMV>
+      </om:OMA><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2553.69.54:2553.69.54"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2558.69.59:2561.69.62"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2558.69.59:2559.69.60"/></metadata></om:OMS><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2561.69.62:2561.69.62"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="tripleSecond 4"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="tripleSecondAxiom" role="Simplify">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2602.71.2:2729.72.35"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2622.71.22:2690.71.90"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2623.71.23:2623.71.23"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2626.71.26:2626.71.26"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2629.71.29:2629.71.29"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2632.71.32:2690.71.90"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2633.71.33:2633.71.33"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2637.71.37:2640.71.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2637.71.37:2638.71.38"/></metadata></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2643.71.43:2643.71.43"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2647.71.47:2650.71.50"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2647.71.47:2648.71.48"/></metadata></om:OMS><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2653.71.53:2653.71.53"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2657.71.57:2660.71.60"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2657.71.57:2658.71.58"/></metadata></om:OMS><om:OMV name="C"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2663.71.63:2690.71.90"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2665.71.65:2690.71.90"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMV name="B"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2665.71.65:2686.71.86"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2679.71.79:2685.71.85"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="triple"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2680.71.80:2680.71.80"/></metadata></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2682.71.82:2682.71.82"/></metadata></om:OMV><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2684.71.84:2684.71.84"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2690.71.90:2690.71.90"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations></notations>
+     </constant><constant name="tripleThird">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2732.73.2:2828.74.33"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2746.73.16:2791.73.61"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2747.73.17:2747.73.17"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2751.73.21:2752.73.22"/></metadata></om:OMS></type></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2755.73.25:2755.73.25"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2759.73.29:2760.73.30"/></metadata></om:OMS></type></om:OMV><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2763.73.33:2763.73.33"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2767.73.37:2768.73.38"/></metadata></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2771.73.41:2791.73.61"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2771.73.41:2784.73.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2771.73.41:2772.73.42"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2774.73.44:2784.73.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2775.73.45:2779.73.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMV name="A"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2775.73.45:2775.73.45"/></metadata></om:OMV><om:OMV name="B"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2779.73.49:2779.73.49"/></metadata></om:OMV>
+      </om:OMA><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2783.73.53:2783.73.53"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2788.73.58:2791.73.61"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2788.73.58:2789.73.59"/></metadata></om:OMS><om:OMV name="C"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2791.73.61:2791.73.61"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="tripleThird 4"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="tripleThirdAxiom" role="Simplify">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2831.75.2:2955.76.34"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2850.75.21:2917.75.88"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2851.75.22:2851.75.22"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="B"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2854.75.25:2854.75.25"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="C"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2857.75.28:2857.75.28"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2860.75.31:2917.75.88"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2861.75.32:2861.75.32"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2865.75.36:2868.75.39"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2865.75.36:2866.75.37"/></metadata></om:OMS><om:OMV name="A"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2871.75.42:2871.75.42"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2875.75.46:2878.75.49"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2875.75.46:2876.75.47"/></metadata></om:OMS><om:OMV name="B"></om:OMV>
+      </om:OMA></type></om:OMV><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2881.75.52:2881.75.52"/></metadata><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2885.75.56:2888.75.59"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2885.75.56:2886.75.57"/></metadata></om:OMS><om:OMV name="C"></om:OMV>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2891.75.62:2917.75.88"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2893.75.64:2917.75.88"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMV name="C"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2893.75.64:2913.75.84"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2906.75.77:2912.75.83"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="triple"></om:OMS><om:OMV name="A"></om:OMV><om:OMV name="B"></om:OMV><om:OMV name="C"></om:OMV><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2907.75.78:2907.75.78"/></metadata></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2909.75.80:2909.75.80"/></metadata></om:OMV><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2911.75.82:2911.75.82"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#2917.75.88:2917.75.88"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations></notations>
+     </constant><constant name="Vec2DType">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3059.79.2:3095.79.38"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3071.79.14:3072.79.15"/></metadata></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3109.80.13:3119.80.23"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3079.79.22:3083.79.26"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3087.79.30:3091.79.34"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="Vec2D">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3098.80.2:3122.80.26"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#6134.159.9:6138.159.13"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3106.80.10:3107.80.11"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec2DType"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3109.80.13:3119.80.23"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="Vec3DType">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3125.81.2:3169.81.46"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3137.81.14:3138.81.15"/></metadata></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3183.82.13:3193.82.23"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="Vec3D">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3172.82.2:3196.82.26"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3180.82.10:3181.82.11"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3DType"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3183.82.13:3193.82.23"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="vec3DNegative">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3203.85.2:3398.89.31"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3219.85.18:3231.85.30"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3227.85.26:3231.85.30"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3254.86.19:3254.86.19"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3257.86.22:3363.88.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="triple"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3258.86.23:3275.86.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="negative"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3260.86.25:3274.86.39"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3273.86.38:3273.86.38"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3301.87.23:3319.87.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="negative"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3303.87.25:3318.87.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3317.87.39:3317.87.39"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3345.88.23:3362.88.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="negative"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3347.88.25:3361.88.39"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3360.88.38:3360.88.38"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       <notations><notation dimension="1" precedence="-5" fixity="mixfix" arguments="~ 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="vec3DNorm">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3402.91.2:3647.95.33"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3414.91.14:3428.91.28"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3422.91.22:3428.91.28"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3451.92.19:3451.92.19"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3454.92.22:3610.94.55"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="sqrt"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3454.92.22:3457.92.25"/></metadata></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3458.92.26:3610.94.55"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="add"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3459.92.27:3551.93.56"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="add"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3459.92.27:3491.92.59"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3459.92.27:3473.92.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3472.92.40:3472.92.40"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3477.92.45:3491.92.59"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3490.92.58:3490.92.58"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3517.93.22:3551.93.56"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3517.93.22:3532.93.37"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3531.93.36:3531.93.36"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3536.93.41:3551.93.56"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3550.93.55:3550.93.55"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3577.94.22:3609.94.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3577.94.22:3591.94.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3590.94.35:3590.94.35"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3595.94.40:3609.94.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3608.94.53:3608.94.53"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       <notations><notation dimension="1" precedence="-5" fixity="mixfix" arguments="| 1 |"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="vec3DAdd">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3651.97.2:3891.101.30"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3662.97.13:3682.97.33"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3678.97.29:3682.97.33"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3700.98.14:3700.98.14"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3702.98.16:3702.98.16"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3705.98.19:3857.100.55"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="triple"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3706.98.20:3740.98.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="add"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3707.98.21:3721.98.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3720.98.34:3720.98.34"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3725.98.39:3739.98.53"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3738.98.52:3738.98.52"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3763.99.20:3799.99.56"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="add"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3764.99.21:3779.99.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3778.99.35:3778.99.35"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3783.99.40:3798.99.55"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3797.99.54:3797.99.54"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3822.100.20:3856.100.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="add"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3823.100.21:3837.100.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3836.100.34:3836.100.34"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3841.100.39:3855.100.53"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3854.100.52:3854.100.52"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       <notations><notation dimension="1" precedence="-15" fixity="mixfix" arguments="1 v+ 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="vec3DSub">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3895.103.2:4135.107.30"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3906.103.13:3926.103.33"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3922.103.29:3926.103.33"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3944.104.14:3944.104.14"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3946.104.16:3946.104.16"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3949.104.19:4101.106.55"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="triple"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3950.104.20:3984.104.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="sub"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3951.104.21:3965.104.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3964.104.34:3964.104.34"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3969.104.39:3983.104.53"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3982.104.52:3982.104.52"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4007.105.20:4043.105.56"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="sub"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4008.105.21:4023.105.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4022.105.35:4022.105.35"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4027.105.40:4042.105.55"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4041.105.54:4041.105.54"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4066.106.20:4100.106.54"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="sub"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4067.106.21:4081.106.35"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4080.106.34:4080.106.34"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4085.106.39:4099.106.53"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4098.106.52:4098.106.52"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       <notations><notation dimension="1" precedence="-15" fixity="mixfix" arguments="1 v- 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="vec3DScalarMultiply">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4155.109.2:4365.113.30"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4177.109.24:4199.109.46"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4195.109.42:4199.109.46"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4217.110.14:4217.110.14"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"></om:OMS></type></om:OMV><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4219.110.16:4219.110.16"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4222.110.19:4331.112.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="triple"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4223.110.20:4243.110.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4224.110.21:4224.110.21"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4228.110.25:4242.110.39"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4241.110.38:4241.110.38"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4266.111.20:4287.111.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4267.111.21:4267.111.21"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4271.111.25:4286.111.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4285.111.39:4285.111.39"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4310.112.20:4330.112.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4311.112.21:4311.112.21"/></metadata></om:OMV><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4315.112.25:4329.112.39"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4328.112.38:4328.112.38"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       <notations><notation dimension="1" precedence="-10" fixity="mixfix" arguments="1 v* 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="vec3DDotProduct">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4371.115.2:4649.119.38"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4389.115.20:4411.115.42"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4405.115.36:4411.115.42"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4436.116.21:4436.116.21"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4438.116.23:4438.116.23"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4441.116.26:4607.118.61"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="add"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4441.116.26:4542.117.62"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="add"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4441.116.26:4476.116.61"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4442.116.27:4456.116.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4455.116.40:4455.116.40"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4461.116.46:4475.116.60"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleFirst"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4474.116.59:4474.116.59"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4506.117.26:4542.117.62"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4507.117.27:4522.117.42"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4521.117.41:4521.117.41"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4526.117.46:4541.117.61"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleSecond"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4540.117.60:4540.117.60"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4572.118.26:4607.118.61"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="mul"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4573.118.27:4587.118.41"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4586.118.40:4586.118.40"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4592.118.46:4606.118.60"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="tripleThird"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4605.118.59:4605.118.59"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></definition>
+       <notations><notation dimension="1" precedence="-5" fixity="mixfix" arguments="1 vdot 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="Line3DType">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4827.126.2:4872.126.47"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4840.126.15:4841.126.16"/></metadata></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4887.127.14:4898.127.25"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3DType"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4848.126.23:4856.126.31"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3DType"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4860.126.35:4868.126.43"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="Line3D">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4875.127.2:4901.127.28"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Typed" name="type"></om:OMS></om:OMOBJ></type>
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5456.140.18:5461.140.23"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4884.127.11:4885.127.12"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Line3DType"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4887.127.14:4898.127.25"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="angle">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4943.130.2:4996.130.55"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4951.130.10:4981.130.40"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4959.130.18:4963.130.22"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4967.130.26:4971.130.30"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4975.130.34:4981.130.40"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="∠ 1 2 3"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="lineSegmentLength">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#4999.131.2:5044.131.47"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5019.131.22:5041.131.44"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5019.131.22:5023.131.26"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5027.131.30:5031.131.34"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="realSym"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5035.131.38:5041.131.44"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       
+     </constant><constant name="perp">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5440.140.2:5477.140.39"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5447.140.9:5465.140.27"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Line3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5447.140.9:5452.140.14"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Line3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5456.140.18:5461.140.23"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5465.140.27:5465.140.27"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="1 ⊥ 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="perp_axiom1">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5502.141.2:5591.141.91"/></metadata>
+       <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5516.141.16:5571.141.71"/></metadata>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="a"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5517.141.17:5517.141.17"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"></om:OMS></type></om:OMV><om:OMV name="b"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5519.141.19:5519.141.19"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA>
+      </om:OMA></type></om:OMV><om:OMV name="c"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5521.141.21:5521.141.21"/></metadata><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA>
+      </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5524.141.24:5571.141.71"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
+              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5524.141.24:5547.141.47"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5526.141.26:5547.141.47"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="equal"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5526.141.26:5534.141.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="angle"></om:OMS><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5529.141.29:5529.141.29"/></metadata></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5531.141.31:5531.141.31"/></metadata></om:OMV><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5533.141.33:5533.141.33"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5538.141.38:5547.141.47"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="div"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pi"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5539.141.39:5540.141.40"/></metadata></om:OMS><om:OMLIT value="2.0"><type><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA></type></om:OMLIT>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5551.141.51:5571.141.71"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="ded"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5553.141.53:5571.141.71"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="perp"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5553.141.53:5560.141.60"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pair"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMV name="a"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5555.141.55:5555.141.55"/></metadata></om:OMV><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5558.141.58:5558.141.58"/></metadata></om:OMV>
+      </om:OMA><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5564.141.64:5571.141.71"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="pair"></om:OMS><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMA>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#3145.81.22:3157.81.34"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="cartesianProduct"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="reals"></om:OMS>
+      </om:OMA><om:OMV name="b"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5566.141.66:5566.141.66"/></metadata></om:OMV><om:OMV name="c"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/planar_geometry.mmt#5569.141.69:5569.141.69"/></metadata></om:OMV>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMA>
+      </om:OMBIND></om:OMOBJ></type>
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="perp_axiom1 4"> <scope languages="" priority="0"/> </notation></notations>
+     </constant></theory></omdoc>

@@ -1,0 +1,4 @@
+theory http://cds.omdoc.org/urtheories?LF
+Includes http://cds.omdoc.org/urtheories?LF http://cds.omdoc.org/urtheories?TermsTypesKinds
+Includes http://cds.omdoc.org/urtheories?LF http://cds.omdoc.org/urtheories?LambdaPi
+Includes http://cds.omdoc.org/urtheories?LF http://cds.omdoc.org/urtheories?LFRules

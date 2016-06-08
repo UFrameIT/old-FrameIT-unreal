@@ -1,0 +1,4 @@
+document http://docs.omdoc.org/urtheories/subtypes.omdoc
+Declares http://docs.omdoc.org/urtheories/subtypes.omdoc http://cds.omdoc.org/urtheories?Subtyping
+Declares http://docs.omdoc.org/urtheories/subtypes.omdoc http://cds.omdoc.org/urtheories?Inhabitation
+Declares http://docs.omdoc.org/urtheories/subtypes.omdoc http://cds.omdoc.org/urtheories?PredicateSubtypes

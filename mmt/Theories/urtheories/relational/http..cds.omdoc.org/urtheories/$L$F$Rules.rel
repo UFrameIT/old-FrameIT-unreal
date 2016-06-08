@@ -1,0 +1,35 @@
+theory http://cds.omdoc.org/urtheories?LFRules
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.PiType
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.PiType
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.PiTerm
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.PiTerm
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.ApplyTerm
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.ApplyTerm
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.LambdaTerm
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.LambdaTerm
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.Beta
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.Beta
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.Extensionality
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.Extensionality
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.PiCongruence
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.PiCongruence
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.LambdaCongruence
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.LambdaCongruence
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.Solve
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.Solve
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.SolveType
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.SolveType
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.ExpandArrow
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.ExpandArrow
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.TheoryTypeWithLF
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.TheoryTypeWithLF
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.UnsafeBeta
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.UnsafeBeta
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.PiIntroduction
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.PiIntroduction
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.ForwardPiElimination
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.ForwardPiElimination
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.BackwardPiElimination
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.BackwardPiElimination
+Declares http://cds.omdoc.org/urtheories?LFRules http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.LFHOAS
+constant http://cds.omdoc.org/urtheories?LFRules?info.kwarc.mmt.lf.LFHOAS

@@ -1,0 +1,7 @@
+id: MMT/urtheories
+classpath: bin
+narration-base: http://docs.omdoc.org/urtheories
+responsible: f.rabe@jacobs-university.de
+title: MMT urtheories
+teaser: various urtheories for MMT
+description: desc.html

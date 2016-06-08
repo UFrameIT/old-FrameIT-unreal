@@ -1,0 +1,26 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Errors" base="http://cds.omdoc.org/mmt"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#37.2.0:893.20.1"/></metadata><constant name="missing">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#96.4.3:133.4.40"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-99500" fixity="mixfix" arguments="≪ 1 ≫"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="illtyped">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#181.6.3:219.6.41"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-100000" fixity="mixfix" arguments="≪ 1 :: 2 ≫"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="unknown">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#323.8.3:362.8.42"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-100003" fixity="mixfix" arguments="≪ using 1,… ≫"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="unsolved">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#366.9.3:407.9.44"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-100006" fixity="mixfix" arguments="≪ [ V1T,… ] 2 ≫"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="oneOf">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/meta.mmt#581.12.3:618.12.40"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="-100002" fixity="mixfix" arguments="≪ 1 @ 2,… ≫"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><ruleconstant name="info.kwarc.mmt.api.checking.HoleTerm"/><ruleconstant name="info.kwarc.mmt.api.checking.Disambiguation"/><ruleconstant name="info.kwarc.mmt.api.checking.InferAmbiguous"/></theory></omdoc>

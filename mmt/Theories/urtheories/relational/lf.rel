@@ -1,0 +1,11 @@
+document http://docs.omdoc.org/urtheories/lf.omdoc
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?Typed
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?Kinded
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?TypedConstants
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?KindedConstants
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?TermsTypesKinds
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?LambdaPi
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?LFRules
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?LF
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?ShallowPolymorphism
+Declares http://docs.omdoc.org/urtheories/lf.omdoc http://cds.omdoc.org/urtheories?PLF

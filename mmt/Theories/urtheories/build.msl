@@ -1,0 +1,31 @@
+// This is an MMT script that builds this project. It can be run by checking out MMT at https://svn.kwarc.info/repos/MMT/deploy and running MMT using the shell scripts given there.
+
+log console
+log file build.log
+log+ archive
+
+mathpath archive .
+
+extension info.kwarc.mmt.api.archives.GraphViz
+extension info.kwarc.mmt.api.archives.MWSHarvestExporter
+extension info.kwarc.mmt.lf.Plugin
+
+define build
+  build MMT/urtheories scala-bin
+  build MMT/urtheories mmt-omdoc
+  //archive urtheories extract
+end
+
+define export
+  archive MMT/urtheories relational
+  build MMT/urtheories mws
+  build MMT/urtheories svg
+end
+
+define clean
+  build MMT/urtheories -mmt-omdoc
+end
+
+define serve
+  server on 8080
+end

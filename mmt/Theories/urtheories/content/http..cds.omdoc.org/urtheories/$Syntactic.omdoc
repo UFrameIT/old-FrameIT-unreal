@@ -1,0 +1,29 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><view from="http://www.openmath.org/cd?OpenMath" to="http://cds.omdoc.org/urtheories?ScalaOM" name="Syntactic" base="http://cds.omdoc.org/urtheories">
+           <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#44.2.0:222.7.1"/></metadata><constant name="[http://www.openmath.org/cd?OpenMath]/Object">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#113.3.2:130.3.19"/></metadata>
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Scala" name="Any"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#126.3.15:128.3.17"/></metadata></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://www.openmath.org/cd?OpenMath]/mapsto">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#133.4.2:155.4.24"/></metadata>
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/urtheories" module="Scala" name="Function"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#146.4.15:153.4.22"/></metadata></om:OMS></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://www.openmath.org/cd?OpenMath]/naryObject">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#158.5.2:181.5.25"/></metadata>
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#171.5.15:179.5.23"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="Scala" name="List"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="Scala" name="Any"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#176.5.20:178.5.22"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant><constant name="[http://www.openmath.org/cd?OpenMath]/binder">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#184.6.2:220.6.38"/></metadata>
+       
+       <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#197.6.15:218.6.36"/></metadata>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="Scala" name="Function"></om:OMS>
+              <om:OMS base="http://cds.omdoc.org/urtheories" module="ScalaOM" name="Context"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#202.6.20:208.6.26"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="ScalaOM" name="Term"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#210.6.28:213.6.31"/></metadata></om:OMS><om:OMS base="http://cds.omdoc.org/urtheories" module="Scala" name="Any"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/bifoundations.mmt#216.6.34:218.6.36"/></metadata></om:OMS>
+      </om:OMA></om:OMOBJ></definition>
+       
+     </constant>
+         </view></omdoc>

@@ -1,0 +1,18 @@
+theory http://cds.omdoc.org/urtheories?CF
+Includes http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?PLF
+Includes http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?LF
+Includes http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?ShallowPolymorphism
+Declares http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?CF?instance
+constant http://cds.omdoc.org/urtheories?CF?instance
+Declares http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?CF?new
+constant http://cds.omdoc.org/urtheories?CF?new
+Declares http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?CF?field
+constant http://cds.omdoc.org/urtheories?CF?field
+Declares http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?CF?sequence
+constant http://cds.omdoc.org/urtheories?CF?sequence
+Declares http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?CF?None
+constant http://cds.omdoc.org/urtheories?CF?None
+Declares http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?CF?none
+constant http://cds.omdoc.org/urtheories?CF?none
+Declares http://cds.omdoc.org/urtheories?CF http://cds.omdoc.org/urtheories?CF?assign
+constant http://cds.omdoc.org/urtheories?CF?assign

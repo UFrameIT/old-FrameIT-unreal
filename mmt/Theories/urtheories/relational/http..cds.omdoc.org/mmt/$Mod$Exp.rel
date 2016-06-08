@@ -1,0 +1,25 @@
+theory http://cds.omdoc.org/mmt?ModExp
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?theory
+constant http://cds.omdoc.org/mmt?ModExp?theory
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?morphism
+constant http://cds.omdoc.org/mmt?ModExp?morphism
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?complextheory
+constant http://cds.omdoc.org/mmt?ModExp?complextheory
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?complexmorphism
+constant http://cds.omdoc.org/mmt?ModExp?complexmorphism
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?identity
+constant http://cds.omdoc.org/mmt?ModExp?identity
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?composition
+constant http://cds.omdoc.org/mmt?ModExp?composition
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?morphismapplication
+constant http://cds.omdoc.org/mmt?ModExp?morphismapplication
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.TheoryTypeInhabitable
+constant http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.TheoryTypeInhabitable
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.TheoryTypeUniverse
+constant http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.TheoryTypeUniverse
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.MorphTypeInhabitable
+constant http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.MorphTypeInhabitable
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.ComplexTheoryInfer
+constant http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.ComplexTheoryInfer
+Declares http://cds.omdoc.org/mmt?ModExp http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.MorphCheck
+constant http://cds.omdoc.org/mmt?ModExp?info.kwarc.mmt.morphisms.MorphCheck

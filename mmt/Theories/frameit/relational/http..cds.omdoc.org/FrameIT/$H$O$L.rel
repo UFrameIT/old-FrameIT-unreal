@@ -1,0 +1,34 @@
+theory http://cds.omdoc.org/FrameIT?HOL
+HasMeta http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/urtheories?LF
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?tp
+constant http://cds.omdoc.org/FrameIT?HOL?tp
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?tm
+constant http://cds.omdoc.org/FrameIT?HOL?tm
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?prop
+constant http://cds.omdoc.org/FrameIT?HOL?prop
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?o
+constant http://cds.omdoc.org/FrameIT?HOL?o
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?equal
+constant http://cds.omdoc.org/FrameIT?HOL?equal
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?ded
+constant http://cds.omdoc.org/FrameIT?HOL?ded
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?conjunction
+constant http://cds.omdoc.org/FrameIT?HOL?conjunction
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?disjunction
+constant http://cds.omdoc.org/FrameIT?HOL?disjunction
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?negation
+constant http://cds.omdoc.org/FrameIT?HOL?negation
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?true
+constant http://cds.omdoc.org/FrameIT?HOL?true
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?false
+constant http://cds.omdoc.org/FrameIT?HOL?false
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?equivalence
+constant http://cds.omdoc.org/FrameIT?HOL?equivalence
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?nequal
+constant http://cds.omdoc.org/FrameIT?HOL?nequal
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?forall
+constant http://cds.omdoc.org/FrameIT?HOL?forall
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?exists
+constant http://cds.omdoc.org/FrameIT?HOL?exists
+Declares http://cds.omdoc.org/FrameIT?HOL http://cds.omdoc.org/FrameIT?HOL?refl
+constant http://cds.omdoc.org/FrameIT?HOL?refl

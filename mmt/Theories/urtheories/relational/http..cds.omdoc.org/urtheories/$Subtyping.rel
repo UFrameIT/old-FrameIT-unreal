@@ -1,0 +1,10 @@
+theory http://cds.omdoc.org/urtheories?Subtyping
+HasMeta http://cds.omdoc.org/urtheories?Subtyping http://cds.omdoc.org/urtheories?PLF
+Declares http://cds.omdoc.org/urtheories?Subtyping http://cds.omdoc.org/urtheories?Subtyping?subtype
+constant http://cds.omdoc.org/urtheories?Subtyping?subtype
+Declares http://cds.omdoc.org/urtheories?Subtyping http://cds.omdoc.org/urtheories?Subtyping?refl
+constant http://cds.omdoc.org/urtheories?Subtyping?refl
+Declares http://cds.omdoc.org/urtheories?Subtyping http://cds.omdoc.org/urtheories?Subtyping?trans
+constant http://cds.omdoc.org/urtheories?Subtyping?trans
+Declares http://cds.omdoc.org/urtheories?Subtyping http://cds.omdoc.org/urtheories?Subtyping?covariant
+constant http://cds.omdoc.org/urtheories?Subtyping?covariant

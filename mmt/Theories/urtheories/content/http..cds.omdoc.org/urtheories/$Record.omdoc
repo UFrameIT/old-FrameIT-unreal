@@ -1,0 +1,16 @@
+<omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="Record" base="http://cds.omdoc.org/urtheories"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/records.mmt#44.2.0:214.10.1"/></metadata><import from="http://cds.omdoc.org/urtheories?Typed"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/records.mmt#63.3.3:78.3.18"/></metadata></import><constant name="Record">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/records.mmt#86.5.3:108.5.25"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="Record 1"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="record">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/records.mmt#112.6.3:135.6.26"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="1 ⟨ 2,… ⟩"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><constant name="projection">
+       <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/urtheories/records.mmt#139.7.3:158.7.22"/></metadata>
+       
+       
+       <notations><notation dimension="1" precedence="0" fixity="mixfix" arguments="1 . 2"> <scope languages="" priority="0"/> </notation></notations>
+     </constant><ruleconstant name="info.kwarc.mmt.lf.records.Simplification"/></theory></omdoc>
