@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Object.h"
+#include "Runtime/Online/HTTP/Public/Http.h"
 #include "ScrollView.generated.h"
 
 class UFact;
@@ -27,11 +28,11 @@ public:
 
 	TPair<bool, UFact*> ComputeNewFact();
 
-	bool CallMMT(FString* OutputString);
-	void CreateSituationTheory();
-	void CreateView();
+	void CallMMTPostRequest(const FString& SituationTheoryStr, const FString& ViewStr);
+	FString CreateSituationTheory();
+	FString CreateView();
 
-	void UScrollView::ParseMMT(FString* Input);
+	void ParseMMT(FString Input);
 
 	FString SerializeProofToMMT();
 	FString SerializeViewPointFactToMMT(UPointFact* ScrollFact, UPointFact* Fact);
@@ -46,6 +47,11 @@ public:
 	TArray<TPair<UFact*, UFact*>>* GetViewMapping();
 	void ResetView();
 
+	// HTTP things
+	void OnMMTPostRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
+	void OnMMTGetRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);
+	void OnHTTPError(FString ErrorStr);
+
 protected:
 	TArray<TPair<UFact*, UFact*>> ViewMapping;
 
@@ -57,4 +63,9 @@ protected:
 	UPROPERTY()
 	UWorld* World;
 	
+	UPROPERTY()
+	FString	MMTServerPostPath;
+
+	UPROPERTY()
+	FString	MMTServerGetPath;
 };

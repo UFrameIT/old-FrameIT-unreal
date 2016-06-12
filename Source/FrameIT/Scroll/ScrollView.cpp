@@ -8,9 +8,13 @@
 #include "Fact/LineSegmentFact.h"
 #include "Fact/AngleFact.h"
 
+
+
 UScrollView::UScrollView()
 {
 	this->Scroll = nullptr;
+	this->MMTServerPostPath = "http://localhost:10000/:frameit/add";
+	this->MMTServerGetPath = "http://localhost:10000/:frameit/pushout?theory=http://cds.omdoc.org/FrameIT?solution_theory";
 }
 
 void UScrollView::Initialize(UScroll* Scroll, UWorld* World)
@@ -70,33 +74,28 @@ TPair<bool, UFact*> UScrollView::ComputeNewFact()
 		return ResultPair;
 	}
 
-	// Create the situation theory
-	this->CreateSituationTheory();
+	// Create the situation theory and store it
+	FString SituationTheoryStr = this->CreateSituationTheory();
 
-	// Create View here a  omdoc file
-	this->CreateView();
+	// Create View and store it
+	FString ViewStr = this->CreateView();
 
-	// Create a new MMT process and get output
-	FString OutputString;
-	if (!CallMMT(&OutputString))
-	{
-		return ResultPair;
-	}
+	// Call MMT via HTTP request and handle content via callbacks.
+	this->CallMMTPostRequest(SituationTheoryStr, ViewStr);
 
-	
-	// Parse it
-	this->ParseMMT(&OutputString);
-
-	ResultPair.Key = true;
 	return ResultPair;
+
 }
 
-void UScrollView::ParseMMT(FString* Input)
+void UScrollView::ParseMMT(FString Input)
 {
+	UE_LOG(FrameITLog, Log, TEXT("Response parseStep:\n %s"), *Input);
 	// We should really parse the xml but due to time constraints and as it is only a demo lets just get the value
-	auto StartOfValueStr = Input->Find("om:OMLIT value=\"") + FString("om:OMLIT value=\"").Len();
-	auto EndOfValueStr = Input->Find("\">", ESearchCase::IgnoreCase, ESearchDir::FromStart, StartOfValueStr);
-	auto ValueStr = Input->Mid(StartOfValueStr, EndOfValueStr - StartOfValueStr);
+	// for more scrolls we obviously need to change this to something meaningful depending on scrolls!
+	// but first we will need scrolls!
+	auto StartOfValueStr = Input.Find("om:OMLIT value=\"") + FString("om:OMLIT value=\"").Len();
+	auto EndOfValueStr = Input.Find("\">", ESearchCase::IgnoreCase, ESearchDir::FromStart, StartOfValueStr);
+	auto ValueStr = Input.Mid(StartOfValueStr, EndOfValueStr - StartOfValueStr);
 
 	float NewDistance = fabs(FCString::Atof(*ValueStr));
 
@@ -130,27 +129,61 @@ void UScrollView::ResetView()
 	this->FactListIndexMap.Empty();
 }
 
-bool UScrollView::CallMMT(FString* OutputString)
+void UScrollView::CallMMTPostRequest(const FString& SituationTheoryStr, const FString& ViewStr)
 {
-	// @todo Remove this hardcoded path!
-	// Delete our old file if it exists
-	FString AbsoluteFilePath = "C:\\Users\\rocha\\Documents\\content\\pushout.xml";
-	FPlatformFileManager::Get().GetPlatformFile().DeleteFile(*AbsoluteFilePath);
-
-	
-	system("C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\mmt.bat mbt C:\\Users\\rocha\\Documents\\content\\FrameIT\\frameit.scala");//C:\\Users\\rocha\\Documents\\MMT\\system\\deploy\\FrameIT.bat");
-
-	if (!FPlatformFileManager::Get().GetPlatformFile().FileExists(*AbsoluteFilePath))
+	TSharedRef<IHttpRequest> Request = FHttpModule::Get().CreateRequest();
+	Request->OnProcessRequestComplete().BindUObject(this, &UScrollView::OnMMTPostRequestComplete);
+	Request->SetURL(this->MMTServerPostPath);
+	Request->SetVerb("POST");
+	Request->SetHeader("Content-Type", TEXT("text/raw"));
+	FString Content = "<content>\n" + SituationTheoryStr + "\n" + ViewStr + "\n</content>";
+	UE_LOG(FrameITLog, Log, TEXT("Post request:\n %s"), *Content);
+	Request->SetContentAsString(Content);
+	if (!Request->ProcessRequest())
 	{
-		return false;
+		this->OnHTTPError("Failure Processing Request");
 	}
-
-	FFileHelper::LoadFileToString(*OutputString, *AbsoluteFilePath);
-
-	return true;
 }
 
-void UScrollView::CreateSituationTheory()
+void UScrollView::OnMMTPostRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful)
+{
+	UE_LOG(FrameITLog, Log, TEXT("Response post step:\n %s"), *Response->GetContentAsString());
+	if (EHttpResponseCodes::IsOk(Response->GetResponseCode()) && bWasSuccessful)
+	{
+		TSharedRef<IHttpRequest> NextRequest = FHttpModule::Get().CreateRequest();
+		NextRequest->OnProcessRequestComplete().BindUObject(this, &UScrollView::OnMMTGetRequestComplete);
+		NextRequest->SetURL(this->MMTServerGetPath);
+		NextRequest->SetVerb("GET");
+		if (!NextRequest->ProcessRequest())
+		{
+			this->OnHTTPError("Failure Processing Request");
+		}
+	}
+	else
+	{
+		this->OnHTTPError(Response->GetContentAsString());
+	}
+}
+
+void UScrollView::OnMMTGetRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful)
+{
+	UE_LOG(FrameITLog, Log, TEXT("Response get step:\n %s"), *Response->GetContentAsString());
+	if (EHttpResponseCodes::IsOk(Response->GetResponseCode()) && bWasSuccessful)
+	{
+		this->ParseMMT(Response->GetContentAsString());
+	}
+	else
+	{
+		this->OnHTTPError(Response->GetContentAsString());
+	}
+}
+
+void UScrollView::OnHTTPError(FString ErrorStr)
+{
+	UE_LOG(FrameITLog, Log, TEXT("Error: %s"), *ErrorStr);
+}
+
+FString UScrollView::CreateSituationTheory()
 {
 	// Create the content 
 	FString Document;	
@@ -166,27 +199,13 @@ void UScrollView::CreateSituationTheory()
 	Document += this->SerializeProofToMMT();
 	Document += OmdocFooter;
 
-	// Save the big string
-	FString SaveDirectory = FString("C://Users//rocha//Documents//content//FrameIT//content//http..cds.omdoc.org//FrameIT");
-	FString FileName = FString("situation_theory.omdoc");
-
-	// Get absolute file path
-	FString AbsoluteFilePath = SaveDirectory + "/" + FileName;
-	FFileHelper::SaveStringToFile(Document, *AbsoluteFilePath);
+	return Document;
 }
 
-void UScrollView::CreateView()
+FString UScrollView::CreateView()
 {
 	// Create the content 
-	FString Document = this->SerializeViewToMMT();
-
-	// Save the big string
-	FString SaveDirectory = FString("C://Users//rocha//Documents//content//FrameIT//content//http..cds.omdoc.org//FrameIT");
-	FString FileName = FString("situation_problem_view.omdoc");
-
-	// Get absolute file path
-	FString AbsoluteFilePath = SaveDirectory + "/" + FileName;
-	FFileHelper::SaveStringToFile(Document, *AbsoluteFilePath);
+	return this->SerializeViewToMMT();
 }
 
 FString UScrollView::SerializeProofToMMT()

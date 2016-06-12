@@ -14,10 +14,10 @@ theory problem_theory : ?planar_geometry =
 	Pc : Vec3D 
   
 	anglePaPbPc_value : realSym 
-	anglePaPbPc : ⊦ (∠ Pa Pb Pc) ≐ anglePaPbPc_value 
+	anglePaPbPc : ⊦ (angle Pa Pb Pc) ≐ anglePaPbPc_value 
 
   anglePcPaPb_value : realSym 
-  anglePcPaPb : ⊦ (∠ Pc Pa Pb) ≐ anglePcPaPb_value 
+  anglePcPaPb : ⊦ (angle Pc Pa Pb) ≐ anglePcPaPb_value 
 	
 	lineSegPaPb_value : realSym 
   lineSegPaPb : ⊦ (lineSegmentLength Pa Pb) ≐ lineSegPaPb_value 
