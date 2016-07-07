@@ -156,7 +156,7 @@ FString AFrameITGameState::GetNextFreeName()
 			for (int i = 0; i < StringLength; i++) {
 				ID.AppendChar(ResultArray[i]);
 			}
-			ID.Reverse();
+			ID.ReverseString();
 
 			if (!this->FactMap.Contains(ID))
 			{
