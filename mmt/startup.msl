@@ -1,5 +1,5 @@
-//log console
-//log+ object-checker
+// log console
+// log+ object-checker
 extension info.kwarc.mmt.api.ontology.AlignmentsServer
 extension info.kwarc.mmt.frameit.FrameitPlugin
 mathpath archive ./Theories

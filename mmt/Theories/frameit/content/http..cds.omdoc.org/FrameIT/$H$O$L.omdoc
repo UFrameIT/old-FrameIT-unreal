@@ -169,13 +169,14 @@
       </om:OMBIND></om:OMOBJ></type>
        <definition><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMBIND><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#657.25.54:675.25.72"/></metadata>
                  <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="lambda"></om:OMS>
-                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#658.25.55:658.25.55"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#660.25.57:660.25.57"/></metadata><type><om:OMA>
-              <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="arrow"></om:OMS>
-              <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#623.25.20:626.25.23"/></metadata>
+                 <om:OMBVAR><om:OMV name="A"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#658.25.55:658.25.55"/></metadata><type><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tp"></om:OMS></type></om:OMV><om:OMV name="f"><metadata><tag property="http://cds.omdoc.org/mmt?mmt?inferred-type"/><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#660.25.57:660.25.57"/></metadata><type><om:OMBIND>
+                 <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="Pi"></om:OMS>
+                 <om:OMBVAR><om:OMV name="_"><type><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#623.25.20:626.25.23"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="tm"></om:OMS><om:OMV name="A"></om:OMV>
-      </om:OMA><om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#630.25.27:630.25.27"/></metadata></om:OMS>
       </om:OMA></type></om:OMV></om:OMBVAR>
+                 <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="o"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#630.25.27:630.25.27"/></metadata></om:OMS>
+      </om:OMBIND></type></om:OMV></om:OMBVAR>
                  <om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#663.25.60:675.25.72"/></metadata>
               <om:OMS base="http://cds.omdoc.org/urtheories" module="LambdaPi" name="apply"></om:OMS>
               <om:OMS base="http://cds.omdoc.org/FrameIT" module="HOL" name="negation"></om:OMS><om:OMA><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/hol.mmt#664.25.61:675.25.72"/></metadata>
