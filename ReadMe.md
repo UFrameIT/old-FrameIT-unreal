@@ -21,7 +21,7 @@ Theories contains the archives
 #### Starting MMT 
 
 run mmt (relative to the game-folder) with
-	java -Xmx2048m -cp "mmt/mmt.jar:mmt/frameit-mmt.jar" info.kwarc.mmt.api.frontend.Run "$@" --keepalive
+	`java -Xmx2048m -cp "mmt/mmt.jar:mmt/frameit-mmt.jar" info.kwarc.mmt.api.frontend.Run "$@" --keepalive`
 
 this will also build the frameit archive and start the server on port 10000
 
@@ -29,22 +29,22 @@ this will also build the frameit archive and start the server on port 10000
 
 there are two HTTP requests:
 
-1. http://localhost:10000/:frameit/add 
-with body <content><omdoc>SITUATIONTHEORY</omdoc><omdoc>VIEW</omdoc></content>
+1. `http://localhost:10000/:frameit/add` 
+with body `<content><omdoc>SITUATIONTHEORY</omdoc><omdoc>VIEW</omdoc></content>`
 
-2. http://localhost:10000/:frameit/pushout?theory=<SOLUTION-THEORY-URI>
+2. `http://localhost:10000/:frameit/pushout?theory=<SOLUTION-THEORY-URI>`
 to compute the pushout
 
 
 #### Example Requests 
 
 The pushout for our example is computed using
-	http://localhost:10000/:frameit/pushout?theory=http://cds.omdoc.org/FrameIT?solution_theory
+	`http://localhost:10000/:frameit/pushout?theory=http://cds.omdoc.org/FrameIT?solution_theory`
 
 The POST request for adding the situation theory and view is:
-	http://localhost:10000/:frameit/add
+	`http://localhost:10000/:frameit/add`
 Body:
-<content>
+```<content>
 <omdoc xmlns="http://omdoc.org/ns" xmlns:om="http://www.openmath.org/OpenMath"><theory name="situation_theory" base="http://cds.omdoc.org/FrameIT" meta="http://cds.omdoc.org/FrameIT?planar_geometry"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/situation_theory.mmt#42.2.0:684.25.1"/></metadata><constant name="pA">
        <metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/situation_theory.mmt#224.11.1:236.11.13"/></metadata>
        <type><om:OMOBJ xmlns:om="http://www.openmath.org/OpenMath"><om:OMS base="http://cds.omdoc.org/FrameIT" module="planar_geometry" name="Vec3D"><metadata><link rel="http://cds.omdoc.org/mmt?metadata?sourceRef" resource="http://docs.omdoc.org/FrameIT/situation_theory.mmt#229.11.6:233.11.10"/></metadata></om:OMS></om:OMOBJ></type>
@@ -295,5 +295,5 @@ Body:
        
      </constant>
          </view></omdoc>
-</content>
+</content>```
 
