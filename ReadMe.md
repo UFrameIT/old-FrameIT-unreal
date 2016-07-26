@@ -25,6 +25,7 @@ The used vegetation pack is provided by the user "fighter5347" from the offical 
 | Enter         | Use current selection for action i.e. current fact for view/solution mode |
 
 Example Usage:
+```
 Walk around the area.
 Select a scroll with T and G.
 Cycle through tools with the Scroll Whell to get to the point tool.
@@ -39,7 +40,7 @@ Then select the correct facts by selecting them with R and F and then pressing e
 After all facts are selected a new fact will be computed.
 Press Q to assign your final solution in the same way as with the facts.
 Press Enter to win.
-
+```
 ## Directory Structure 
 ```
 <Game-Folder>
