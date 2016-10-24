@@ -65,6 +65,18 @@ AFrameITGameState::AFrameITGameState()
 	Scroll3->Initialize(FText::FromString("Future Scroll 2"), TArray<UFact*>());
 	this->ScrollArray.Add(Scroll3);
 
+	this->RequestInProgress = false;
+
+}
+
+void AFrameITGameState::SetRequestInProgress(bool value)
+{
+	this->RequestInProgress = value;
+}
+
+bool AFrameITGameState::GetRequestInProgress()
+{
+	return this->RequestInProgress;
 }
 
 TArray<FText> AFrameITGameState::CreateFactTextList()

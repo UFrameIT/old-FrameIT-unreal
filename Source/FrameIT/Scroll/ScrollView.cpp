@@ -7,7 +7,9 @@
 #include "Fact/PointFact.h"
 #include "Fact/LineSegmentFact.h"
 #include "Fact/AngleFact.h"
-
+#include "FrameITGameState.h"
+#include "FrameITGameMode.h"
+#include "FP_FirstPerson/FP_FirstPersonCharacter.h"
 
 
 UScrollView::UScrollView()
@@ -62,16 +64,41 @@ bool UScrollView::AssignFact(int FactListIndex, UFact* Fact, int RequiredFactInd
 	return true;
 }
 
-TPair<bool, UFact*> UScrollView::ComputeNewFact()
+void UScrollView::ResetAfterError()
 {
-	TPair<bool, UFact*> ResultPair;
-	ResultPair.Key = false;
-	ResultPair.Value = nullptr;
+	// Reset Everything
+	// Reset the scroll view data structure
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
+	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)this->World->GetAuthGameMode();
+	this->ResetView();
+	this->Character->CurrentScrollRequiredFactIndex = 0;
+	CurrentGameMode->OnUpdateSelectFact(false, this->Character->CurrentFactIndexSelected);
+
+	// Initalize Stuff again
+	// Set the current selected fact to the first one of the list
+	this->Character->CurrentFactIndexSelected = 0;
+	this->Character->CurrentFactSelected = CurrentGameState->GetFact(this->Character->CurrentFactIndexSelected);
+	CurrentGameMode->OnUpdateSelectFact(true, this->Character->CurrentFactIndexSelected);
+
+	// Init scroll view
+	this->Initialize(this->Character->CurrentScroll, World);
+
+	// Set the view text to the first text
+	auto ScrollFactArray = this->Character->CurrentScroll->GetRequiredFacts();
+	auto Fact = (*ScrollFactArray)[this->Character->CurrentScrollRequiredFactIndex];
+	CurrentGameMode->OnUpdateViewText(FText::FromString("Last Assignment failed! Retry!\nAssign: " + Fact->GetID()));
+}
+
+void UScrollView::ComputeNewFact(AFP_FirstPersonCharacter* Character)
+{
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
+	CurrentGameState->SetRequestInProgress(true);
+	this->Character = Character;
 
 	// Safety check for size
 	if (this->ViewMapping.Num() != this->Scroll->GetRequiredFacts()->Num())
 	{
-		return ResultPair;
+		this->ResetAfterError();
 	}
 
 	// Create the situation theory and store it
@@ -82,9 +109,6 @@ TPair<bool, UFact*> UScrollView::ComputeNewFact()
 
 	// Call MMT via HTTP request and handle content via callbacks.
 	this->CallMMTPostRequest(SituationTheoryStr, ViewStr);
-
-	return ResultPair;
-
 }
 
 void UScrollView::ParseMMT(FString Input)
@@ -109,6 +133,7 @@ void UScrollView::ParseMMT(FString Input)
 	FString ID = pB->GetID() + "-" + pC->GetID();
 
 	Fact->Initialize(this->World, ID, pB, pC, NewDistance);
+	this->Character->OnToggleViewMode();
 }
 
 
@@ -142,13 +167,18 @@ void UScrollView::CallMMTPostRequest(const FString& SituationTheoryStr, const FS
 	if (!Request->ProcessRequest())
 	{
 		this->OnHTTPError("Failure Processing Request");
+
+		// We finished this request so allow new requests or changes to scroll view
+		AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
+		CurrentGameState->SetRequestInProgress(false);
 	}
 }
 
 void UScrollView::OnMMTPostRequestComplete(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful)
 {
 	UE_LOG(FrameITLog, Log, TEXT("Response post step:\n %s"), *Response->GetContentAsString());
-	if (EHttpResponseCodes::IsOk(Response->GetResponseCode()) && bWasSuccessful)
+	bool success = Response->GetContentAsString() == FString("Okay");
+	if (EHttpResponseCodes::IsOk(Response->GetResponseCode()) && bWasSuccessful && success)
 	{
 		TSharedRef<IHttpRequest> NextRequest = FHttpModule::Get().CreateRequest();
 		NextRequest->OnProcessRequestComplete().BindUObject(this, &UScrollView::OnMMTGetRequestComplete);
@@ -157,11 +187,19 @@ void UScrollView::OnMMTPostRequestComplete(FHttpRequestPtr Request, FHttpRespons
 		if (!NextRequest->ProcessRequest())
 		{
 			this->OnHTTPError("Failure Processing Request");
+
+			// We finished this request so allow new requests or changes to scroll view
+			AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
+			CurrentGameState->SetRequestInProgress(false);
 		}
 	}
 	else
 	{
 		this->OnHTTPError(Response->GetContentAsString());
+
+		// We finished this request so allow new requests or changes to scroll view
+		AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
+		CurrentGameState->SetRequestInProgress(false);
 	}
 }
 
@@ -176,10 +214,15 @@ void UScrollView::OnMMTGetRequestComplete(FHttpRequestPtr Request, FHttpResponse
 	{
 		this->OnHTTPError(Response->GetContentAsString());
 	}
+
+	// We finished this request so allow new requests or changes to scroll view
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)this->World->GetGameState();
+	CurrentGameState->SetRequestInProgress(false);
 }
 
 void UScrollView::OnHTTPError(FString ErrorStr)
 {
+	this->ResetAfterError();
 	UE_LOG(FrameITLog, Log, TEXT("Error: %s"), *ErrorStr);
 }
 

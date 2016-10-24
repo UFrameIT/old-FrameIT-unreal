@@ -26,6 +26,8 @@ public:
 	TMap<FString, UFact*>* GetFactMap();
 	TArray<UScroll*>* GetScrollArray();
 	UFact* GetFact(int Index);
+	void SetRequestInProgress(bool value);
+	bool GetRequestInProgress();
 
 protected:
 	UPROPERTY()
@@ -33,5 +35,8 @@ protected:
 
 	UPROPERTY()
 	TArray<UScroll*> ScrollArray;
+
+	UPROPERTY()
+	bool RequestInProgress;
 
 };

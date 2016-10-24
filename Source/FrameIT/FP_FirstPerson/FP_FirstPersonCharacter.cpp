@@ -647,6 +647,11 @@ void AFP_FirstPersonCharacter::OnScrollSelectForward()
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+	if (CurrentGameState->GetRequestInProgress())
+	{
+		return;
+	}
+
 	auto ScrollArray = CurrentGameState->GetScrollArray();
 	this->CurrentScrollArrayIndex = (this->CurrentScrollArrayIndex + 1) % ScrollArray->Num();
 	auto Scroll = (*ScrollArray)[this->CurrentScrollArrayIndex];
@@ -667,6 +672,11 @@ void AFP_FirstPersonCharacter::OnScrollSelectBackward()
 	UWorld* const World = GetWorld();
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+
+	if (CurrentGameState->GetRequestInProgress())
+	{
+		return;
+	}
 
 	auto ScrollArray = CurrentGameState->GetScrollArray();
 	this->CurrentScrollArrayIndex--;
@@ -697,6 +707,10 @@ void AFP_FirstPersonCharacter::OnToggleViewMode()
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+	if (CurrentGameState->GetRequestInProgress())
+	{
+		return;
+	}
 	
 	this->bInViewMode = !this->bInViewMode;
 	CurrentGameMode->OnToggleViewMode(this->bInViewMode);
@@ -728,11 +742,16 @@ void AFP_FirstPersonCharacter::OnToggleViewMode()
 
 void AFP_FirstPersonCharacter::OnViewModeDown()
 {
+	UWorld* const World = GetWorld();
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	if (CurrentGameState->GetRequestInProgress()) {
+		return;
+	}
+
+
 	if (this->bInViewMode || this->bInSolutionMode)
 	{
-		// Get the current Game Mode and Game State
-		UWorld* const World = GetWorld();
-		AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+		// Get the current Game Mode
 		AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
 		// move selection down
@@ -757,11 +776,15 @@ void AFP_FirstPersonCharacter::OnViewModeDown()
 
 void AFP_FirstPersonCharacter::OnViewModeUp()
 {
+	UWorld* const World = GetWorld();
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	if (CurrentGameState->GetRequestInProgress()) {
+		return;
+	}
+
 	if (this->bInViewMode || this->bInSolutionMode)
 	{
-		// Get the current Game Mode and Game State
-		UWorld* const World = GetWorld();
-		AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+		// Get the current Game Mode
 		AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
 		// move selection down
@@ -795,6 +818,10 @@ void AFP_FirstPersonCharacter::OnViewSelect()
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 
+	if (CurrentGameState->GetRequestInProgress()) {
+		return;
+	}
+
 	if (this->bInViewMode)
 	{
 		auto EleCount = CurrentGameState->GetFactMap()->Num();
@@ -819,35 +846,7 @@ void AFP_FirstPersonCharacter::OnViewSelect()
 			// Lastly compute new facts
 			// this should be different!
 			// Listen to event from http and reset depending on that!
-			auto FactRes = this->CurrentScrollView->ComputeNewFact();
-			/*FactRes.Key = true;
-			if (FactRes.Key == false)
-			{
-				// Reset Everything
-				// Reset the scroll view data structure
-				CurrentScrollView->ResetView();
-				this->CurrentScrollRequiredFactIndex = 0;
-				CurrentGameMode->OnUpdateSelectFact(false, this->CurrentFactIndexSelected);
-
-				// Initalize Stuff again
-				// Set the current selected fact to the first one of the list
-				this->CurrentFactIndexSelected = 0;
-				this->CurrentFactSelected = CurrentGameState->GetFact(this->CurrentFactIndexSelected);
-				CurrentGameMode->OnUpdateSelectFact(true, this->CurrentFactIndexSelected);
-
-				// Init scroll view
-				this->CurrentScrollView->Initialize(this->CurrentScroll, World);
-
-				// Set the view text to the first text
-				auto ScrollFactArray = this->CurrentScroll->GetRequiredFacts();
-				auto Fact = (*ScrollFactArray)[this->CurrentScrollRequiredFactIndex];
-				CurrentGameMode->OnUpdateViewText(FText::FromString("Last Assignment failed! Retry!\nAssign: " + Fact->GetID()));
-			}
-			else
-			{
-				// We are done, so reset everything and switch away from the view assignment view
-				this->OnToggleViewMode();
-			}*/
+			this->CurrentScrollView->ComputeNewFact(this);
 		}
 		else
 		{
@@ -875,6 +874,10 @@ void AFP_FirstPersonCharacter::ToggleSolutionMode()
 	UWorld* const World = GetWorld();
 	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
+
+	if (CurrentGameState->GetRequestInProgress()) {
+		return;
+	}
 
 	auto FactMap = CurrentGameState->GetFactMap();
 	if (FactMap->Num() == 0 || this->bInViewMode == true)
@@ -915,6 +918,11 @@ void AFP_FirstPersonCharacter::ScrollFactListUp()
 		return;
 	}
 
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	if (CurrentGameState->GetRequestInProgress()) {
+		return;
+	}
+
 	CurrentGameMode->OnScrollFactListUp();
 }
 
@@ -929,6 +937,11 @@ void AFP_FirstPersonCharacter::ScrollFactListDown()
 	AFrameITGameMode* CurrentGameMode = (AFrameITGameMode*)World->GetAuthGameMode();
 	if (CurrentGameMode == nullptr)
 	{
+		return;
+	}
+
+	AFrameITGameState* CurrentGameState = (AFrameITGameState*)World->GetGameState();
+	if (CurrentGameState->GetRequestInProgress()) {
 		return;
 	}
 

@@ -11,6 +11,7 @@ class UScroll;
 class UPointFact;
 class ULineSegmentFact;
 class UAngleFact;
+class AFP_FirstPersonCharacter;
 
 /**
  * 
@@ -26,7 +27,8 @@ public:
 
 	bool AssignFact(int FactListIndex, UFact* Fact, int RequiredFactIndex);
 
-	TPair<bool, UFact*> ComputeNewFact();
+	void ResetAfterError();
+	void ComputeNewFact(AFP_FirstPersonCharacter* character);
 
 	void CallMMTPostRequest(const FString& SituationTheoryStr, const FString& ViewStr);
 	FString CreateSituationTheory();
@@ -68,4 +70,7 @@ protected:
 
 	UPROPERTY()
 	FString	MMTServerGetPath;
+
+	UPROPERTY()
+	AFP_FirstPersonCharacter* Character;
 };

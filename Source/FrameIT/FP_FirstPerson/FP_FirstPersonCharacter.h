@@ -76,6 +76,9 @@ public:
 
 	int CurrentScrollRequiredFactIndex;
 
+	/** Handles Toggles View mode */
+	void OnToggleViewMode();
+
 protected:
 
 	int DistanceGunPointsSelected;
@@ -151,8 +154,7 @@ protected:
 	/** Handles Scroll change */
 	void OnScrollSelectBackward();
 
-	/** Handles Toggles View mode */
-	void OnToggleViewMode();
+
 
 	/** Handles view assignment down */
 	void OnViewModeDown();

@@ -4,6 +4,43 @@ All of our code, i.e. code and assets created by the KWARC research group is lis
 
 The used vegetation pack is provided by the user "fighter5347" from the offical unreal forum. Find the official download at (https://forums.unrealengine.com/showthread.php?59812-FREE-Foliage-Starter-Kit) for the complete package.
 
+## Controlls
+| Key           | Function      | 
+| :------------:|---------------|
+| W             | Move Forward |
+| S             | Move Back      |
+| A             | Move Left      |
+| D             | Move Right |
+| Space         | Jump |
+| Mouse Movement| Control Camera |
+| Mouse Wheel Up/Down | Cycle through available tools |
+| Left Mouse    | Semantic Actor Select |
+| Right Mouse   | Any Point Select |
+| T             | Select next scroll |
+| G             | Select previous scroll |
+| R             | Select next scroll fact |
+| F             | Select previous scroll fact |
+| E             | Activate View Mode if Scroll selected |
+| Q             | Activate Solution Mode |
+| Enter         | Use current selection for action i.e. current fact for view/solution mode |
+
+Example Usage:
+```
+Walk around the area.
+Select a scroll with T and G.
+Cycle through tools with the Scroll Whell to get to the point tool.
+Mark a point on the ground which seems to on the same level as the tree with right mouse click.
+Mark the top and bottom of the tree with left mouse click.
+Now cycle through tools with the Scroll Whell to get to the distance measuring tool.
+Measure the distance by clicking on two points after each other.
+Then cycle through tools with the Scroll Whell to get to the angle measuring tool.
+Measure the angles by clicking on three points after each other.
+After measuring all required facts activate the Scroll Mode with E.
+Then select the correct facts by selecting them with R and F and then pressing enter to confirm.
+After all facts are selected a new fact will be computed.
+Press Q to assign your final solution in the same way as with the facts.
+Press Enter to win.
+```
 ## Directory Structure 
 ```
 <Game-Folder>
