@@ -5,4 +5,8 @@ theory solution_theory : ?planar_geometry =
 
   lineSegPbPc_value : realSym  = (tan anglePcPaPb_value) * lineSegPaPb_value  
   lineSegPbPc : ⊦ (lineSegmentLength Pb Pc) ≐ lineSegPbPc_value 
+  
+  lineSegPcPa_value : realSym  = lineSegPaPb_value / (cos anglePcPaPb_value) 
+  lineSegPcPa : ⊦ (lineSegmentLength Pc Pa) ≐ lineSegPcPa_value 
+
 

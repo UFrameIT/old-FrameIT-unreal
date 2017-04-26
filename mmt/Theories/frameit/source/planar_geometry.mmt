@@ -1,6 +1,6 @@
 namespace http://cds.omdoc.org/FrameIT 
 
-theory planar_geometry : ?HOL =
+theory real_numbers : ?HOL =
 
   // This should be a theory by itself that provides real numbers common operators on them. 
 	reals : tp       
@@ -43,6 +43,10 @@ theory planar_geometry : ?HOL =
 
 	
 	pi : realSym  = (3.141592653589793238462643383279) 
+
+
+
+theory products : ?HOL =
 	
   // This should be a theory by itself that provides basic operators to create more complex types. 
   cartesianProduct : tp → tp → tp 
@@ -75,7 +79,14 @@ theory planar_geometry : ?HOL =
                # tripleThird 4  
   tripleThirdAxiom : {A, B, C} {a : tm A, b : tm B, c : tm C} ⊦ (tripleThird ⟨a,b,c⟩) ≐ c 
                    role Simplify          
-         
+        
+
+
+theory vectors : ?HOL =
+
+	include ?real_numbers 
+	include ?products 
+	
   // This should be a seperate theory that provides vectors operations on them. 
   Vec2DType : tp  = (reals × reals) 
   Vec2D = tm (Vec2DType) 
@@ -119,7 +130,14 @@ theory planar_geometry : ?HOL =
                           ((tripleThird a)  * (tripleThird b)) 
                   # 1 vdot 2 prec -5 
 
-           
+        
+
+
+theory planar_geometry : ?HOL =
+
+	include ?real_numbers 
+	include ?vectors 
+	
   // Tarski's axioms could be cool here (https://en.wikipedia.org/wiki/Tarski%27s_axioms) but for now we keep it stupid 
         
   // Line types and axioms 
