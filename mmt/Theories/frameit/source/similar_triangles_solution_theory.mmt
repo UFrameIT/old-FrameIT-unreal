@@ -1,0 +1,9 @@
+namespace http://cds.omdoc.org/FrameIT 
+
+theory similar_triangles_solution_theory : ?planar_geometry =
+	include ?similar_triangles_problem_theory 
+	
+	lineSegPb2Pc2_value : realSym  = (lineSegPb1Pc1_value * lineSegPa2Pb2_value)/lineSegPa1Pb1_value  
+  lineSegPb2Pc2 : ⊦ (lineSegmentLength Pb2 Pc2) ≐ lineSegPb2Pc2_value 
+	
+

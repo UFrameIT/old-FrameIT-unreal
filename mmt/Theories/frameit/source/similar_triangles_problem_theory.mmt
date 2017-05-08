@@ -1,0 +1,52 @@
+namespace http://cds.omdoc.org/FrameIT 
+
+theory similar_triangles_problem_theory : ?planar_geometry =
+// Our two triangles
+//								B2
+//               / |
+//      C1      /  |
+//     / |		 /	 |
+//    /  |   	/		 |
+//  A1 --B1  A2----B2
+// 
+  
+  Pa1 : Vec3D 
+  Pb1 : Vec3D 
+  Pc1 : Vec3D 
+  
+  anglePa1Pb1Pc1_value : realSym 
+  anglePa1Pb1Pc1 : ⊦ (angle Pa1 Pb1 Pc1) ≐ anglePa1Pb1Pc1_value 
+
+  anglePc1Pa1Pb1_value : realSym 
+  anglePc1Pa1Pb1 : ⊦ (angle Pc1 Pa1 Pb1) ≐ anglePc1Pa1Pb1_value 
+  
+  anglePb1Pc1Pa1_value : realSym 
+  anglePb1Pc1Pa1 : ⊦ (angle Pb1 Pc1 Pa1) ≐ anglePb1Pc1Pa1_value 
+  
+  lineSegPa1Pb1_value : realSym 
+  lineSegPa1Pb1 : ⊦ (lineSegmentLength Pa1 Pb1) ≐ lineSegPa1Pb1_value 
+	
+  lineSegPb1Pc1_value : realSym 
+  lineSegPb1Pc1 : ⊦ (lineSegmentLength Pb1 Pc1) ≐ lineSegPb1Pc1_value 
+  
+  Pa2 : Vec3D 
+  Pb2 : Vec3D 
+  Pc2 : Vec3D 
+	
+  anglePa2Pb2Pc2_value : realSym 
+  anglePa2Pb2Pc2 : ⊦ (angle Pa2 Pb2 Pc2) ≐ anglePa2Pb2Pc2_value 
+
+  anglePc2Pa2Pb2_value : realSym 
+  anglePc2Pa2Pb2 : ⊦ (angle Pc2 Pa2 Pb2) ≐ anglePc2Pa2Pb2_value 
+  
+  anglePb2Pc2Pa2_value : realSym 
+  anglePb2Pc2Pa2 : ⊦ (angle Pb2 Pc2 Pa2) ≐ anglePb2Pc2Pa2_value 
+  
+  lineSegPa2Pb2_value : realSym 
+  lineSegPa2Pb2 : ⊦ (lineSegmentLength Pa2 Pb2) ≐ lineSegPa2Pb2_value 
+  
+  proof: ⊦ (anglePa1Pb1Pc1_value ≐ anglePa2Pb2Pc2_value) ∧
+  		(anglePc1Pa1Pb1_value ≐ anglePc2Pa2Pb2_value) ∧
+  		(anglePb1Pc1Pa1_value ≐ anglePb2Pc2Pa2_value) 
+	
+

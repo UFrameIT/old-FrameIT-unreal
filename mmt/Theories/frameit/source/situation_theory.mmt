@@ -1,0 +1,53 @@
+namespace http://cds.omdoc.org/FrameIT 
+
+theory situation_theory : ?planar_geometry =
+	// Our three points, which form the the right triangle below and a second similar triangle
+	//							  	  F
+	//       C				  /	 |
+	//     / |			   /	 |
+	//    /  |			  /	 	 |
+  //   /   |		 	 /     |
+  // A --- B			D ---- E
+  //                                   
+	pA : Vec3D 
+	pB : Vec3D 
+	pC : Vec3D 
+	
+	anglepApBpC_value = 90.0 
+  anglepApBpC : ⊦ (angle pA pB pC) ≐ anglepApBpC_value 
+            
+  anglepCpApB_value = 45.0 
+  anglepCpApB : ⊦ (angle pC pA pB) ≐ anglepCpApB_value 
+  
+  anglepBpCpA_value = 45.0 
+  anglepBpCpA : ⊦ (angle pB pC pA) ≐ anglepBpCpA_value 
+  
+  lineSegpApB_value = 100 
+  lineSegpApB : ⊦ (lineSegmentLength pA pB) ≐ lineSegpApB_value 
+  
+  pD : Vec3D 
+	pE : Vec3D 
+	pF : Vec3D 
+	
+	anglepDpEpF_value = 90.0 
+  anglepDpEpF : ⊦ (angle pD pE pF) ≐ anglepDpEpF_value 
+            
+  anglepFpDpE_value = 45.0 
+  anglepFpDpE : ⊦ (angle pF pD pE) ≐ anglepFpDpE_value 
+  
+  anglepEpFpD_value = 45.0 
+  anglepEpFpD : ⊦ (angle pE pF pD) ≐ anglepEpFpD_value 
+  
+  lineSegpDpE_value = 50 
+  lineSegpDpE : ⊦ (lineSegmentLength pD pE) ≐ lineSegpDpE_value 
+  
+  lineSegpEpF_value = 50 
+  lineSegpEpF: ⊦ (lineSegmentLength pE pF) ≐ lineSegpEpF_value 
+  
+  givenProof : ⊦ ((⟨pA, pB⟩) ⊥ (⟨pB, pC⟩))  = perp_axiom1 anglepApBpC 
+  
+  givenProof2 : ⊦ (anglepApBpC_value ≐ anglepDpEpF_value) ∧
+  		(anglepCpApB_value ≐ anglepFpDpE_value) ∧
+  		(anglepBpCpA_value ≐ anglepEpFpD_value) 
+  
+
