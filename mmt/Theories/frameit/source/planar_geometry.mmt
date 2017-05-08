@@ -170,6 +170,35 @@ theory planar_geometry : ?HOL =
 
   
 
+  
+theory tarskis_geometry : ?HOL =
+	include ?vectors 
+
+	// the two fundamental relations 
+	betweenness : Vec3D -> Vec3D -> Vec3D -> o  # B 1 2 3 
+	congruence : Vec3D -> Vec3D -> Vec3D -> Vec3D -> o  # 1 2 ≡ 3 4 
+	
+	// congruence axioms 
+	congruence_reflexivity : {x,y} ⊦ x y ≡ y x 
+	congruence_identity : {x,y,z} ⊦ x y ≡ z z → ⊦ x ≐ y 
+	congruence_transitivity : {u,v,w,x,y,z} ⊦ ((x y ≡ z u) ∧ (x y ≡ v w)) → ⊦ z u ≡ v w 
+	
+	// betweenness axioms 
+	betweenness_identity : {x,y} ⊦ (B x y x) → ⊦ (x ≐ y) 
+	pasch : {u,v,x,y,z} ⊦ ((B x u z) ∧ (B y v z)) → ⊦ (∃ [a] ((B u a y) ∧ (B v a x))) 
+	//continuity : {P,Q} ⊦ (∃ [a] ∀ [x] ∀ [y] (((P x) ∧ (Q y)) → (B a x y))) → ⊦ (∃ [b] ∀ [x] ∀ [y] (((P x) ∧ (Q y)) → (B x b y))) 
+	lower_dimension : ⊦ ∃ [a] ∃ [b] ∃ [c] (¬(B a b c) ∧ ¬(B b c a) ∧ ¬(B c a b)) 
+	
+	// congruence and betweenness axioms 
+	upper_dimension : {u,v,x,y,z} ⊦ ((x u ≡ x v) ∧ (y u ≡ y v) ∧ (z u ≡ z v) ∧ (u ≠ v)) →
+			⊦ ((B x y z) ∨ (B y z x) ∨ (B z x y)) 
+	euclid : {u,v,x,y,z} ⊦ ((B x u v) ∧ (B y u z) ∧ (x ≠ u)) →
+			⊦ ∃ [a] ∃ [b] ((B x y a) ∧ (B x z b) ∧ (B a v b)) 
+	five_segments : {a,b,c,d,u,x,y,z} ⊦ ((x ≠ y) ∧ (B x y z) ∧ (B a b c) ∧ (x y ≡ a b) ∧
+			(y z ≡ b c) ∧ (x u ≡ a d) ∧ (y u ≡ b d)) → ⊦ (z u ≡ c d) 
+	segment_construction : {a,b,x,y} ⊦ ∃ [z] ((B x y z) ∧ (y z ≡ a b)) 
+
+
 
 theory test_planar_geometry : ?HOL =
   include ?planar_geometry 
